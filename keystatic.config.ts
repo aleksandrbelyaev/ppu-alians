@@ -10,7 +10,7 @@ import { config, fields, collection, singleton } from '@keystatic/core';
  * и настроить GitHub App + переменные окружения KEYSTATIC_GITHUB_*, KEYSTATIC_SECRET.
  */
 export default config({
-  storage: { kind: 'local' },
+  storage: { kind: 'github', repo: 'aleksandrbelyaev/ppu-alians' },
   ui: {
     brand: { name: 'ППУ Альянс' },
   },
