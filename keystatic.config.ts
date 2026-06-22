@@ -10,7 +10,10 @@ import { config, fields, collection, singleton } from '@keystatic/core';
  * и настроить GitHub App + переменные окружения KEYSTATIC_GITHUB_*, KEYSTATIC_SECRET.
  */
 export default config({
-  storage: { kind: 'github', repo: 'aleksandrbelyaev/ppu-alians' },
+  // Локальный режим: редактирование в /keystatic пишет в файлы content/, которые
+  // коммитятся и пушатся в GitHub. Это и есть GitHub-воркфлоу, без GitHub App.
+  // Для онлайн-редактирования прямо с задеплоенного сайта см. README (github-режим).
+  storage: { kind: 'local' },
   ui: {
     brand: { name: 'ППУ Альянс' },
   },
