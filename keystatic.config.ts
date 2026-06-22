@@ -13,7 +13,7 @@ export default config({
   // Локальный режим: редактирование в /keystatic пишет в файлы content/, которые
   // коммитятся и пушатся в GitHub. Это и есть GitHub-воркфлоу, без GitHub App.
   // Для онлайн-редактирования прямо с задеплоенного сайта см. README (github-режим).
-  storage: { kind: 'local' },
+  storage: { kind: 'github', repo:'aleksandrbelyaev/ppu-alians'},
   ui: {
     brand: { name: 'ППУ Альянс' },
   },
