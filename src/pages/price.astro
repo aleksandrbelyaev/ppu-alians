@@ -1,0 +1,723 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import '@/styles/price.css';
+import { reader } from '@/lib/keystatic';
+
+const page = await reader.singletons.pricePage.read();
+const title = page?.seoTitle ?? '';
+const description = page?.seoDescription ?? '';
+
+export const prerender = true;
+
+---
+
+<Layout title={title} description={description}>
+  <!-- HEADER / PREHEADER / FOOTER подключаются общие с главной страницы -->
+  <main class="price-page">
+    <section class="price-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="#">Главная</a>
+          <span>Цены</span>
+        </nav>
+
+        <div class="price-hero__grid">
+          <div class="price-hero__content">
+            <div class="price-kicker">{page?.heroKicker}</div>
+            <h1>{page?.heroTitle}</h1>
+            <p class="price-hero__lead" set:html={page?.heroLead}></p>
+
+            <div class="hero-price-stack">
+              <div class="hero-price">
+                <span>Напыление ППУ</span>
+                <strong>от 1190 ₽</strong>
+                <small>за м² по акции</small>
+              </div>
+              <div class="hero-price">
+                <span>Заливка ППУ</span>
+                <strong>от 15 500 ₽</strong>
+                <small>за м³</small>
+              </div>
+              <div class="hero-price">
+                <span>Полимочевина</span>
+                <strong>от 3200 ₽</strong>
+                <small>за м²</small>
+              </div>
+            </div>
+
+            <div class="price-hero__buttons">
+              <a href="#calculator" class="btn btn--accent">Рассчитать стоимость</a>
+              <a href="#price-list" class="btn btn--dark">Смотреть прайс</a>
+            </div>
+          </div>
+
+          <div class="price-hero__media">
+            <div class="price-hero__photo">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Стоимость напыления ППУ и гидроизоляции">
+            </div>
+
+            <div class="promo-card">
+              <div class="promo-card__label">Акция на напыление ППУ</div>
+              <div class="promo-card__discount">Цена снижена</div>
+              <div class="promo-card__old">было <span>1590 ₽/м²</span></div>
+              <div class="promo-card__price">
+                <strong>1190 ₽</strong>
+                <span>/ м²</span>
+              </div>
+              <p>Для ППУ 30–35 кг/м³ при толщине слоя 5–6 см. Итоговая цена зависит от объекта и объема работ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="anchor-strip" aria-label="Навигация по странице">
+      <div class="container anchor-strip__inner">
+        <a href="#price-list">Прайс-лист</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#factors">От чего зависит цена</a>
+        <a href="#quality">Почему не стоит выбирать самое дешевое</a>
+        <a href="#additional">Доп. услуги</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+
+    <section class="section" id="price-list">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Основные цены</div>
+            <h2>Прайс-лист на работы</h2>
+          </div>
+          <p>
+            Таблицы дают быстрый ориентир по цене. Для точной сметы лучше отправить площадь,
+            фото объекта и описание поверхности.
+          </p>
+        </div>
+
+        <div class="price-tabs">
+          <button class="price-tab is-active" type="button" data-price-tab="spray">Напыление ППУ</button>
+          <button class="price-tab" type="button" data-price-tab="fill">Заливка ППУ</button>
+          <button class="price-tab" type="button" data-price-tab="hydro">Полимочевина</button>
+          <button class="price-tab" type="button" data-price-tab="huntsman">HUNTSMAN</button>
+        </div>
+
+        <div class="price-panel is-active" data-price-panel="spray">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Напыление ППУ Химтраст / РПК</h3>
+                <p>Ориентировочная цена за 1 м² при толщине слоя 5–6 см. Для крупных объектов условия рассчитываются индивидуально.</p>
+              </div>
+              <div class="price-table-badge">акция на 30–35 кг/м³</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Плотность</th>
+                    <th>До 500 м²</th>
+                    <th>500–1000 м²</th>
+                    <th>Свыше 1000 м²</th>
+                    <th>Где применяется</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>9–12 кг/м³</td>
+                    <td><span class="price-value">от 550 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">шумоизоляция, внутренние перегородки, межэтажные перекрытия</td>
+                  </tr>
+                  <tr>
+                    <td>30–35 кг/м³</td>
+                    <td><span class="price-value price-value--promo">от 1190 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">дома, кровля, стены, мансарды, полы, перекрытия</td>
+                  </tr>
+                  <tr>
+                    <td>40–45 кг/м³</td>
+                    <td><span class="price-value">от 1300 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">наружные зоны, цоколь, фундамент, поверхности с повышенной нагрузкой</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              <b>Важно:</b> легкая пена 9–12 кг/м³ не является универсальным решением для кровли, стен и полов.
+              Для большинства задач теплоизоляции дома рассматривается закрытоячеистый ППУ от 30 кг/м³.
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" data-price-panel="fill">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Заливка ППУ в межстеновые пустоты</h3>
+                <p>Цена указана за 1 м³. Итог зависит от объема, доступа к пустотам и требуемой плотности.</p>
+              </div>
+              <div class="price-table-badge">за 1 м³</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Плотность</th>
+                    <th>До 15 м³</th>
+                    <th>15–50 м³</th>
+                    <th>Свыше 50 м³</th>
+                    <th>Комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>9–12 кг/м³</td>
+                    <td><span class="price-value">от 15 500 ₽ <small>/м³</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">легкие системы для заполнения пустот</td>
+                  </tr>
+                  <tr>
+                    <td>20–25 кг/м³</td>
+                    <td><span class="price-value">от 20 000 ₽ <small>/м³</small></span></td>
+                    <td><span class="price-value">22 000 ₽ <small>/м³</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">средняя плотность для межстеновых задач</td>
+                  </tr>
+                  <tr>
+                    <td>30–35 кг/м³</td>
+                    <td><span class="price-value">от 23 000 ₽ <small>/м³</small></span></td>
+                    <td><span class="price-value">от 24 000 ₽ <small>/м³</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">повышенная плотность и расход материала</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              Для заливки важно заранее оценить конструкцию, наличие пустот, доступ к точкам подачи и возможность контроля заполнения.
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" data-price-panel="hydro">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Гидроизоляция полимочевиной</h3>
+                <p>Цена за 1 м² зависит от толщины слоя, основания, подготовки поверхности и требований к защите покрытия.</p>
+              </div>
+              <div class="price-table-badge">за 1 м²</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Толщина</th>
+                    <th>До 500 м²</th>
+                    <th>От 500 м²</th>
+                    <th>Где применяется</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2 мм</td>
+                    <td><span class="price-value">от 3200 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">кровля, полы, фундамент, резервуары, бассейны</td>
+                  </tr>
+                  <tr>
+                    <td>3 мм</td>
+                    <td><span class="price-value">от 4800 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">повышенные нагрузки, сложные основания, промышленное применение</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              В цену может не входить сложная подготовка основания: мойка, обеспыливание, праймер, ремонт трещин, защита от УФ.
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" data-price-panel="huntsman">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Напыление ППУ HUNTSMAN</h3>
+                <p>Отдельная ценовая группа для объектов, где заказчик выбирает компоненты HUNTSMAN.</p>
+              </div>
+              <div class="price-table-badge">премиум-компоненты</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Плотность</th>
+                    <th>До 500 м²</th>
+                    <th>500–1000 м²</th>
+                    <th>Свыше 1000 м²</th>
+                    <th>Комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>30–35 кг/м³</td>
+                    <td><span class="price-value">от 1500 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">теплоизоляция домов, кровель, стен и перекрытий</td>
+                  </tr>
+                  <tr>
+                    <td>40–45 кг/м³</td>
+                    <td><span class="price-value">от 1700 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">наружные зоны, специальные требования, повышенная плотность</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              Итоговая стоимость зависит от доступности компонентов, технического задания и требований к объекту.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__box">
+          <div>
+            <h2>Хотите понять цену именно по вашему объекту?</h2>
+            <p>Пришлите площадь, фото, город и задачу. Мы подскажем, какая плотность и толщина нужны, и рассчитаем предварительную смету.</p>
+          </div>
+
+          <div class="cta-band__actions">
+            <a href="tel:+79856175554" class="cta-band__phone">+7 985 617-55-54</a>
+            <a href="#calculator" class="btn btn--accent">Рассчитать</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="calculator">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Быстрый расчет</div>
+            <h2>Калькулятор ориентировочной стоимости</h2>
+          </div>
+          <p>
+            Это быстрый расчет для первичного понимания бюджета. Точную стоимость фиксируем после уточнения объекта,
+            поверхности и условий выполнения работ.
+          </p>
+        </div>
+
+        <div class="calculator-grid">
+          <aside class="calculator-intro">
+            <div>
+              <h3>Как пользоваться расчетом</h3>
+              <p>
+                Выберите тип работ, укажите площадь или объем и базовый тариф.
+                Калькулятор покажет ориентир, а менеджер уточнит смету по фото или после осмотра.
+              </p>
+            </div>
+
+            <div class="calc-stats">
+              <div class="calc-stat">
+                <b>5–6 см</b>
+                <span>базовый слой для прайса по напылению</span>
+              </div>
+              <div class="calc-stat">
+                <b>30–35 кг/м³</b>
+                <span>частый вариант для теплоизоляции домов</span>
+              </div>
+              <div class="calc-stat">
+                <b>60 000 ₽</b>
+                <span>ориентир минимального заказа</span>
+              </div>
+            </div>
+          </aside>
+
+          <form class="calc-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="calc-type">Тип работ</label>
+                <select id="calc-type">
+                  <option value="1190">Напыление ППУ 30–35 кг/м³ — акция</option>
+                  <option value="550">Напыление ППУ 9–12 кг/м³</option>
+                  <option value="1300">Напыление ППУ 40–45 кг/м³</option>
+                  <option value="1500">HUNTSMAN 30–35 кг/м³</option>
+                  <option value="1700">HUNTSMAN 40–45 кг/м³</option>
+                  <option value="3200">Полимочевина 2 мм</option>
+                  <option value="4800">Полимочевина 3 мм</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="calc-area">Площадь, м²</label>
+                <input id="calc-area" type="number" min="1" value="100">
+              </div>
+
+              <div class="field">
+                <label for="calc-complexity">Коэффициент сложности</label>
+                <select id="calc-complexity">
+                  <option value="1">Ровная подготовленная поверхность</option>
+                  <option value="1.12">Есть сложные примыкания</option>
+                  <option value="1.22">Сложный доступ / высота / подготовка</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="calc-distance">Удаленность</label>
+                <select id="calc-distance">
+                  <option value="0">Москва / ближняя МО</option>
+                  <option value="8000">Удаленный объект +8 000 ₽</option>
+                  <option value="15000">Дальний выезд +15 000 ₽</option>
+                </select>
+              </div>
+
+              <div class="field field--wide">
+                <label for="calc-comment">Комментарий</label>
+                <textarea id="calc-comment" placeholder="Например: частный дом, мансарда 120 м², нужно утеплить кровлю и фронтоны."></textarea>
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <span>Ориентировочная стоимость</span>
+              <strong id="calc-total">119 000 ₽</strong>
+              <p>Расчет предварительный. Не является публичной офертой и не заменяет смету по объекту.</p>
+            </div>
+
+            <a href="#quote" class="btn btn--accent">Отправить данные на расчет</a>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="factors">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Факторы цены</div>
+            <h2>От чего зависит стоимость работ</h2>
+          </div>
+          <p>
+            На цену влияет не только площадь. Два объекта с одинаковыми метрами могут отличаться по расходу материала,
+            подготовке, доступу и сложности нанесения.
+          </p>
+        </div>
+
+        <div class="factor-grid">
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Плотность ППУ</h3>
+            <p>Чем выше плотность, тем больше расход компонентов и выше итоговая себестоимость работ.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Толщина слоя</h3>
+            <p>5–6 см, 10 см и 15 см — это разные объемы материала, даже если площадь объекта одинаковая.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Площадь объекта</h3>
+            <p>На крупных объемах возможны индивидуальные условия, потому что меняется логистика и расход материалов.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Состояние поверхности</h3>
+            <p>Ровная подготовленная поверхность дешевле, чем объект с пылью, влагой, старым утеплителем или ремонтом основания.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Доступ и высота</h3>
+            <p>Леса, подъем оборудования, работа на высоте и сложные зоны увеличивают трудозатраты.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Удаленность объекта</h3>
+            <p>Выезд бригады, доставка компонентов и оборудования учитываются при расчете итоговой сметы.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="quality">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Качество и цена</div>
+            <h2>Почему слишком низкая цена — риск</h2>
+          </div>
+          <p>
+            Задача прайс-страницы — не только показать цифры, но и объяснить, почему дешевое предложение
+            может оказаться дороже после переделки.
+          </p>
+        </div>
+
+        <div class="warning-grid">
+          <aside class="warning-main">
+            <div>
+              <h3>Не ищите просто “самый дешевый ППУ”</h3>
+              <p>
+                В утеплении важно, какая плотность фактически нанесена, какое оборудование использует бригада,
+                как подготовлена поверхность и соблюдена ли технология.
+              </p>
+            </div>
+
+            <a href="#quote" class="btn btn--accent">Проверить смету</a>
+          </aside>
+
+          <div class="warning-list">
+            <article class="warning-item">
+              <div class="warning-item__num">01</div>
+              <div>
+                <h3>Плотность ниже заявленной</h3>
+                <p>На словах обещают 30–35 кг/м³, а фактически расход материала ниже, слой получается слабее.</p>
+              </div>
+            </article>
+
+            <article class="warning-item">
+              <div class="warning-item__num">02</div>
+              <div>
+                <h3>Легкая пена не там, где нужно</h3>
+                <p>9–12 кг/м³ подходит не для всех задач. Для кровли, стен и пола чаще нужен другой подход.</p>
+              </div>
+            </article>
+
+            <article class="warning-item">
+              <div class="warning-item__num">03</div>
+              <div>
+                <h3>Старая техника или слабое давление</h3>
+                <p>Оборудование влияет на качество смешивания компонентов и стабильность результата.</p>
+              </div>
+            </article>
+
+            <article class="warning-item">
+              <div class="warning-item__num">04</div>
+              <div>
+                <h3>Нет договора и гарантий</h3>
+                <p>Цена ниже, но непонятно, кто отвечает за дефекты, сроки и соблюдение технологии.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="additional">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Дополнительно</div>
+            <h2>Сопутствующие работы и услуги</h2>
+          </div>
+          <p>
+            Эти позиции могут добавляться в смету отдельно, если они нужны для подготовки объекта или защиты покрытия.
+          </p>
+        </div>
+
+        <div class="service-price-grid">
+          <article class="service-price-card">
+            <div>
+              <h3>Подготовка поверхности</h3>
+              <p>Очистка, обеспыливание, локальная подготовка основания перед нанесением.</p>
+            </div>
+            <div>
+              <strong>от 50 ₽</strong>
+              <span>/ м²</span>
+            </div>
+          </article>
+
+          <article class="service-price-card">
+            <div>
+              <h3>Нанесение праймера</h3>
+              <p>Грунтование поверхности перед полимочевиной или специальными покрытиями.</p>
+            </div>
+            <div>
+              <strong>от 100 ₽</strong>
+              <span>/ м²</span>
+            </div>
+          </article>
+
+          <article class="service-price-card">
+            <div>
+              <h3>Защита от УФ</h3>
+              <p>Финишная защита открытых покрытий от воздействия солнечного света.</p>
+            </div>
+            <div>
+              <strong>от 100 ₽</strong>
+              <span>/ м²</span>
+            </div>
+          </article>
+
+          <article class="service-price-card">
+            <div>
+              <h3>Аренда оборудования</h3>
+              <p>Дополнительная услуга по запросу, если требуется оборудование для отдельных задач.</p>
+            </div>
+            <div>
+              <strong>по запросу</strong>
+              <span>индивидуально</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="faq">
+      <div class="container">
+        <div class="faq-wrap">
+          <aside class="faq-card">
+            <div class="section-kicker">FAQ</div>
+            <h2>Вопросы по ценам</h2>
+            <p>
+              FAQ на странице цен должен закрывать сомнения по “от”, минимальному заказу,
+              скидкам, плотности и отличиям между предложениями.
+            </p>
+            <a href="#calculator" class="btn btn--accent">Рассчитать объект</a>
+          </aside>
+
+          <div class="faq-list">
+            <details open>
+              <summary>Почему на сайте указана цена “от”?</summary>
+              <p>Потому что итоговая смета зависит от площади, плотности, толщины слоя, состояния поверхности, высоты, удаленности объекта и подготовительных работ. Одна и та же площадь может иметь разный расход материала.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли зафиксировать цену до начала работ?</summary>
+              <p>Да. После уточнения объекта, площади, материала и условий выполнения работ стоимость фиксируется в смете и договоре.</p>
+            </details>
+
+            <details>
+              <summary>Почему ППУ 30–35 кг/м³ дороже легкой пены?</summary>
+              <p>Потому что плотность напрямую влияет на расход компонентов и свойства слоя. Легкая пена 9–12 кг/м³ подходит не для всех задач теплоизоляции.</p>
+            </details>
+
+            <details>
+              <summary>Есть ли минимальная стоимость заказа?</summary>
+              <p>Да, минимальная стоимость зависит от типа работ и удаленности объекта. В качестве ориентира можно закладывать минимальный заказ от 60 000 ₽.</p>
+            </details>
+
+            <details>
+              <summary>Даете ли скидку за большой объем?</summary>
+              <p>Да. Для крупных объектов условия рассчитываются индивидуально, потому что меняется логистика, расход материала и загрузка бригады.</p>
+            </details>
+
+            <details>
+              <summary>Что входит в стоимость напыления?</summary>
+              <p>Обычно в расчет входят материал, работа бригады и нанесение слоя. Подготовка поверхности, сложный доступ, леса, праймер, УФ-защита и дополнительные работы могут считаться отдельно.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли рассчитать стоимость по фото?</summary>
+              <p>Да, предварительный расчет можно сделать по фото, площади, адресу и описанию задачи. Для точной сметы может потребоваться осмотр объекта.</p>
+            </details>
+
+            <details>
+              <summary>Почему у разных подрядчиков такая разная цена?</summary>
+              <p>Разница может быть из-за плотности, марки компонентов, толщины слоя, оборудования, опыта бригады, подготовки поверхности, гарантий и того, что фактически включено в смету.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="quote">
+      <div class="container final-cta__box">
+        <div>
+          <div class="section-kicker">Заявка на смету</div>
+          <h2>Рассчитаем стоимость ППУ или полимочевины под ваш объект</h2>
+          <p>
+            Отправьте площадь, город, фото и задачу. Мы подскажем подходящую плотность, толщину слоя,
+            ориентировочную стоимость и возможные дополнительные работы.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>ППУ Альянс</h3>
+          <div class="contact-list">
+            <div><b>Телефон:</b> +7 985 617-55-54</div>
+            <div><b>Email:</b> info@ppu-alians.ru</div>
+            <div><b>География:</b> Москва и Московская область</div>
+          </div>
+          <a href="tel:+79856175554" class="btn btn--accent">Позвонить и рассчитать</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+    (function () {
+      const tabs = Array.from(document.querySelectorAll('.price-tab[data-price-tab]'));
+      const panels = Array.from(document.querySelectorAll('.price-panel[data-price-panel]'));
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const target = tab.dataset.priceTab;
+
+          tabs.forEach(function (item) {
+            item.classList.toggle('is-active', item === tab);
+          });
+
+          panels.forEach(function (panel) {
+            panel.classList.toggle('is-active', panel.dataset.pricePanel === target);
+          });
+        });
+      });
+    })();
+
+    (function () {
+      const type = document.getElementById('calc-type');
+      const area = document.getElementById('calc-area');
+      const complexity = document.getElementById('calc-complexity');
+      const distance = document.getElementById('calc-distance');
+      const total = document.getElementById('calc-total');
+
+      if (!type || !area || !complexity || !distance || !total) return;
+
+      function formatPrice(value) {
+        return Math.round(value).toLocaleString('ru-RU') + ' ₽';
+      }
+
+      function updateTotal() {
+        const rate = Number(type.value || 0);
+        const meters = Math.max(Number(area.value || 0), 0);
+        const multiplier = Number(complexity.value || 1);
+        const distancePrice = Number(distance.value || 0);
+        const result = (rate * meters * multiplier) + distancePrice;
+
+        total.textContent = formatPrice(result);
+      }
+
+      [type, area, complexity, distance].forEach(function (field) {
+        field.addEventListener('input', updateTotal);
+        field.addEventListener('change', updateTotal);
+      });
+
+      updateTotal();
+    })();
+</script>
+</Layout>

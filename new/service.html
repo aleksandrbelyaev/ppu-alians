@@ -1,0 +1,3401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Утепление дома ППУ в Москве и области | ППУ Альянс</title>
+  <meta name="description" content="Эталонная страница услуги: утепление дома пенополиуретаном. Hero, расчет, зоны утепления, технология, процесс, FAQ и CTA-блоки." />
+
+  <style>
+    :root {
+      --bg: #0f1419;
+      --bg-2: #151b22;
+      --bg-3: #202832;
+      --card: #ffffff;
+      --card-soft: #f5f0e7;
+      --text: #101820;
+      --text-soft: #5f6872;
+      --text-light: #f7f3eb;
+      --muted-light: #b8c1cc;
+      --accent: #f2a733;
+      --accent-2: #ffcf72;
+      --green: #34b36b;
+      --border-dark: rgba(255,255,255,.14);
+      --border-light: rgba(16,24,32,.12);
+      --shadow: 0 24px 80px rgba(0,0,0,.24);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn--accent {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1d1609;
+      box-shadow: 0 16px 34px rgba(242,167,51,.24);
+    }
+
+    .btn--dark {
+      background: #111820;
+      color: var(--text-light);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    .btn--light {
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 16px 34px rgba(0,0,0,.14);
+    }
+
+    .service-page {
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .service-hero {
+      position: relative;
+      padding: 54px 0 72px;
+      background:
+        radial-gradient(circle at top left, rgba(242,167,51,.22), transparent 34rem),
+        radial-gradient(circle at top right, rgba(31,40,50,.06), transparent 36rem),
+        linear-gradient(180deg, #f7f3eb 0%, #ffffff 100%);
+      color: var(--text);
+      isolation: isolate;
+    }
+
+    .service-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(16,24,32,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,24,32,.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 82%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--text-soft);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .breadcrumbs a {
+      color: #8a560a;
+    }
+
+    .breadcrumbs span::before {
+      content: "›";
+      margin-right: 8px;
+      color: rgba(16,24,32,.38);
+    }
+
+    .service-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(390px, .98fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .service-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #8a560a;
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
+    }
+
+    .service-kicker::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(242,167,51,.13);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin-bottom: 22px;
+      font-size: clamp(42px, 5.4vw, 72px);
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .service-hero__lead {
+      max-width: 700px;
+      color: var(--text-soft);
+      font-size: clamp(18px, 2vw, 22px);
+      margin-bottom: 26px;
+    }
+
+    .service-hero__lead b {
+      color: var(--text);
+    }
+
+    .hero-benefits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 720px;
+      margin-bottom: 28px;
+    }
+
+    .hero-benefit {
+      display: grid;
+      grid-template-columns: 34px 1fr;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 12px 28px rgba(16,24,32,.055);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .hero-benefit__icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: #101820;
+      position: relative;
+    }
+
+    .hero-benefit__icon::before {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 2px solid var(--accent-2);
+      border-radius: 5px;
+      transform: rotate(8deg);
+    }
+
+    .service-hero__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .service-hero__media {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .service-hero__photo {
+      min-height: 570px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #26313b;
+      border: 1px solid rgba(16,24,32,.12);
+      box-shadow: var(--shadow);
+    }
+
+    .service-hero__photo img {
+      width: 100%;
+      height: 570px;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.04) contrast(1.04);
+    }
+
+    .service-hero__photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,20,25,.62), transparent 58%);
+      border-radius: var(--radius-xl);
+      pointer-events: none;
+    }
+
+    .service-price-card {
+      position: absolute;
+      left: -26px;
+      bottom: 38px;
+      z-index: 3;
+      width: min(370px, 84%);
+      border-radius: 24px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(242,167,51,.20), transparent 12rem),
+        rgba(255,255,255,.96);
+      color: var(--text);
+      border: 1px solid rgba(242,167,51,.42);
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+
+    .service-price-card__label {
+      color: #8a560a;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    .service-price-card__discount {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1d1609;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .service-price-card__old {
+      color: var(--text-soft);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .service-price-card__old span {
+      position: relative;
+      display: inline-block;
+      margin-left: 4px;
+      color: #8d969f;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .service-price-card__old span::after {
+      content: "";
+      position: absolute;
+      left: -2px;
+      right: -2px;
+      top: 50%;
+      height: 2px;
+      background: #d25c47;
+      transform: rotate(-6deg);
+    }
+
+    .service-price-card__price {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      margin: 6px 0 10px;
+    }
+
+    .service-price-card__price strong {
+      color: #101820;
+      font-size: 42px;
+      line-height: .9;
+      letter-spacing: -.05em;
+    }
+
+    .service-price-card__price span {
+      color: #8a560a;
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    .service-price-card p {
+      color: var(--text-soft);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .anchor-strip {
+      position: relative;
+      z-index: 3;
+      padding: 20px 0;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(242,167,51,.22), transparent 26rem),
+        linear-gradient(135deg, #101820 0%, #19232d 100%);
+      border-top: 1px solid rgba(255,255,255,.10);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .anchor-strip__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .anchor-strip a {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.11);
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      font-weight: 800;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .anchor-strip a:hover {
+      color: #fff;
+      background: rgba(242,167,51,.16);
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 80px 0;
+      background: #fff;
+    }
+
+    .section--soft {
+      background: var(--card-soft);
+    }
+
+    .section--dark {
+      background: var(--bg-2);
+      color: var(--text-light);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      margin-bottom: 0;
+    }
+
+    .section-head p {
+      max-width: 540px;
+      color: var(--text-soft);
+      margin-bottom: 0;
+      font-size: 17px;
+    }
+
+    .section--dark .section-head p {
+      color: var(--muted-light);
+    }
+
+    .problems-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .diagnostic-card {
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      background:
+        linear-gradient(135deg, rgba(15,20,25,.94), rgba(35,44,54,.92)),
+        url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      min-height: 480px;
+      display: grid;
+      align-content: space-between;
+      overflow: hidden;
+    }
+
+    .diagnostic-card p {
+      color: var(--muted-light);
+      font-size: 17px;
+      max-width: 460px;
+    }
+
+    .diagnostic-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .diagnostic-list span {
+      display: inline-flex;
+      width: fit-content;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.13);
+      color: #fff;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .problem-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .problem-card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 16px 42px rgba(16,24,32,.055);
+      min-height: 210px;
+    }
+
+    .problem-card__num {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: #101820;
+      color: var(--accent-2);
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .problem-card h3 {
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      margin-bottom: 10px;
+    }
+
+    .problem-card p {
+      color: var(--text-soft);
+      margin: 0;
+    }
+
+    .zones-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 18px;
+    }
+
+    .zone-card {
+      position: relative;
+      grid-column: span 4;
+      min-height: 300px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      color: #fff;
+      background: #202832;
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      isolation: isolate;
+      box-shadow: 0 18px 50px rgba(0,0,0,.13);
+    }
+
+    .zone-card--wide {
+      grid-column: span 8;
+    }
+
+    .zone-card img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .zone-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(to top, rgba(10,14,18,.88), rgba(10,14,18,.18) 62%, rgba(10,14,18,.02));
+    }
+
+    .zone-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .zone-card__content {
+      max-width: 520px;
+    }
+
+    .zone-card h3 {
+      font-size: 26px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      margin-bottom: 10px;
+    }
+
+    .zone-card p {
+      color: rgba(255,255,255,.78);
+      margin: 0;
+    }
+
+    .solution-matrix {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .solution-intro {
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      background: var(--bg);
+      color: var(--text-light);
+      min-height: 520px;
+      display: grid;
+      align-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .solution-intro::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -110px;
+      bottom: -110px;
+      border-radius: 50%;
+      background: rgba(242,167,51,.18);
+      filter: blur(2px);
+    }
+
+    .solution-intro p {
+      color: var(--muted-light);
+      font-size: 17px;
+      max-width: 440px;
+    }
+
+    .solution-note {
+      position: relative;
+      z-index: 2;
+      border-radius: 22px;
+      padding: 20px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .solution-note b {
+      display: block;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .solution-note span {
+      color: var(--muted-light);
+      font-size: 14px;
+    }
+
+    .solution-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .solution-item {
+      display: grid;
+      grid-template-columns: 116px 1fr;
+      gap: 18px;
+      align-items: center;
+      border-radius: 18px;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.09);
+      box-shadow: 0 14px 40px rgba(16,24,32,.06);
+    }
+
+    .solution-pill {
+      min-height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #fff3db;
+      color: #8a560a;
+      font-weight: 900;
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    .solution-item h3 {
+      margin-bottom: 6px;
+      font-size: 22px;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+
+    .solution-item p {
+      color: var(--text-soft);
+      margin-bottom: 0;
+    }
+
+    .cta-band {
+      padding: 28px 0;
+      background:
+        linear-gradient(135deg, #101820 0%, #1b2530 58%, #2a2113 100%);
+      color: #fff;
+    }
+
+    .cta-band__box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      border-radius: 26px;
+      padding: 26px 30px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(242,167,51,.26), transparent 24rem),
+        rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: 0 20px 54px rgba(0,0,0,.16);
+    }
+
+    .cta-band h2 {
+      font-size: clamp(27px, 3vw, 40px);
+      margin-bottom: 8px;
+    }
+
+    .cta-band p {
+      max-width: 760px;
+      color: rgba(255,255,255,.72);
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .cta-band__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .cta-band__phone {
+      color: #fff;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .steps {
+      display: grid;
+      gap: 16px;
+      counter-reset: steps;
+    }
+
+    .step {
+      counter-increment: steps;
+      display: grid;
+      grid-template-columns: 92px 1fr 250px;
+      align-items: center;
+      gap: 22px;
+      padding: 20px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 14px 36px rgba(16,24,32,.055);
+    }
+
+    .step::before {
+      content: "0" counter(steps);
+      width: 72px;
+      height: 72px;
+      border-radius: 24px;
+      background: #101820;
+      color: var(--accent-2);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 21px;
+    }
+
+    .step h3 {
+      margin-bottom: 6px;
+      font-size: 22px;
+      letter-spacing: -.02em;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: var(--text-soft);
+    }
+
+    .step__tag {
+      justify-self: end;
+      border-radius: 999px;
+      background: #f3eee6;
+      color: #5b4b34;
+      padding: 12px 16px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .compare-card {
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--border-dark);
+      min-height: 310px;
+      display: grid;
+      align-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .compare-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .compare-card h3 {
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 12px;
+    }
+
+    .compare-card p {
+      color: var(--muted-light);
+      margin-bottom: 18px;
+    }
+
+    .compare-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255,255,255,.78);
+    }
+
+    .compare-card li + li {
+      margin-top: 8px;
+    }
+
+    .house-types {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .house-type {
+      border-radius: 20px;
+      padding: 20px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 12px 32px rgba(16,24,32,.05);
+      min-height: 150px;
+    }
+
+    .house-type b {
+      display: block;
+      font-size: 19px;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+
+    .house-type span {
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .quote-section {
+      background: linear-gradient(180deg, var(--card-soft), #fff);
+      padding: 70px 0 82px;
+    }
+
+    .quote-panel {
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 30px 90px rgba(25,22,18,.13);
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+    }
+
+    .quote-panel__left {
+      padding: 38px;
+      background:
+        linear-gradient(135deg, rgba(15,20,25,.92), rgba(35,44,54,.92)),
+        url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      display: grid;
+      align-content: space-between;
+      min-height: 440px;
+    }
+
+    .quote-panel__left p {
+      color: var(--muted-light);
+      max-width: 440px;
+      margin-bottom: 0;
+      font-size: 17px;
+    }
+
+    .quote-panel__stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .mini-stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--border-dark);
+    }
+
+    .mini-stat strong {
+      display: block;
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .mini-stat span {
+      color: var(--muted-light);
+      font-size: 13px;
+    }
+
+    .quote-form {
+      padding: 38px;
+      display: grid;
+      gap: 18px;
+      align-content: center;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field--wide {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #4c5560;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(16,24,32,.16);
+      border-radius: 15px;
+      min-height: 52px;
+      padding: 0 15px;
+      outline: 0;
+      background: #fbfaf8;
+      color: var(--text);
+      transition: border .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .field textarea {
+      padding-top: 14px;
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(242,167,51,.75);
+      box-shadow: 0 0 0 4px rgba(242,167,51,.16);
+      background: #fff;
+    }
+
+    .form-note {
+      color: var(--text-soft);
+      font-size: 13px;
+      margin: -4px 0 0;
+    }
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 20px;
+    }
+
+    .case-main,
+    .case-small {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    }
+
+    .case-main img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+    }
+
+    .case-main__body,
+    .case-small__body {
+      padding: 24px;
+    }
+
+    .case-main h3,
+    .case-small h3 {
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      margin-bottom: 12px;
+    }
+
+    .case-main p,
+    .case-small p {
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .case-meta span {
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: #f2eee7;
+      color: #51483d;
+      font-weight: 800;
+      font-size: 13px;
+    }
+
+    .case-side {
+      display: grid;
+      gap: 20px;
+    }
+
+    .case-small {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      min-height: 205px;
+    }
+
+    .case-small img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .case-small h3 {
+      font-size: 22px;
+    }
+
+    .faq-wrap {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .faq-card {
+      position: sticky;
+      top: 110px;
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      background: #101820;
+      color: var(--text-light);
+    }
+
+    .faq-card p {
+      color: var(--muted-light);
+      margin-bottom: 24px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 12px 30px rgba(16,24,32,.045);
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 22px 24px;
+      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--accent);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
+    details p {
+      color: var(--text-soft);
+      padding: 0 24px 22px;
+      margin-bottom: 0;
+    }
+
+    .final-cta {
+      padding: 84px 0;
+      background:
+        linear-gradient(135deg, rgba(15,20,25,.94), rgba(15,20,25,.62)),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=80");
+      background-position: center;
+      background-size: cover;
+      color: var(--text-light);
+    }
+
+    .final-cta__box {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .final-cta h2 {
+      max-width: 780px;
+      margin-bottom: 20px;
+    }
+
+    .final-cta p {
+      color: var(--muted-light);
+      max-width: 650px;
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid var(--border-dark);
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-card h3 {
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+      color: var(--muted-light);
+    }
+
+    .contact-list b {
+      color: #fff;
+    }
+
+    @media (max-width: 1100px) {
+      .service-hero__grid,
+      .problems-grid,
+      .solution-matrix,
+      .quote-panel,
+      .faq-wrap,
+      .final-cta__box {
+        grid-template-columns: 1fr;
+      }
+
+      .service-hero__photo,
+      .service-hero__photo img {
+        height: 520px;
+        min-height: 520px;
+      }
+
+      .zone-card,
+      .zone-card--wide {
+        grid-column: span 6;
+      }
+
+      .comparison,
+      .house-types {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .case-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .service-hero {
+        padding: 36px 0 46px;
+      }
+
+      .breadcrumbs {
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(38px, 13vw, 52px);
+      }
+
+      .service-hero__lead {
+        font-size: 17px;
+      }
+
+      .hero-benefits,
+      .problem-cards,
+      .zones-grid,
+      .comparison,
+      .house-types,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-hero__buttons .btn,
+      .cta-band__actions .btn,
+      .cta-band__phone {
+        width: 100%;
+      }
+
+      .service-hero__photo,
+      .service-hero__photo img {
+        min-height: 360px;
+        height: 360px;
+      }
+
+      .service-hero__photo {
+        border-radius: 26px;
+      }
+
+      .service-price-card {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: -54px;
+      }
+
+      .anchor-strip__inner {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+
+      .anchor-strip__inner::-webkit-scrollbar {
+        display: none;
+      }
+
+      .anchor-strip a {
+        flex: 0 0 auto;
+      }
+
+      .section,
+      .quote-section {
+        padding: 56px 0;
+      }
+
+      .section-head {
+        display: grid;
+        gap: 14px;
+      }
+
+      .section-head p {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      .diagnostic-card,
+      .solution-intro,
+      .quote-panel__left,
+      .quote-form {
+        padding: 24px;
+      }
+
+      .zone-card,
+      .zone-card--wide {
+        grid-column: span 1;
+        min-height: 300px;
+      }
+
+      .solution-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .solution-pill {
+        justify-self: start;
+        padding: 0 18px;
+      }
+
+      .cta-band__box {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+
+      .cta-band__actions {
+        justify-content: stretch;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .step__tag {
+        justify-self: start;
+      }
+
+      .case-main img {
+        height: 320px;
+      }
+
+      .case-small {
+        grid-template-columns: 1fr;
+      }
+
+      .case-small img {
+        height: 210px;
+      }
+
+      .quote-panel__stats {
+        grid-template-columns: 1fr;
+      }
+
+      .final-cta {
+        padding: 60px 0;
+      }
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .trust-card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 14px 36px rgba(16,24,32,.05);
+      min-height: 220px;
+    }
+
+    .trust-card__icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      background: #101820;
+      position: relative;
+    }
+
+    .trust-card__icon::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 2px solid var(--accent-2);
+      border-radius: 6px;
+      transform: rotate(8deg);
+    }
+
+    .trust-card h3 {
+      font-size: 22px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+
+    .trust-card p {
+      color: var(--text-soft);
+      margin-bottom: 0;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+
+    .gallery-card {
+      grid-column: span 4;
+      position: relative;
+      min-height: 300px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 18px 50px rgba(0,0,0,.12);
+      background: #24303a;
+    }
+
+    .gallery-card--wide {
+      grid-column: span 8;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,14,18,.82), rgba(10,14,18,.1) 58%);
+      pointer-events: none;
+    }
+
+    .gallery-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-card__caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .gallery-card__caption h3 {
+      font-size: 22px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+
+    .gallery-card__caption p {
+      margin: 0;
+      color: rgba(255,255,255,.8);
+      font-size: 14px;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .cert-card {
+      border-radius: 24px;
+      padding: 20px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 14px 38px rgba(0,0,0,.12);
+    }
+
+    .cert-card__preview {
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,.08);
+      aspect-ratio: 4 / 5;
+    }
+
+    .cert-card__preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cert-card h3 {
+      font-size: 21px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 8px;
+    }
+
+    .cert-card p {
+      color: var(--muted-light);
+      margin-bottom: 0;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .review-card {
+      border-radius: 24px;
+      padding: 26px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 14px 36px rgba(16,24,32,.05);
+      min-height: 280px;
+      display: grid;
+      align-content: start;
+      gap: 14px;
+    }
+
+    .review-stars {
+      color: #f2a733;
+      font-size: 20px;
+      letter-spacing: .08em;
+    }
+
+    .review-card p {
+      color: var(--text-soft);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .review-author {
+      display: grid;
+      gap: 4px;
+      margin-top: auto;
+      padding-top: 8px;
+    }
+
+    .review-author b {
+      font-size: 16px;
+    }
+
+    .review-author span {
+      color: var(--text-soft);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1100px) {
+      .trust-grid,
+      .cert-grid,
+      .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-card {
+        grid-column: span 6;
+      }
+
+      .gallery-card--wide {
+        grid-column: span 12;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .trust-grid,
+      .cert-grid,
+      .reviews-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-card,
+      .gallery-card--wide {
+        grid-column: span 1;
+        min-height: 280px;
+      }
+    }
+
+
+    /* Gallery v3: horizontal work photo gallery, not case cards */
+    .work-gallery {
+      position: relative;
+      margin-left: calc((100vw - min(var(--container), calc(100vw - 40px))) / -2);
+      margin-right: calc((100vw - min(var(--container), calc(100vw - 40px))) / -2);
+      padding-left: calc((100vw - min(var(--container), calc(100vw - 40px))) / 2);
+      padding-right: calc((100vw - min(var(--container), calc(100vw - 40px))) / 2);
+    }
+
+    .work-gallery__track {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(330px, 28vw);
+      gap: 16px;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      padding: 4px 0 18px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(242,167,51,.75) rgba(16,24,32,.10);
+    }
+
+    .work-gallery__track::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .work-gallery__track::-webkit-scrollbar-track {
+      background: rgba(16,24,32,.10);
+      border-radius: 999px;
+    }
+
+    .work-gallery__track::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+    }
+
+    .work-photo {
+      scroll-snap-align: start;
+      position: relative;
+      min-height: 420px;
+      margin: 0;
+      border-radius: 28px;
+      overflow: hidden;
+      background: #202832;
+      box-shadow: 0 18px 48px rgba(16,24,32,.14);
+      border: 1px solid rgba(16,24,32,.08);
+      isolation: isolate;
+    }
+
+    .work-photo--large {
+      grid-column: span 2;
+      min-width: min(720px, 58vw);
+    }
+
+    .work-photo--tall {
+      min-height: 480px;
+    }
+
+    .work-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: inherit;
+      object-fit: cover;
+      display: block;
+      transition: transform .45s ease;
+    }
+
+    .work-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to top, rgba(10,14,18,.78), rgba(10,14,18,.12) 56%, rgba(10,14,18,.02)),
+        linear-gradient(to right, rgba(10,14,18,.28), transparent 45%);
+      pointer-events: none;
+    }
+
+    .work-photo:hover img {
+      transform: scale(1.05);
+    }
+
+    .work-photo figcaption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      z-index: 2;
+      display: grid;
+      gap: 6px;
+      color: #fff;
+    }
+
+    .work-photo figcaption b {
+      font-size: 22px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+    }
+
+    .work-photo figcaption span {
+      max-width: 420px;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .work-gallery__hint {
+      margin-top: 6px;
+      display: flex;
+      justify-content: center;
+      color: var(--text-soft);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .work-gallery__hint span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 10px 26px rgba(16,24,32,.055);
+    }
+
+    @media (max-width: 760px) {
+      .work-gallery {
+        margin-left: -14px;
+        margin-right: -14px;
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .work-gallery__track {
+        grid-auto-columns: minmax(280px, 86vw);
+        gap: 12px;
+        padding-bottom: 14px;
+      }
+
+      .work-photo,
+      .work-photo--tall {
+        min-height: 360px;
+      }
+
+      .work-photo--large {
+        min-width: auto;
+      }
+
+      .work-photo figcaption {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .work-photo figcaption b {
+        font-size: 20px;
+      }
+    }
+
+
+    /* Gallery v4: modern horizontal gallery with lightbox */
+    #gallery {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #gallery::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 42%;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(242,167,51,.16), transparent 28rem),
+        linear-gradient(135deg, #101820 0%, #19232d 100%);
+      pointer-events: none;
+    }
+
+    .work-gallery {
+      position: relative;
+      z-index: 2;
+      width: min(calc(100% - 40px), 1440px);
+      margin: 0 auto;
+      border-radius: 34px;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(242,167,51,.20), transparent 28rem),
+        rgba(16,24,32,.96);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 28px 80px rgba(16,24,32,.22);
+      overflow: hidden;
+    }
+
+    .work-gallery__viewport {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+    }
+
+    .work-gallery__viewport::before,
+    .work-gallery__viewport::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 12px;
+      width: 80px;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .work-gallery__viewport::before {
+      left: 0;
+      background: linear-gradient(to right, rgba(16,24,32,.96), transparent);
+    }
+
+    .work-gallery__viewport::after {
+      right: 0;
+      background: linear-gradient(to left, rgba(16,24,32,.96), transparent);
+    }
+
+    .work-gallery__track {
+      display: flex !important;
+      align-items: stretch !important;
+      gap: 16px !important;
+      overflow-x: auto !important;
+      overflow-y: hidden !important;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      padding: 0 0 14px !important;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(242,167,51,.82) rgba(255,255,255,.10);
+    }
+
+    .work-gallery__track::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .work-gallery__track::-webkit-scrollbar-track {
+      background: rgba(255,255,255,.10);
+      border-radius: 999px;
+    }
+
+    .work-gallery__track::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+    }
+
+    .work-photo,
+    .work-photo--large,
+    .work-photo--wide,
+    .work-photo--tall {
+      appearance: none;
+      -webkit-appearance: none;
+      position: relative !important;
+      flex: 0 0 clamp(290px, 30vw, 430px) !important;
+      width: auto !important;
+      min-width: 0 !important;
+      height: 430px !important;
+      min-height: 430px !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: 1px solid rgba(255,255,255,.12) !important;
+      border-radius: 28px !important;
+      overflow: hidden !important;
+      background: #202832 !important;
+      box-shadow: none !important;
+      cursor: zoom-in;
+      scroll-snap-align: start;
+      isolation: isolate;
+    }
+
+    .work-photo--wide,
+    .work-photo--large {
+      flex-basis: clamp(430px, 48vw, 720px) !important;
+    }
+
+    .work-photo--tall {
+      flex-basis: clamp(300px, 32vw, 460px) !important;
+    }
+
+    .work-photo img {
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      object-fit: cover !important;
+      display: block !important;
+      transform: scale(1.001);
+      transition: transform .45s ease, filter .45s ease;
+      filter: saturate(1.05) contrast(1.04);
+    }
+
+    .work-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(to top, rgba(10,14,18,.82), rgba(10,14,18,.14) 58%, rgba(10,14,18,.02)),
+        linear-gradient(to right, rgba(10,14,18,.25), transparent 46%);
+      pointer-events: none;
+    }
+
+    .work-photo:hover img {
+      transform: scale(1.055);
+      filter: saturate(1.12) contrast(1.06);
+    }
+
+    .work-photo__caption {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+      z-index: 2;
+      display: grid;
+      gap: 6px;
+      color: #fff;
+      text-align: left;
+      pointer-events: none;
+    }
+
+    .work-photo__caption b {
+      font-size: 22px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+    }
+
+    .work-photo__caption small {
+      max-width: 430px;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .work-photo::before {
+      content: "Увеличить";
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      z-index: 3;
+      min-height: 32px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.90);
+      color: #101820;
+      font-size: 12px;
+      font-weight: 900;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: opacity .18s ease, transform .18s ease;
+      pointer-events: none;
+    }
+
+    .work-photo:hover::before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .work-gallery__bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 4px 0;
+      color: rgba(255,255,255,.64);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .work-gallery__bottom span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s ease, visibility .2s ease;
+    }
+
+    .gallery-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .gallery-lightbox__backdrop {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      background: rgba(6,9,12,.78);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+    }
+
+    .gallery-lightbox__dialog {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, 100%);
+      max-height: calc(100vh - 56px);
+      border-radius: 30px;
+      overflow: hidden;
+      background: #101820;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 38px 110px rgba(0,0,0,.48);
+      transform: scale(.96) translateY(10px);
+      transition: transform .2s ease;
+    }
+
+    .gallery-lightbox.is-open .gallery-lightbox__dialog {
+      transform: scale(1) translateY(0);
+    }
+
+    .gallery-lightbox__img {
+      width: 100%;
+      max-height: calc(100vh - 210px);
+      object-fit: cover;
+      background: #202832;
+    }
+
+    .gallery-lightbox__text {
+      padding: 22px 24px 24px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(242,167,51,.18), transparent 20rem),
+        #101820;
+    }
+
+    .gallery-lightbox__text h3 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 3vw, 36px);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+    }
+
+    .gallery-lightbox__text p {
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      font-size: 15px;
+    }
+
+    .gallery-lightbox__close {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      z-index: 4;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(16,24,32,.78);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background .18s ease, transform .18s ease;
+    }
+
+    .gallery-lightbox__close:hover {
+      background: rgba(242,167,51,.92);
+      color: #1d1609;
+      transform: rotate(90deg);
+    }
+
+    body.gallery-lock {
+      overflow: hidden;
+    }
+
+    @media (max-width: 760px) {
+      .work-gallery {
+        width: calc(100% - 28px);
+        padding: 14px;
+        border-radius: 28px;
+      }
+
+      .work-gallery__viewport {
+        border-radius: 22px;
+      }
+
+      .work-gallery__viewport::before,
+      .work-gallery__viewport::after {
+        width: 34px;
+      }
+
+      .work-gallery__track {
+        gap: 12px !important;
+      }
+
+      .work-photo,
+      .work-photo--large,
+      .work-photo--wide,
+      .work-photo--tall {
+        flex-basis: min(82vw, 330px) !important;
+        height: 360px !important;
+        min-height: 360px !important;
+        border-radius: 22px !important;
+      }
+
+      .work-photo--wide,
+      .work-photo--large {
+        flex-basis: min(88vw, 390px) !important;
+      }
+
+      .work-photo__caption {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+      }
+
+      .work-photo__caption b {
+        font-size: 20px;
+      }
+
+      .work-gallery__bottom {
+        display: grid;
+        justify-content: stretch;
+      }
+
+      .work-gallery__bottom span {
+        justify-content: center;
+      }
+
+      .gallery-lightbox {
+        padding: 14px;
+      }
+
+      .gallery-lightbox__dialog {
+        border-radius: 24px;
+        max-height: calc(100vh - 28px);
+      }
+
+      .gallery-lightbox__img {
+        max-height: calc(100vh - 210px);
+      }
+
+      .gallery-lightbox__text {
+        padding: 18px;
+      }
+    }
+
+
+    /* Gallery v5: drag-scroll and keyboard/lightbox navigation */
+    .work-gallery__track {
+      cursor: grab;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .work-gallery__track.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+    }
+
+    .work-gallery__track.is-dragging .work-photo {
+      pointer-events: none;
+    }
+
+    .work-photo img {
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+
+    .gallery-lightbox__nav {
+      position: absolute;
+      top: 50%;
+      z-index: 4;
+      width: 52px;
+      height: 52px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(16,24,32,.78);
+      color: #fff;
+      font-size: 42px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transform: translateY(-50%);
+      transition: background .18s ease, color .18s ease, transform .18s ease, opacity .18s ease;
+    }
+
+    .gallery-lightbox__nav:hover {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1d1609;
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .gallery-lightbox__nav--prev {
+      left: 16px;
+    }
+
+    .gallery-lightbox__nav--next {
+      right: 16px;
+    }
+
+    .gallery-lightbox__text {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-end;
+    }
+
+    .gallery-lightbox__counter {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      .gallery-lightbox__nav {
+        width: 44px;
+        height: 44px;
+        font-size: 34px;
+      }
+
+      .gallery-lightbox__nav--prev {
+        left: 10px;
+      }
+
+      .gallery-lightbox__nav--next {
+        right: 10px;
+      }
+
+      .gallery-lightbox__text {
+        display: grid;
+        gap: 12px;
+      }
+
+      .gallery-lightbox__counter {
+        width: fit-content;
+      }
+    }
+
+
+    /* Gallery v6: fixed click opening + unified photo sizes */
+    .work-gallery__track.is-dragging .work-photo {
+      pointer-events: auto !important;
+    }
+
+    .work-photo,
+    .work-photo--large,
+    .work-photo--wide,
+    .work-photo--tall {
+      flex: 0 0 clamp(320px, 31vw, 430px) !important;
+      width: clamp(320px, 31vw, 430px) !important;
+      min-width: clamp(320px, 31vw, 430px) !important;
+      max-width: clamp(320px, 31vw, 430px) !important;
+      height: 430px !important;
+      min-height: 430px !important;
+      max-height: 430px !important;
+    }
+
+    .work-photo img,
+    .work-photo--large img,
+    .work-photo--wide img,
+    .work-photo--tall img {
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      object-fit: cover !important;
+    }
+
+    @media (max-width: 760px) {
+      .work-photo,
+      .work-photo--large,
+      .work-photo--wide,
+      .work-photo--tall {
+        flex-basis: min(84vw, 340px) !important;
+        width: min(84vw, 340px) !important;
+        min-width: min(84vw, 340px) !important;
+        max-width: min(84vw, 340px) !important;
+        height: 360px !important;
+        min-height: 360px !important;
+        max-height: 360px !important;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- HEADER / PREHEADER / FOOTER подключаются общие с главной страницы -->
+  <main class="service-page">
+    <section class="service-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="#">Главная</a>
+          <span><a href="#">Услуги</a></span>
+          <span>Утепление дома ППУ</span>
+        </nav>
+
+        <div class="service-hero__grid">
+          <div class="service-hero__content">
+            <div class="service-kicker">Утепление домов пенополиуретаном</div>
+            <h1>Утепление дома ППУ в Москве и области</h1>
+            <p class="service-hero__lead">
+              Напыляем пенополиуретан на стены, кровлю, мансарду, пол, перекрытия, цоколь и фундамент.
+              Подбираем <b>плотность, толщину слоя и технологию нанесения</b> под конструкцию дома.
+            </p>
+
+            <div class="hero-benefits">
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Бесшовный слой без мостиков холода</span>
+              </div>
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Официальный договор и гарантия</span>
+              </div>
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Расчет по фото, площади и задаче</span>
+              </div>
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Работы для новых и готовых домов</span>
+              </div>
+            </div>
+
+            <div class="service-hero__buttons">
+              <a href="#quote" class="btn btn--accent">Рассчитать утепление дома</a>
+              <a href="#zones" class="btn btn--dark">Что можно утеплить</a>
+            </div>
+          </div>
+
+          <div class="service-hero__media">
+            <div class="service-hero__photo">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Напыление ППУ при утеплении дома">
+            </div>
+
+            <div class="service-price-card">
+              <div class="service-price-card__label">Акция на напыление ППУ</div>
+              <div class="service-price-card__discount">Цена снижена</div>
+              <div class="service-price-card__old">было <span>1590 ₽/м²</span></div>
+              <div class="service-price-card__price">
+                <strong>1190 ₽</strong>
+                <span>/ м²</span>
+              </div>
+              <p>ППУ 30–35 кг/м³. Итоговая цена зависит от площади, толщины слоя, плотности и подготовки поверхности.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="anchor-strip" aria-label="Навигация по странице">
+      <div class="container anchor-strip__inner">
+        <a href="#problems">Когда нужно утепление</a>
+        <a href="#zones">Зоны дома</a>
+        <a href="#technology">Технология</a>
+        <a href="#steps">Порядок работ</a>
+        <a href="#quote">Расчет</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+
+    <section class="section" id="problems">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Задача клиента</div>
+            <h2>Когда дому действительно нужно утепление ППУ</h2>
+          </div>
+          <p>
+            На странице услуги важно не просто описать материал, а показать реальные ситуации,
+            в которых заказчик узнает свою проблему.
+          </p>
+        </div>
+
+        <div class="problems-grid">
+          <aside class="diagnostic-card">
+            <div>
+              <h3>Сначала определяем, где дом теряет тепло</h3>
+              <p>
+                Для точного решения нужно понимать конструкцию дома, текущий пирог стены или кровли,
+                влажность, доступ к поверхности и предполагаемую отделку после напыления.
+              </p>
+            </div>
+
+            <div class="diagnostic-list">
+              <span>холодная мансарда</span>
+              <span>промерзание стен</span>
+              <span>конденсат и сырость</span>
+              <span>сквозняки через перекрытия</span>
+              <span>большие расходы на отопление</span>
+            </div>
+          </aside>
+
+          <div class="problem-cards">
+            <article class="problem-card">
+              <div class="problem-card__num">01</div>
+              <h3>Дом быстро остывает</h3>
+              <p>Причина часто в кровле, чердаке, перекрытиях или щелях в узлах примыкания.</p>
+            </article>
+
+            <article class="problem-card">
+              <div class="problem-card__num">02</div>
+              <h3>Есть мостики холода</h3>
+              <p>ППУ помогает закрыть сложные зоны без стыков, крепежа и зазоров между плитами.</p>
+            </article>
+
+            <article class="problem-card">
+              <div class="problem-card__num">03</div>
+              <h3>Нужно утеплить сложную геометрию</h3>
+              <p>Напыление подходит для стропил, углов, ниш, труб, примыканий и неровных поверхностей.</p>
+            </article>
+
+            <article class="problem-card">
+              <div class="problem-card__num">04</div>
+              <h3>Нужен быстрый монтаж</h3>
+              <p>Материал наносится на объекте и образует цельный слой без раскроя плитного утеплителя.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__box">
+          <div>
+            <h2>Не знаете, какую толщину слоя выбрать?</h2>
+            <p>Пришлите фото дома, площадь и задачу — подскажем, где нужен ППУ, какую плотность рассматривать и от чего будет зависеть цена.</p>
+          </div>
+
+          <div class="cta-band__actions">
+            <a href="tel:+79856175554" class="cta-band__phone">+7 985 617-55-54</a>
+            <a href="#quote" class="btn btn--accent">Получить консультацию</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="zones">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Зоны утепления</div>
+            <h2>Что можно утеплить в доме пенополиуретаном</h2>
+          </div>
+          <p>
+            Этот блок можно адаптировать под любую услугу: вместо общей теории показываем конкретные зоны работ,
+            чтобы посетитель быстрее нашел свой сценарий.
+          </p>
+        </div>
+
+        <div class="zones-grid">
+          <article class="zone-card zone-card--wide">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80" alt="Утепление кровли и мансарды ППУ">
+            <div class="zone-card__content">
+              <h3>Кровля, чердак и мансарда</h3>
+              <p>Одна из самых частых зон теплопотерь. ППУ заполняет пространство между стропилами и сложные примыкания.</p>
+            </div>
+          </article>
+
+          <article class="zone-card">
+            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="Утепление стен дома ППУ">
+            <div class="zone-card__content">
+              <h3>Стены</h3>
+              <p>Внутреннее или наружное утепление подбирается по конструкции и отделке дома.</p>
+            </div>
+          </article>
+
+          <article class="zone-card">
+            <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=900&q=80" alt="Утепление пола и перекрытий ППУ">
+            <div class="zone-card__content">
+              <h3>Полы и перекрытия</h3>
+              <p>Защищаем нижнюю часть дома от холода, продувания и перепадов температуры.</p>
+            </div>
+          </article>
+
+          <article class="zone-card">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Утепление фундамента и цоколя ППУ">
+            <div class="zone-card__content">
+              <h3>Фундамент и цоколь</h3>
+              <p>Решение для снижения промерзания и защиты конструкций в нижней зоне здания.</p>
+            </div>
+          </article>
+
+          <article class="zone-card zone-card--wide">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Утепление дома ППУ под ключ">
+            <div class="zone-card__content">
+              <h3>Комплексное утепление дома</h3>
+              <p>Подходит, когда нужно рассмотреть дом целиком: кровлю, стены, перекрытия, цоколь и сложные узлы.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="technology">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Технология</div>
+            <h2>Подбираем ППУ под конструкцию дома</h2>
+          </div>
+          <p>
+            Услуга не должна продаваться как «одна пена на все случаи». Для дома важны поверхность,
+            влажность, будущая отделка, плотность и толщина слоя.
+          </p>
+        </div>
+
+        <div class="solution-matrix">
+          <aside class="solution-intro">
+            <div>
+              <h3>Почему нельзя считать только по цене за м²</h3>
+              <p>
+                Две сметы могут выглядеть одинаково по площади, но отличаться по толщине слоя,
+                плотности материала, подготовке поверхности и условиям гарантии.
+              </p>
+            </div>
+
+            <div class="solution-note">
+              <b>Правильный расчет = объект + слой + плотность + поверхность</b>
+              <span>Именно поэтому на странице нужен CTA с запросом фото, площади и описания задачи.</span>
+            </div>
+          </aside>
+
+          <div class="solution-list">
+            <article class="solution-item">
+              <div class="solution-pill">30–35 кг/м³</div>
+              <div>
+                <h3>Базовое утепление дома</h3>
+                <p>Частый вариант для теплоизоляции стен, кровли, мансарды, пола и перекрытий.</p>
+              </div>
+            </article>
+
+            <article class="solution-item">
+              <div class="solution-pill">40+ кг/м³</div>
+              <div>
+                <h3>Более плотный слой</h3>
+                <p>Рассматривается для зон с повышенной нагрузкой, наружных работ и специальных условий эксплуатации.</p>
+              </div>
+            </article>
+
+            <article class="solution-item">
+              <div class="solution-pill">5–10 см</div>
+              <div>
+                <h3>Толщина слоя</h3>
+                <p>Определяется по конструкции и задаче: мансарда, кровля, стены, цоколь или перекрытия требуют разного подхода.</p>
+              </div>
+            </article>
+
+            <article class="solution-item">
+              <div class="solution-pill">защита</div>
+              <div>
+                <h3>Финиш и закрытие ППУ</h3>
+                <p>Открытые участки требуют защиты от УФ и механического воздействия, а внутри дома важно учитывать дальнейшую отделку.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Сравнение</div>
+            <h2>Почему для дома выбирают напыляемый ППУ</h2>
+          </div>
+          <p>
+            Блок сравнения помогает закрыть сомнения тех, кто выбирает между плитным утеплителем,
+            минеральной ватой и напылением.
+          </p>
+        </div>
+
+        <div class="comparison">
+          <article class="compare-card">
+            <div>
+              <h3>Бесшовность</h3>
+              <p>ППУ наносится сплошным слоем и повторяет геометрию основания.</p>
+            </div>
+            <ul>
+              <li>меньше риска щелей;</li>
+              <li>лучше для стропил и примыканий;</li>
+              <li>не требует раскроя плит.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card">
+            <div>
+              <h3>Скорость работ</h3>
+              <p>На подготовленном объекте напыление проходит быстрее, чем монтаж плитного утеплителя в сложных узлах.</p>
+            </div>
+            <ul>
+              <li>меньше крепежа;</li>
+              <li>быстрое заполнение сложных зон;</li>
+              <li>понятный график работ.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card">
+            <div>
+              <h3>Подбор под задачу</h3>
+              <p>Можно выбирать плотность, толщину и формат нанесения под конкретную часть дома.</p>
+            </div>
+            <ul>
+              <li>стены и кровля;</li>
+              <li>цоколь и фундамент;</li>
+              <li>полы и перекрытия.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Типы домов</div>
+            <h2>Для каких домов подходит утепление ППУ</h2>
+          </div>
+          <p>
+            Этот блок можно масштабировать под SEO: каркасные, деревянные, кирпичные, газобетонные,
+            дачные и частные дома.
+          </p>
+        </div>
+
+        <div class="house-types">
+          <div class="house-type">
+            <b>Каркасные дома</b>
+            <span>Заполнение стоек, стропил, перекрытий и зон сложной геометрии.</span>
+          </div>
+          <div class="house-type">
+            <b>Кирпичные дома</b>
+            <span>Утепление стен, кровли, чердака, цоколя и примыканий.</span>
+          </div>
+          <div class="house-type">
+            <b>Деревянные дома</b>
+            <span>Подбор решения с учетом основания, вентиляции и будущей отделки.</span>
+          </div>
+          <div class="house-type">
+            <b>Газобетон и блоки</b>
+            <span>Защита конструкций от промерзания и снижение теплопотерь.</span>
+          </div>
+          <div class="house-type">
+            <b>Дачные дома</b>
+            <span>Быстрое утепление сезонных и круглогодичных построек.</span>
+          </div>
+          <div class="house-type">
+            <b>Мансардные дома</b>
+            <span>Работы по скатной кровле, стропилам и верхним перекрытиям.</span>
+          </div>
+          <div class="house-type">
+            <b>Старые дома</b>
+            <span>Оцениваем состояние поверхности и выбираем безопасный порядок работ.</span>
+          </div>
+          <div class="house-type">
+            <b>Новые дома</b>
+            <span>Встраиваем утепление в строительный график и отделочные этапы.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Процесс</div>
+            <h2>Порядок утепления дома ППУ</h2>
+          </div>
+          <p>
+            На эталонной странице процесс должен быть понятным: посетитель видит не абстрактную услугу,
+            а конкретный маршрут от заявки до сдачи работ.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Заявка и вводные</h3>
+              <p>Вы описываете дом, площадь, зоны утепления, город и прикладываете фото при наличии.</p>
+            </div>
+            <span class="step__tag">5–10 минут</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Предварительный расчет</h3>
+              <p>Оцениваем стоимость по площади, толщине слоя, плотности и доступности поверхности.</p>
+            </div>
+            <span class="step__tag">без выезда</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Осмотр объекта</h3>
+              <p>Проверяем основание, влажность, подготовку, доступ и условия нанесения ППУ.</p>
+            </div>
+            <span class="step__tag">при необходимости</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Договор и график</h3>
+              <p>Фиксируем стоимость, материал, объем работ, сроки, порядок оплаты и гарантию.</p>
+            </div>
+            <span class="step__tag">официально</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Напыление и сдача</h3>
+              <p>Готовим поверхность, наносим слой, контролируем качество и передаем объект заказчику.</p>
+            </div>
+            <span class="step__tag">под ключ</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="quote">
+      <div class="container">
+        <div class="quote-panel">
+          <div class="quote-panel__left">
+            <div>
+              <div class="section-kicker">Расчет стоимости</div>
+              <h2>Получите смету на утепление дома</h2>
+              <p>Для предварительной оценки достаточно указать площадь, город, зону утепления и оставить контакт для связи.</p>
+            </div>
+
+            <div class="quote-panel__stats">
+              <div class="mini-stat">
+                <strong>30–35 кг/м³</strong>
+                <span>популярная плотность для дома</span>
+              </div>
+              <div class="mini-stat">
+                <strong>от 1190 ₽</strong>
+                <span>акционная цена за м²</span>
+              </div>
+              <div class="mini-stat">
+                <strong>до 3 лет</strong>
+                <span>гарантия на работы</span>
+              </div>
+              <div class="mini-stat">
+                <strong>Москва МО</strong>
+                <span>основная география</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="quote-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="service-object">Что утепляем?</label>
+                <select id="service-object">
+                  <option>Дом полностью</option>
+                  <option>Кровля / мансарда</option>
+                  <option>Стены</option>
+                  <option>Пол / перекрытия</option>
+                  <option>Фундамент / цоколь</option>
+                  <option>Подвал / подпол</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="service-area">Площадь, м²</label>
+                <input id="service-area" type="text" placeholder="Например, 180">
+              </div>
+
+              <div class="field">
+                <label for="service-place">Город / район</label>
+                <input id="service-place" type="text" placeholder="Например, Истра">
+              </div>
+
+              <div class="field">
+                <label for="service-phone">Телефон</label>
+                <input id="service-phone" type="tel" placeholder="+7 ___ ___-__-__">
+              </div>
+
+              <div class="field field--wide">
+                <label for="service-comment">Комментарий</label>
+                <textarea id="service-comment" placeholder="Опишите дом: материал стен, что нужно утеплить, есть ли фото или замеры."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn--accent" type="submit">Отправить на расчет</button>
+            <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Форма демонстрационная.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Примеры</div>
+            <h2>Как можно показывать работы на странице услуги</h2>
+          </div>
+          <p>
+            Для каждой услуги желательно показывать релевантные кейсы: дом, площадь, зона утепления,
+            плотность, задача и результат.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-main">
+            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" alt="Утепление частного дома ППУ">
+            <div class="case-main__body">
+              <h3>Коттедж с мансардой</h3>
+              <p>Утепление скатной кровли, перекрытий и сложных примыканий без плитного утеплителя и лишних стыков.</p>
+              <div class="case-meta">
+                <span>дом</span>
+                <span>мансарда</span>
+                <span>ППУ 30–35 кг/м³</span>
+                <span>Москва и область</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="case-side">
+            <article class="case-small">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80" alt="Утепление кровли дома">
+              <div class="case-small__body">
+                <h3>Кровля дома</h3>
+                <p>Работа по стропилам и примыканиям в верхнем контуре здания.</p>
+                <div class="case-meta">
+                  <span>кровля</span>
+                  <span>частный дом</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-small">
+              <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=700&q=80" alt="Утепление цоколя и фундамента">
+              <div class="case-small__body">
+                <h3>Цоколь и пол</h3>
+                <p>Снижение промерзания нижней зоны дома и защита от холодного воздуха.</p>
+                <div class="case-meta">
+                  <span>цоколь</span>
+                  <span>пол</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Почему мы</div>
+            <h2>Почему стоит обратиться именно к нам</h2>
+          </div>
+          <p>
+            На странице услуги важно отдельно показывать не только материал, но и причины доверия к исполнителю:
+            технология, договор, контроль качества, реальные специалисты и понятный порядок работы.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Собственные бригады и оборудование</h3>
+            <p>Не отдаем ключевые этапы случайным подрядчикам. Контролируем процесс напыления, толщину слоя и качество работ на объекте.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Подбор решения под конструкцию дома</h3>
+            <p>Не считаем дом по шаблону. Учитываем материал стен, кровлю, перекрытия, влажность, отделку и условия эксплуатации.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Договор, гарантия и документы</h3>
+            <p>Фиксируем стоимость, сроки, материал и объем работ. Работаем официально и передаем результат с документами.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Опыт на частных и коммерческих объектах</h3>
+            <p>Можем работать как с частными домами, так и со сложными объектами, где важны точность, сроки и соблюдение технологии.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Понятная смета без абстрактных обещаний</h3>
+            <p>Объясняем, из чего складывается цена: площадь, плотность, толщина слоя, подготовка поверхности и доступ к зонам работ.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Работаем по Москве и области</h3>
+            <p>Выезжаем на объекты в Москве и Московской области, помогаем быстро оценить объем работ и подобрать удобный формат взаимодействия.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Фотографии работ</div>
+            <h2>Как проходит утепление дома ППУ</h2>
+          </div>
+          <p>
+            Это отдельная фотогалерея процесса, а не блок кейсов. Здесь показываем подготовку,
+            оборудование, напыление, сложные узлы и готовый слой ППУ.
+          </p>
+        </div>
+      </div>
+
+      <div class="work-gallery">
+        <div class="work-gallery__viewport">
+          <div class="work-gallery__track" aria-label="Галерея процесса утепления дома ППУ">
+            <button class="work-photo work-photo--wide" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Подготовка объекта"
+              data-gallery-caption="Осматриваем поверхность, доступ к зонам работ и условия нанесения ППУ.">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80" alt="Подготовка объекта к утеплению ППУ">
+              <span class="work-photo__caption">
+                <b>Подготовка объекта</b>
+                <small>Осмотр поверхности и зон нанесения</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Оборудование"
+              data-gallery-caption="Подготовка оборудования, компонентов и рабочего места перед напылением.">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80" alt="Оборудование для напыления ППУ">
+              <span class="work-photo__caption">
+                <b>Оборудование</b>
+                <small>Настройка перед работой</small>
+              </span>
+            </button>
+
+            <button class="work-photo work-photo--tall" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Стены и примыкания"
+              data-gallery-caption="ППУ закрывает сложные участки, углы, ниши и зоны примыкания без стыков.">
+              <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="Напыление ППУ на стены дома">
+              <span class="work-photo__caption">
+                <b>Стены и примыкания</b>
+                <small>Сложные участки без стыков</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Кровля и мансарда"
+              data-gallery-caption="Работа по стропилам, верхнему контуру дома и труднодоступным участкам.">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" alt="Утепление кровли и мансарды ППУ">
+              <span class="work-photo__caption">
+                <b>Кровля и мансарда</b>
+                <small>Верхний контур дома</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Пол и цоколь"
+              data-gallery-caption="Утепление нижнего контура помогает снизить промерзание и теплопотери снизу.">
+              <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=900&q=80" alt="Утепление пола и цоколя дома">
+              <span class="work-photo__caption">
+                <b>Пол и цоколь</b>
+                <small>Нижний контур здания</small>
+              </span>
+            </button>
+
+            <button class="work-photo work-photo--wide" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Готовый слой ППУ"
+              data-gallery-caption="После напыления получается ровное бесшовное покрытие, которое закрывается дальнейшей отделкой или защитным слоем.">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Готовый слой ППУ после напыления">
+              <span class="work-photo__caption">
+                <b>Готовый слой</b>
+                <small>Бесшовное покрытие перед отделкой</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Контроль качества"
+              data-gallery-caption="Проверяем равномерность слоя, зоны примыканий и готовность объекта к следующему этапу.">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Контроль качества утепления ППУ">
+              <span class="work-photo__caption">
+                <b>Контроль качества</b>
+                <small>Проверка слоя и примыканий</small>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="work-gallery__bottom">
+          <span>Прокручивайте галерею горизонтально</span>
+          <span>Нажмите на фото, чтобы увеличить</span>
+        </div>
+      </div>
+
+      <div class="gallery-lightbox" aria-hidden="true">
+        <button class="gallery-lightbox__backdrop" type="button" aria-label="Закрыть галерею"></button>
+
+        <div class="gallery-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
+          <button class="gallery-lightbox__close" type="button" aria-label="Закрыть">×</button>
+          <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" aria-label="Предыдущее фото">‹</button>
+          <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" aria-label="Следующее фото">›</button>
+
+          <img class="gallery-lightbox__img" src="" alt="">
+
+          <div class="gallery-lightbox__text">
+            <div>
+              <h3></h3>
+              <p></p>
+            </div>
+            <span class="gallery-lightbox__counter"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="certificates">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Документы</div>
+            <h2>Сертификаты и подтверждение качества</h2>
+          </div>
+          <p>
+            На услуговой странице полезно показывать, что компания работает не “на словах”, а опирается
+            на подтверждающие документы, соблюдение технологии и официальный подход.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <div class="cert-card__preview">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=700&q=80" alt="Сертификат на материалы">
+            </div>
+            <h3>Сертификаты на материалы</h3>
+            <p>Показываем документы по системам и материалам, применяемым на объекте.</p>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__preview">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=700&q=80" alt="Техническая документация">
+            </div>
+            <h3>Техническая документация</h3>
+            <p>Подтверждение параметров, рекомендаций по нанесению и рабочих характеристик.</p>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__preview">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=80" alt="Гарантийные документы">
+            </div>
+            <h3>Гарантийные обязательства</h3>
+            <p>Фиксируем условия работ и гарантию, чтобы клиент понимал ответственность исполнителя.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Отзывы</div>
+            <h2>Что говорят клиенты об утеплении домов</h2>
+          </div>
+          <p>
+            Блок отзывов помогает усилить доверие. Для реального сайта сюда можно подтягивать отзывы из карточек
+            компании, мессенджеров или площадок, где клиенты уже делились впечатлениями.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>“Обращались по утеплению мансарды в частном доме. Понравилось, что нам нормально объяснили разницу по толщине и плотности, а не просто назвали цену за метр.”</p>
+            <div class="review-author">
+              <b>Ирина М.</b>
+              <span>частный дом, Истринский район</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>“Нужно было быстро утеплить кровлю и перекрытия. Работы прошли аккуратно, заранее обсудили подготовку и что будет после напыления. По срокам не подвели.”</p>
+            <div class="review-author">
+              <b>Алексей Т.</b>
+              <span>коттедж, Одинцово</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>“Выбирали между плитным утеплителем и ППУ. Здесь понравился подход: все разложили по смете, показали, почему для нашего дома лучше сделать напыление по сложным участкам.”</p>
+            <div class="review-author">
+              <b>Дмитрий С.</b>
+              <span>дом с мансардой, Дмитров</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="faq">
+      <div class="container">
+        <div class="faq-wrap">
+          <aside class="faq-card">
+            <div class="section-kicker">FAQ</div>
+            <h2>Вопросы по утеплению дома ППУ</h2>
+            <p>
+              FAQ должен формироваться под конкретную услугу. Для страницы дома — вопросы про стены,
+              кровлю, внутреннее/наружное утепление, слой, запах, отделку и цену.
+            </p>
+            <a href="#quote" class="btn btn--accent">Задать вопрос</a>
+          </aside>
+
+          <div class="faq-list">
+            <details open>
+              <summary>Сколько стоит утепление дома ППУ?</summary>
+              <p>Ориентир по акции — от 1190 ₽/м² для ППУ 30–35 кг/м³. Итоговая цена зависит от площади, толщины слоя, плотности, подготовки поверхности, удаленности объекта и сложности доступа.</p>
+            </details>
+
+            <details>
+              <summary>Какая толщина ППУ нужна для дома?</summary>
+              <p>Толщина подбирается по зоне работ и конструкции. Для мансарды, стен, пола, перекрытий и цоколя могут использоваться разные решения. Поэтому корректнее считать не «среднюю толщину», а конкретный узел дома.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли утеплять дом изнутри?</summary>
+              <p>Да, но не всегда это оптимальный вариант. Внутреннее утепление зависит от конструкции стены, влажности, вентиляции и будущей отделки. Перед решением нужно оценить, где будет точка росы и как будет закрываться слой.</p>
+            </details>
+
+            <details>
+              <summary>Подходит ли ППУ для деревянного дома?</summary>
+              <p>Подходит не во всех сценариях одинаково. Нужно учитывать состояние древесины, влажность, вентиляционный режим и отделку. Решение лучше принимать после осмотра или анализа фото и конструкции.</p>
+            </details>
+
+            <details>
+              <summary>Нужно ли закрывать ППУ после напыления?</summary>
+              <p>Обычно да. Внутри дома слой закрывают отделочными материалами, а на открытых участках нужна защита от ультрафиолета и механического воздействия.</p>
+            </details>
+
+            <details>
+              <summary>Есть ли запах после напыления?</summary>
+              <p>Во время работ используется профессиональное оборудование и компоненты. После нанесения объект должен проветриваться. Сроки допуска к дальнейшим работам зависят от условий на объекте и применяемой системы.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли утеплить только мансарду или кровлю?</summary>
+              <p>Да. Часто начинают именно с кровли, мансарды или чердака, потому что верхний контур дома заметно влияет на теплопотери и комфорт внутри помещений.</p>
+            </details>
+
+            <details>
+              <summary>Как быстро можно получить расчет?</summary>
+              <p>Предварительный расчет можно сделать по фото, площади, адресу и описанию задачи. Для точной сметы может потребоваться осмотр объекта и уточнение поверхности, толщины слоя и материала.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-cta__box">
+        <div>
+          <div class="section-kicker">Заявка</div>
+          <h2>Рассчитаем утепление дома под вашу конструкцию</h2>
+          <p>
+            Опишите дом, площадь и зоны утепления. Если есть фото кровли, стен, пола или фундамента —
+            приложите их менеджеру, чтобы быстрее получить точную оценку.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>ППУ Альянс</h3>
+          <div class="contact-list">
+            <div><b>Телефон:</b> +7 985 617-55-54</div>
+            <div><b>Email:</b> info@ppu-alians.ru</div>
+            <div><b>География:</b> Москва и Московская область</div>
+          </div>
+          <a href="#quote" class="btn btn--accent">Получить расчет</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const galleryButtons = Array.from(document.querySelectorAll('.work-photo[data-gallery-src]'));
+      const lightbox = document.querySelector('.gallery-lightbox');
+      const track = document.querySelector('.work-gallery__track');
+
+      if (!galleryButtons.length || !lightbox || !track) return;
+
+      const image = lightbox.querySelector('.gallery-lightbox__img');
+      const title = lightbox.querySelector('.gallery-lightbox__text h3');
+      const caption = lightbox.querySelector('.gallery-lightbox__text p');
+      const counter = lightbox.querySelector('.gallery-lightbox__counter');
+      const closeButtons = lightbox.querySelectorAll('.gallery-lightbox__close, .gallery-lightbox__backdrop');
+      const prevButton = lightbox.querySelector('.gallery-lightbox__nav--prev');
+      const nextButton = lightbox.querySelector('.gallery-lightbox__nav--next');
+
+      let currentIndex = 0;
+      let pointerDown = false;
+      let dragStarted = false;
+      let startX = 0;
+      let startY = 0;
+      let startScrollLeft = 0;
+      let suppressClickUntil = 0;
+
+      function normalizeIndex(index) {
+        if (index < 0) return galleryButtons.length - 1;
+        if (index >= galleryButtons.length) return 0;
+        return index;
+      }
+
+      function showPhoto(index) {
+        currentIndex = normalizeIndex(index);
+
+        const button = galleryButtons[currentIndex];
+        const src = button.dataset.gallerySrc;
+        const img = button.querySelector('img');
+        const titleText = button.dataset.galleryTitle || '';
+        const captionText = button.dataset.galleryCaption || '';
+
+        image.src = src;
+        image.alt = img ? img.alt : titleText;
+        title.textContent = titleText;
+        caption.textContent = captionText;
+
+        if (counter) {
+          counter.textContent = (currentIndex + 1) + ' / ' + galleryButtons.length;
+        }
+      }
+
+      function openLightbox(index) {
+        showPhoto(index);
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('gallery-lock');
+
+        const closeButton = lightbox.querySelector('.gallery-lightbox__close');
+        if (closeButton) closeButton.focus({ preventScroll: true });
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('gallery-lock');
+
+        window.setTimeout(function () {
+          if (!lightbox.classList.contains('is-open')) {
+            image.src = '';
+          }
+        }, 180);
+      }
+
+      function showNext() {
+        showPhoto(currentIndex + 1);
+      }
+
+      function showPrev() {
+        showPhoto(currentIndex - 1);
+      }
+
+      galleryButtons.forEach(function (button, index) {
+        button.addEventListener('click', function (event) {
+          if (Date.now() < suppressClickUntil) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+
+          openLightbox(index);
+        });
+      });
+
+      closeButtons.forEach(function (button) {
+        button.addEventListener('click', closeLightbox);
+      });
+
+      if (nextButton) {
+        nextButton.addEventListener('click', showNext);
+      }
+
+      if (prevButton) {
+        prevButton.addEventListener('click', showPrev);
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (!lightbox.classList.contains('is-open')) return;
+
+        if (event.key === 'Escape') {
+          closeLightbox();
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          showNext();
+        }
+
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          showPrev();
+        }
+      });
+
+      track.addEventListener('pointerdown', function (event) {
+        if (event.button !== undefined && event.button !== 0) return;
+
+        pointerDown = true;
+        dragStarted = false;
+        startX = event.clientX;
+        startY = event.clientY;
+        startScrollLeft = track.scrollLeft;
+      });
+
+      document.addEventListener('pointermove', function (event) {
+        if (!pointerDown) return;
+
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+
+        if (!dragStarted && Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          dragStarted = true;
+          track.classList.add('is-dragging');
+        }
+
+        if (dragStarted) {
+          event.preventDefault();
+          track.scrollLeft = startScrollLeft - deltaX;
+        }
+      }, { passive: false });
+
+      document.addEventListener('pointerup', function () {
+        if (!pointerDown) return;
+
+        if (dragStarted) {
+          suppressClickUntil = Date.now() + 220;
+        }
+
+        pointerDown = false;
+        dragStarted = false;
+        track.classList.remove('is-dragging');
+      });
+
+      document.addEventListener('pointercancel', function () {
+        pointerDown = false;
+        dragStarted = false;
+        track.classList.remove('is-dragging');
+      });
+    })();
+  </script>
+
+</body>
+</html>

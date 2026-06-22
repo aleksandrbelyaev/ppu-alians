@@ -1,0 +1,1087 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import '@/styles/service.css';
+import { reader } from '@/lib/keystatic';
+
+const page = await reader.singletons.servicePage.read();
+const title = page?.seoTitle ?? '';
+const description = page?.seoDescription ?? '';
+
+export const prerender = true;
+
+---
+
+<Layout title={title} description={description}>
+  <!-- HEADER / PREHEADER / FOOTER подключаются общие с главной страницы -->
+  <main class="service-page">
+    <section class="service-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="#">Главная</a>
+          <span><a href="#">Услуги</a></span>
+          <span>Утепление дома ППУ</span>
+        </nav>
+
+        <div class="service-hero__grid">
+          <div class="service-hero__content">
+            <div class="service-kicker">{page?.heroKicker}</div>
+            <h1>{page?.heroTitle}</h1>
+            <p class="service-hero__lead" set:html={page?.heroLead}></p>
+
+            <div class="hero-benefits">
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Бесшовный слой без мостиков холода</span>
+              </div>
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Официальный договор и гарантия</span>
+              </div>
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Расчет по фото, площади и задаче</span>
+              </div>
+              <div class="hero-benefit">
+                <span class="hero-benefit__icon"></span>
+                <span>Работы для новых и готовых домов</span>
+              </div>
+            </div>
+
+            <div class="service-hero__buttons">
+              <a href="#quote" class="btn btn--accent">Рассчитать утепление дома</a>
+              <a href="#zones" class="btn btn--dark">Что можно утеплить</a>
+            </div>
+          </div>
+
+          <div class="service-hero__media">
+            <div class="service-hero__photo">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Напыление ППУ при утеплении дома">
+            </div>
+
+            <div class="service-price-card">
+              <div class="service-price-card__label">Акция на напыление ППУ</div>
+              <div class="service-price-card__discount">Цена снижена</div>
+              <div class="service-price-card__old">было <span>1590 ₽/м²</span></div>
+              <div class="service-price-card__price">
+                <strong>1190 ₽</strong>
+                <span>/ м²</span>
+              </div>
+              <p>ППУ 30–35 кг/м³. Итоговая цена зависит от площади, толщины слоя, плотности и подготовки поверхности.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="anchor-strip" aria-label="Навигация по странице">
+      <div class="container anchor-strip__inner">
+        <a href="#problems">Когда нужно утепление</a>
+        <a href="#zones">Зоны дома</a>
+        <a href="#technology">Технология</a>
+        <a href="#steps">Порядок работ</a>
+        <a href="#quote">Расчет</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+
+    <section class="section" id="problems">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Задача клиента</div>
+            <h2>Когда дому действительно нужно утепление ППУ</h2>
+          </div>
+          <p>
+            На странице услуги важно не просто описать материал, а показать реальные ситуации,
+            в которых заказчик узнает свою проблему.
+          </p>
+        </div>
+
+        <div class="problems-grid">
+          <aside class="diagnostic-card">
+            <div>
+              <h3>Сначала определяем, где дом теряет тепло</h3>
+              <p>
+                Для точного решения нужно понимать конструкцию дома, текущий пирог стены или кровли,
+                влажность, доступ к поверхности и предполагаемую отделку после напыления.
+              </p>
+            </div>
+
+            <div class="diagnostic-list">
+              <span>холодная мансарда</span>
+              <span>промерзание стен</span>
+              <span>конденсат и сырость</span>
+              <span>сквозняки через перекрытия</span>
+              <span>большие расходы на отопление</span>
+            </div>
+          </aside>
+
+          <div class="problem-cards">
+            <article class="problem-card">
+              <div class="problem-card__num">01</div>
+              <h3>Дом быстро остывает</h3>
+              <p>Причина часто в кровле, чердаке, перекрытиях или щелях в узлах примыкания.</p>
+            </article>
+
+            <article class="problem-card">
+              <div class="problem-card__num">02</div>
+              <h3>Есть мостики холода</h3>
+              <p>ППУ помогает закрыть сложные зоны без стыков, крепежа и зазоров между плитами.</p>
+            </article>
+
+            <article class="problem-card">
+              <div class="problem-card__num">03</div>
+              <h3>Нужно утеплить сложную геометрию</h3>
+              <p>Напыление подходит для стропил, углов, ниш, труб, примыканий и неровных поверхностей.</p>
+            </article>
+
+            <article class="problem-card">
+              <div class="problem-card__num">04</div>
+              <h3>Нужен быстрый монтаж</h3>
+              <p>Материал наносится на объекте и образует цельный слой без раскроя плитного утеплителя.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__box">
+          <div>
+            <h2>Не знаете, какую толщину слоя выбрать?</h2>
+            <p>Пришлите фото дома, площадь и задачу — подскажем, где нужен ППУ, какую плотность рассматривать и от чего будет зависеть цена.</p>
+          </div>
+
+          <div class="cta-band__actions">
+            <a href="tel:+79856175554" class="cta-band__phone">+7 985 617-55-54</a>
+            <a href="#quote" class="btn btn--accent">Получить консультацию</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="zones">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Зоны утепления</div>
+            <h2>Что можно утеплить в доме пенополиуретаном</h2>
+          </div>
+          <p>
+            Этот блок можно адаптировать под любую услугу: вместо общей теории показываем конкретные зоны работ,
+            чтобы посетитель быстрее нашел свой сценарий.
+          </p>
+        </div>
+
+        <div class="zones-grid">
+          <article class="zone-card zone-card--wide">
+            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80" alt="Утепление кровли и мансарды ППУ">
+            <div class="zone-card__content">
+              <h3>Кровля, чердак и мансарда</h3>
+              <p>Одна из самых частых зон теплопотерь. ППУ заполняет пространство между стропилами и сложные примыкания.</p>
+            </div>
+          </article>
+
+          <article class="zone-card">
+            <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="Утепление стен дома ППУ">
+            <div class="zone-card__content">
+              <h3>Стены</h3>
+              <p>Внутреннее или наружное утепление подбирается по конструкции и отделке дома.</p>
+            </div>
+          </article>
+
+          <article class="zone-card">
+            <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=900&q=80" alt="Утепление пола и перекрытий ППУ">
+            <div class="zone-card__content">
+              <h3>Полы и перекрытия</h3>
+              <p>Защищаем нижнюю часть дома от холода, продувания и перепадов температуры.</p>
+            </div>
+          </article>
+
+          <article class="zone-card">
+            <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80" alt="Утепление фундамента и цоколя ППУ">
+            <div class="zone-card__content">
+              <h3>Фундамент и цоколь</h3>
+              <p>Решение для снижения промерзания и защиты конструкций в нижней зоне здания.</p>
+            </div>
+          </article>
+
+          <article class="zone-card zone-card--wide">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80" alt="Утепление дома ППУ под ключ">
+            <div class="zone-card__content">
+              <h3>Комплексное утепление дома</h3>
+              <p>Подходит, когда нужно рассмотреть дом целиком: кровлю, стены, перекрытия, цоколь и сложные узлы.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="technology">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Технология</div>
+            <h2>Подбираем ППУ под конструкцию дома</h2>
+          </div>
+          <p>
+            Услуга не должна продаваться как «одна пена на все случаи». Для дома важны поверхность,
+            влажность, будущая отделка, плотность и толщина слоя.
+          </p>
+        </div>
+
+        <div class="solution-matrix">
+          <aside class="solution-intro">
+            <div>
+              <h3>Почему нельзя считать только по цене за м²</h3>
+              <p>
+                Две сметы могут выглядеть одинаково по площади, но отличаться по толщине слоя,
+                плотности материала, подготовке поверхности и условиям гарантии.
+              </p>
+            </div>
+
+            <div class="solution-note">
+              <b>Правильный расчет = объект + слой + плотность + поверхность</b>
+              <span>Именно поэтому на странице нужен CTA с запросом фото, площади и описания задачи.</span>
+            </div>
+          </aside>
+
+          <div class="solution-list">
+            <article class="solution-item">
+              <div class="solution-pill">30–35 кг/м³</div>
+              <div>
+                <h3>Базовое утепление дома</h3>
+                <p>Частый вариант для теплоизоляции стен, кровли, мансарды, пола и перекрытий.</p>
+              </div>
+            </article>
+
+            <article class="solution-item">
+              <div class="solution-pill">40+ кг/м³</div>
+              <div>
+                <h3>Более плотный слой</h3>
+                <p>Рассматривается для зон с повышенной нагрузкой, наружных работ и специальных условий эксплуатации.</p>
+              </div>
+            </article>
+
+            <article class="solution-item">
+              <div class="solution-pill">5–10 см</div>
+              <div>
+                <h3>Толщина слоя</h3>
+                <p>Определяется по конструкции и задаче: мансарда, кровля, стены, цоколь или перекрытия требуют разного подхода.</p>
+              </div>
+            </article>
+
+            <article class="solution-item">
+              <div class="solution-pill">защита</div>
+              <div>
+                <h3>Финиш и закрытие ППУ</h3>
+                <p>Открытые участки требуют защиты от УФ и механического воздействия, а внутри дома важно учитывать дальнейшую отделку.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Сравнение</div>
+            <h2>Почему для дома выбирают напыляемый ППУ</h2>
+          </div>
+          <p>
+            Блок сравнения помогает закрыть сомнения тех, кто выбирает между плитным утеплителем,
+            минеральной ватой и напылением.
+          </p>
+        </div>
+
+        <div class="comparison">
+          <article class="compare-card">
+            <div>
+              <h3>Бесшовность</h3>
+              <p>ППУ наносится сплошным слоем и повторяет геометрию основания.</p>
+            </div>
+            <ul>
+              <li>меньше риска щелей;</li>
+              <li>лучше для стропил и примыканий;</li>
+              <li>не требует раскроя плит.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card">
+            <div>
+              <h3>Скорость работ</h3>
+              <p>На подготовленном объекте напыление проходит быстрее, чем монтаж плитного утеплителя в сложных узлах.</p>
+            </div>
+            <ul>
+              <li>меньше крепежа;</li>
+              <li>быстрое заполнение сложных зон;</li>
+              <li>понятный график работ.</li>
+            </ul>
+          </article>
+
+          <article class="compare-card">
+            <div>
+              <h3>Подбор под задачу</h3>
+              <p>Можно выбирать плотность, толщину и формат нанесения под конкретную часть дома.</p>
+            </div>
+            <ul>
+              <li>стены и кровля;</li>
+              <li>цоколь и фундамент;</li>
+              <li>полы и перекрытия.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Типы домов</div>
+            <h2>Для каких домов подходит утепление ППУ</h2>
+          </div>
+          <p>
+            Этот блок можно масштабировать под SEO: каркасные, деревянные, кирпичные, газобетонные,
+            дачные и частные дома.
+          </p>
+        </div>
+
+        <div class="house-types">
+          <div class="house-type">
+            <b>Каркасные дома</b>
+            <span>Заполнение стоек, стропил, перекрытий и зон сложной геометрии.</span>
+          </div>
+          <div class="house-type">
+            <b>Кирпичные дома</b>
+            <span>Утепление стен, кровли, чердака, цоколя и примыканий.</span>
+          </div>
+          <div class="house-type">
+            <b>Деревянные дома</b>
+            <span>Подбор решения с учетом основания, вентиляции и будущей отделки.</span>
+          </div>
+          <div class="house-type">
+            <b>Газобетон и блоки</b>
+            <span>Защита конструкций от промерзания и снижение теплопотерь.</span>
+          </div>
+          <div class="house-type">
+            <b>Дачные дома</b>
+            <span>Быстрое утепление сезонных и круглогодичных построек.</span>
+          </div>
+          <div class="house-type">
+            <b>Мансардные дома</b>
+            <span>Работы по скатной кровле, стропилам и верхним перекрытиям.</span>
+          </div>
+          <div class="house-type">
+            <b>Старые дома</b>
+            <span>Оцениваем состояние поверхности и выбираем безопасный порядок работ.</span>
+          </div>
+          <div class="house-type">
+            <b>Новые дома</b>
+            <span>Встраиваем утепление в строительный график и отделочные этапы.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Процесс</div>
+            <h2>Порядок утепления дома ППУ</h2>
+          </div>
+          <p>
+            На эталонной странице процесс должен быть понятным: посетитель видит не абстрактную услугу,
+            а конкретный маршрут от заявки до сдачи работ.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Заявка и вводные</h3>
+              <p>Вы описываете дом, площадь, зоны утепления, город и прикладываете фото при наличии.</p>
+            </div>
+            <span class="step__tag">5–10 минут</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Предварительный расчет</h3>
+              <p>Оцениваем стоимость по площади, толщине слоя, плотности и доступности поверхности.</p>
+            </div>
+            <span class="step__tag">без выезда</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Осмотр объекта</h3>
+              <p>Проверяем основание, влажность, подготовку, доступ и условия нанесения ППУ.</p>
+            </div>
+            <span class="step__tag">при необходимости</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Договор и график</h3>
+              <p>Фиксируем стоимость, материал, объем работ, сроки, порядок оплаты и гарантию.</p>
+            </div>
+            <span class="step__tag">официально</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Напыление и сдача</h3>
+              <p>Готовим поверхность, наносим слой, контролируем качество и передаем объект заказчику.</p>
+            </div>
+            <span class="step__tag">под ключ</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="quote">
+      <div class="container">
+        <div class="quote-panel">
+          <div class="quote-panel__left">
+            <div>
+              <div class="section-kicker">Расчет стоимости</div>
+              <h2>Получите смету на утепление дома</h2>
+              <p>Для предварительной оценки достаточно указать площадь, город, зону утепления и оставить контакт для связи.</p>
+            </div>
+
+            <div class="quote-panel__stats">
+              <div class="mini-stat">
+                <strong>30–35 кг/м³</strong>
+                <span>популярная плотность для дома</span>
+              </div>
+              <div class="mini-stat">
+                <strong>от 1190 ₽</strong>
+                <span>акционная цена за м²</span>
+              </div>
+              <div class="mini-stat">
+                <strong>до 3 лет</strong>
+                <span>гарантия на работы</span>
+              </div>
+              <div class="mini-stat">
+                <strong>Москва МО</strong>
+                <span>основная география</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="quote-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="service-object">Что утепляем?</label>
+                <select id="service-object">
+                  <option>Дом полностью</option>
+                  <option>Кровля / мансарда</option>
+                  <option>Стены</option>
+                  <option>Пол / перекрытия</option>
+                  <option>Фундамент / цоколь</option>
+                  <option>Подвал / подпол</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="service-area">Площадь, м²</label>
+                <input id="service-area" type="text" placeholder="Например, 180">
+              </div>
+
+              <div class="field">
+                <label for="service-place">Город / район</label>
+                <input id="service-place" type="text" placeholder="Например, Истра">
+              </div>
+
+              <div class="field">
+                <label for="service-phone">Телефон</label>
+                <input id="service-phone" type="tel" placeholder="+7 ___ ___-__-__">
+              </div>
+
+              <div class="field field--wide">
+                <label for="service-comment">Комментарий</label>
+                <textarea id="service-comment" placeholder="Опишите дом: материал стен, что нужно утеплить, есть ли фото или замеры."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn--accent" type="submit">Отправить на расчет</button>
+            <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Форма демонстрационная.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Примеры</div>
+            <h2>Как можно показывать работы на странице услуги</h2>
+          </div>
+          <p>
+            Для каждой услуги желательно показывать релевантные кейсы: дом, площадь, зона утепления,
+            плотность, задача и результат.
+          </p>
+        </div>
+
+        <div class="case-grid">
+          <article class="case-main">
+            <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=1200&q=80" alt="Утепление частного дома ППУ">
+            <div class="case-main__body">
+              <h3>Коттедж с мансардой</h3>
+              <p>Утепление скатной кровли, перекрытий и сложных примыканий без плитного утеплителя и лишних стыков.</p>
+              <div class="case-meta">
+                <span>дом</span>
+                <span>мансарда</span>
+                <span>ППУ 30–35 кг/м³</span>
+                <span>Москва и область</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="case-side">
+            <article class="case-small">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80" alt="Утепление кровли дома">
+              <div class="case-small__body">
+                <h3>Кровля дома</h3>
+                <p>Работа по стропилам и примыканиям в верхнем контуре здания.</p>
+                <div class="case-meta">
+                  <span>кровля</span>
+                  <span>частный дом</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="case-small">
+              <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=700&q=80" alt="Утепление цоколя и фундамента">
+              <div class="case-small__body">
+                <h3>Цоколь и пол</h3>
+                <p>Снижение промерзания нижней зоны дома и защита от холодного воздуха.</p>
+                <div class="case-meta">
+                  <span>цоколь</span>
+                  <span>пол</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="trust">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Почему мы</div>
+            <h2>Почему стоит обратиться именно к нам</h2>
+          </div>
+          <p>
+            На странице услуги важно отдельно показывать не только материал, но и причины доверия к исполнителю:
+            технология, договор, контроль качества, реальные специалисты и понятный порядок работы.
+          </p>
+        </div>
+
+        <div class="trust-grid">
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Собственные бригады и оборудование</h3>
+            <p>Не отдаем ключевые этапы случайным подрядчикам. Контролируем процесс напыления, толщину слоя и качество работ на объекте.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Подбор решения под конструкцию дома</h3>
+            <p>Не считаем дом по шаблону. Учитываем материал стен, кровлю, перекрытия, влажность, отделку и условия эксплуатации.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Договор, гарантия и документы</h3>
+            <p>Фиксируем стоимость, сроки, материал и объем работ. Работаем официально и передаем результат с документами.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Опыт на частных и коммерческих объектах</h3>
+            <p>Можем работать как с частными домами, так и со сложными объектами, где важны точность, сроки и соблюдение технологии.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Понятная смета без абстрактных обещаний</h3>
+            <p>Объясняем, из чего складывается цена: площадь, плотность, толщина слоя, подготовка поверхности и доступ к зонам работ.</p>
+          </article>
+
+          <article class="trust-card">
+            <div class="trust-card__icon"></div>
+            <h3>Работаем по Москве и области</h3>
+            <p>Выезжаем на объекты в Москве и Московской области, помогаем быстро оценить объем работ и подобрать удобный формат взаимодействия.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="gallery">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Фотографии работ</div>
+            <h2>Как проходит утепление дома ППУ</h2>
+          </div>
+          <p>
+            Это отдельная фотогалерея процесса, а не блок кейсов. Здесь показываем подготовку,
+            оборудование, напыление, сложные узлы и готовый слой ППУ.
+          </p>
+        </div>
+      </div>
+
+      <div class="work-gallery">
+        <div class="work-gallery__viewport">
+          <div class="work-gallery__track" aria-label="Галерея процесса утепления дома ППУ">
+            <button class="work-photo work-photo--wide" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Подготовка объекта"
+              data-gallery-caption="Осматриваем поверхность, доступ к зонам работ и условия нанесения ППУ.">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80" alt="Подготовка объекта к утеплению ППУ">
+              <span class="work-photo__caption">
+                <b>Подготовка объекта</b>
+                <small>Осмотр поверхности и зон нанесения</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Оборудование"
+              data-gallery-caption="Подготовка оборудования, компонентов и рабочего места перед напылением.">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=80" alt="Оборудование для напыления ППУ">
+              <span class="work-photo__caption">
+                <b>Оборудование</b>
+                <small>Настройка перед работой</small>
+              </span>
+            </button>
+
+            <button class="work-photo work-photo--tall" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Стены и примыкания"
+              data-gallery-caption="ППУ закрывает сложные участки, углы, ниши и зоны примыкания без стыков.">
+              <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="Напыление ППУ на стены дома">
+              <span class="work-photo__caption">
+                <b>Стены и примыкания</b>
+                <small>Сложные участки без стыков</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Кровля и мансарда"
+              data-gallery-caption="Работа по стропилам, верхнему контуру дома и труднодоступным участкам.">
+              <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=900&q=80" alt="Утепление кровли и мансарды ППУ">
+              <span class="work-photo__caption">
+                <b>Кровля и мансарда</b>
+                <small>Верхний контур дома</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Пол и цоколь"
+              data-gallery-caption="Утепление нижнего контура помогает снизить промерзание и теплопотери снизу.">
+              <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=900&q=80" alt="Утепление пола и цоколя дома">
+              <span class="work-photo__caption">
+                <b>Пол и цоколь</b>
+                <small>Нижний контур здания</small>
+              </span>
+            </button>
+
+            <button class="work-photo work-photo--wide" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Готовый слой ППУ"
+              data-gallery-caption="После напыления получается ровное бесшовное покрытие, которое закрывается дальнейшей отделкой или защитным слоем.">
+              <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1000&q=80" alt="Готовый слой ППУ после напыления">
+              <span class="work-photo__caption">
+                <b>Готовый слой</b>
+                <small>Бесшовное покрытие перед отделкой</small>
+              </span>
+            </button>
+
+            <button class="work-photo" type="button"
+              data-gallery-src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85"
+              data-gallery-title="Контроль качества"
+              data-gallery-caption="Проверяем равномерность слоя, зоны примыканий и готовность объекта к следующему этапу.">
+              <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Контроль качества утепления ППУ">
+              <span class="work-photo__caption">
+                <b>Контроль качества</b>
+                <small>Проверка слоя и примыканий</small>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="work-gallery__bottom">
+          <span>Прокручивайте галерею горизонтально</span>
+          <span>Нажмите на фото, чтобы увеличить</span>
+        </div>
+      </div>
+
+      <div class="gallery-lightbox" aria-hidden="true">
+        <button class="gallery-lightbox__backdrop" type="button" aria-label="Закрыть галерею"></button>
+
+        <div class="gallery-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
+          <button class="gallery-lightbox__close" type="button" aria-label="Закрыть">×</button>
+          <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" aria-label="Предыдущее фото">‹</button>
+          <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" aria-label="Следующее фото">›</button>
+
+          <img class="gallery-lightbox__img" src="" alt="">
+
+          <div class="gallery-lightbox__text">
+            <div>
+              <h3></h3>
+              <p></p>
+            </div>
+            <span class="gallery-lightbox__counter"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="certificates">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Документы</div>
+            <h2>Сертификаты и подтверждение качества</h2>
+          </div>
+          <p>
+            На услуговой странице полезно показывать, что компания работает не “на словах”, а опирается
+            на подтверждающие документы, соблюдение технологии и официальный подход.
+          </p>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card">
+            <div class="cert-card__preview">
+              <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=700&q=80" alt="Сертификат на материалы">
+            </div>
+            <h3>Сертификаты на материалы</h3>
+            <p>Показываем документы по системам и материалам, применяемым на объекте.</p>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__preview">
+              <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=700&q=80" alt="Техническая документация">
+            </div>
+            <h3>Техническая документация</h3>
+            <p>Подтверждение параметров, рекомендаций по нанесению и рабочих характеристик.</p>
+          </article>
+
+          <article class="cert-card">
+            <div class="cert-card__preview">
+              <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=700&q=80" alt="Гарантийные документы">
+            </div>
+            <h3>Гарантийные обязательства</h3>
+            <p>Фиксируем условия работ и гарантию, чтобы клиент понимал ответственность исполнителя.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Отзывы</div>
+            <h2>Что говорят клиенты об утеплении домов</h2>
+          </div>
+          <p>
+            Блок отзывов помогает усилить доверие. Для реального сайта сюда можно подтягивать отзывы из карточек
+            компании, мессенджеров или площадок, где клиенты уже делились впечатлениями.
+          </p>
+        </div>
+
+        <div class="reviews-grid">
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>“Обращались по утеплению мансарды в частном доме. Понравилось, что нам нормально объяснили разницу по толщине и плотности, а не просто назвали цену за метр.”</p>
+            <div class="review-author">
+              <b>Ирина М.</b>
+              <span>частный дом, Истринский район</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>“Нужно было быстро утеплить кровлю и перекрытия. Работы прошли аккуратно, заранее обсудили подготовку и что будет после напыления. По срокам не подвели.”</p>
+            <div class="review-author">
+              <b>Алексей Т.</b>
+              <span>коттедж, Одинцово</span>
+            </div>
+          </article>
+
+          <article class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p>“Выбирали между плитным утеплителем и ППУ. Здесь понравился подход: все разложили по смете, показали, почему для нашего дома лучше сделать напыление по сложным участкам.”</p>
+            <div class="review-author">
+              <b>Дмитрий С.</b>
+              <span>дом с мансардой, Дмитров</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="faq">
+      <div class="container">
+        <div class="faq-wrap">
+          <aside class="faq-card">
+            <div class="section-kicker">FAQ</div>
+            <h2>Вопросы по утеплению дома ППУ</h2>
+            <p>
+              FAQ должен формироваться под конкретную услугу. Для страницы дома — вопросы про стены,
+              кровлю, внутреннее/наружное утепление, слой, запах, отделку и цену.
+            </p>
+            <a href="#quote" class="btn btn--accent">Задать вопрос</a>
+          </aside>
+
+          <div class="faq-list">
+            <details open>
+              <summary>Сколько стоит утепление дома ППУ?</summary>
+              <p>Ориентир по акции — от 1190 ₽/м² для ППУ 30–35 кг/м³. Итоговая цена зависит от площади, толщины слоя, плотности, подготовки поверхности, удаленности объекта и сложности доступа.</p>
+            </details>
+
+            <details>
+              <summary>Какая толщина ППУ нужна для дома?</summary>
+              <p>Толщина подбирается по зоне работ и конструкции. Для мансарды, стен, пола, перекрытий и цоколя могут использоваться разные решения. Поэтому корректнее считать не «среднюю толщину», а конкретный узел дома.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли утеплять дом изнутри?</summary>
+              <p>Да, но не всегда это оптимальный вариант. Внутреннее утепление зависит от конструкции стены, влажности, вентиляции и будущей отделки. Перед решением нужно оценить, где будет точка росы и как будет закрываться слой.</p>
+            </details>
+
+            <details>
+              <summary>Подходит ли ППУ для деревянного дома?</summary>
+              <p>Подходит не во всех сценариях одинаково. Нужно учитывать состояние древесины, влажность, вентиляционный режим и отделку. Решение лучше принимать после осмотра или анализа фото и конструкции.</p>
+            </details>
+
+            <details>
+              <summary>Нужно ли закрывать ППУ после напыления?</summary>
+              <p>Обычно да. Внутри дома слой закрывают отделочными материалами, а на открытых участках нужна защита от ультрафиолета и механического воздействия.</p>
+            </details>
+
+            <details>
+              <summary>Есть ли запах после напыления?</summary>
+              <p>Во время работ используется профессиональное оборудование и компоненты. После нанесения объект должен проветриваться. Сроки допуска к дальнейшим работам зависят от условий на объекте и применяемой системы.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли утеплить только мансарду или кровлю?</summary>
+              <p>Да. Часто начинают именно с кровли, мансарды или чердака, потому что верхний контур дома заметно влияет на теплопотери и комфорт внутри помещений.</p>
+            </details>
+
+            <details>
+              <summary>Как быстро можно получить расчет?</summary>
+              <p>Предварительный расчет можно сделать по фото, площади, адресу и описанию задачи. Для точной сметы может потребоваться осмотр объекта и уточнение поверхности, толщины слоя и материала.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container final-cta__box">
+        <div>
+          <div class="section-kicker">Заявка</div>
+          <h2>Рассчитаем утепление дома под вашу конструкцию</h2>
+          <p>
+            Опишите дом, площадь и зоны утепления. Если есть фото кровли, стен, пола или фундамента —
+            приложите их менеджеру, чтобы быстрее получить точную оценку.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>ППУ Альянс</h3>
+          <div class="contact-list">
+            <div><b>Телефон:</b> +7 985 617-55-54</div>
+            <div><b>Email:</b> info@ppu-alians.ru</div>
+            <div><b>География:</b> Москва и Московская область</div>
+          </div>
+          <a href="#quote" class="btn btn--accent">Получить расчет</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+    (function () {
+      const galleryButtons = Array.from(document.querySelectorAll('.work-photo[data-gallery-src]'));
+      const lightbox = document.querySelector('.gallery-lightbox');
+      const track = document.querySelector('.work-gallery__track');
+
+      if (!galleryButtons.length || !lightbox || !track) return;
+
+      const image = lightbox.querySelector('.gallery-lightbox__img');
+      const title = lightbox.querySelector('.gallery-lightbox__text h3');
+      const caption = lightbox.querySelector('.gallery-lightbox__text p');
+      const counter = lightbox.querySelector('.gallery-lightbox__counter');
+      const closeButtons = lightbox.querySelectorAll('.gallery-lightbox__close, .gallery-lightbox__backdrop');
+      const prevButton = lightbox.querySelector('.gallery-lightbox__nav--prev');
+      const nextButton = lightbox.querySelector('.gallery-lightbox__nav--next');
+
+      let currentIndex = 0;
+      let pointerDown = false;
+      let dragStarted = false;
+      let startX = 0;
+      let startY = 0;
+      let startScrollLeft = 0;
+      let suppressClickUntil = 0;
+
+      function normalizeIndex(index) {
+        if (index < 0) return galleryButtons.length - 1;
+        if (index >= galleryButtons.length) return 0;
+        return index;
+      }
+
+      function showPhoto(index) {
+        currentIndex = normalizeIndex(index);
+
+        const button = galleryButtons[currentIndex];
+        const src = button.dataset.gallerySrc;
+        const img = button.querySelector('img');
+        const titleText = button.dataset.galleryTitle || '';
+        const captionText = button.dataset.galleryCaption || '';
+
+        image.src = src;
+        image.alt = img ? img.alt : titleText;
+        title.textContent = titleText;
+        caption.textContent = captionText;
+
+        if (counter) {
+          counter.textContent = (currentIndex + 1) + ' / ' + galleryButtons.length;
+        }
+      }
+
+      function openLightbox(index) {
+        showPhoto(index);
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('gallery-lock');
+
+        const closeButton = lightbox.querySelector('.gallery-lightbox__close');
+        if (closeButton) closeButton.focus({ preventScroll: true });
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('gallery-lock');
+
+        window.setTimeout(function () {
+          if (!lightbox.classList.contains('is-open')) {
+            image.src = '';
+          }
+        }, 180);
+      }
+
+      function showNext() {
+        showPhoto(currentIndex + 1);
+      }
+
+      function showPrev() {
+        showPhoto(currentIndex - 1);
+      }
+
+      galleryButtons.forEach(function (button, index) {
+        button.addEventListener('click', function (event) {
+          if (Date.now() < suppressClickUntil) {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+
+          openLightbox(index);
+        });
+      });
+
+      closeButtons.forEach(function (button) {
+        button.addEventListener('click', closeLightbox);
+      });
+
+      if (nextButton) {
+        nextButton.addEventListener('click', showNext);
+      }
+
+      if (prevButton) {
+        prevButton.addEventListener('click', showPrev);
+      }
+
+      document.addEventListener('keydown', function (event) {
+        if (!lightbox.classList.contains('is-open')) return;
+
+        if (event.key === 'Escape') {
+          closeLightbox();
+        }
+
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          showNext();
+        }
+
+        if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          showPrev();
+        }
+      });
+
+      track.addEventListener('pointerdown', function (event) {
+        if (event.button !== undefined && event.button !== 0) return;
+
+        pointerDown = true;
+        dragStarted = false;
+        startX = event.clientX;
+        startY = event.clientY;
+        startScrollLeft = track.scrollLeft;
+      });
+
+      document.addEventListener('pointermove', function (event) {
+        if (!pointerDown) return;
+
+        const deltaX = event.clientX - startX;
+        const deltaY = event.clientY - startY;
+
+        if (!dragStarted && Math.abs(deltaX) > 8 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          dragStarted = true;
+          track.classList.add('is-dragging');
+        }
+
+        if (dragStarted) {
+          event.preventDefault();
+          track.scrollLeft = startScrollLeft - deltaX;
+        }
+      }, { passive: false });
+
+      document.addEventListener('pointerup', function () {
+        if (!pointerDown) return;
+
+        if (dragStarted) {
+          suppressClickUntil = Date.now() + 220;
+        }
+
+        pointerDown = false;
+        dragStarted = false;
+        track.classList.remove('is-dragging');
+      });
+
+      document.addEventListener('pointercancel', function () {
+        pointerDown = false;
+        dragStarted = false;
+        track.classList.remove('is-dragging');
+      });
+    })();
+</script>
+</Layout>

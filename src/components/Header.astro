@@ -1,0 +1,341 @@
+---
+// Шапка с лого и мега-меню услуг. Разметка и JS мега-меню перенесены 1-в-1 из index.html.
+---
+    <header class="header">
+      <div class="container header__inner">
+        <a href="#" class="logo" aria-label="ППУ Альянс">
+          <span class="logo__mark">ППУ</span>
+          <span class="logo__name">
+            <span>ППУ Альянс</span>
+            <span>Теплоизоляция</span>
+          </span>
+        </a>
+        <nav class="nav nav--mega nav--tabs" aria-label="Основное меню">
+          <div class="nav-item nav-item--services">
+            <a class="nav-link nav-link--services" href="#objects">
+              Услуги
+              <span class="nav-caret" aria-hidden="true"></span>
+            </a>
+
+            <div class="mega-tabs" aria-label="Каталог услуг">
+              <div class="mega-tabs__inner">
+                <div class="mega-tabs__sidebar">
+                  <div class="mega-tabs__label">Каталог услуг</div>
+
+                  <button class="mega-tab is-active" type="button" data-mega-target="ppu">
+                    <span class="mega-tab__icon mega-tab__icon--ppu"></span>
+                    <span>
+                      <b>Теплоизоляция ППУ</b>
+                      <small>Дома, кровли, ангары, фундаменты</small>
+                    </span>
+                  </button>
+
+                  <button class="mega-tab" type="button" data-mega-target="hydro">
+                    <span class="mega-tab__icon mega-tab__icon--hydro"></span>
+                    <span>
+                      <b>Гидроизоляция полимочевиной</b>
+                      <small>Кровли, бассейны, резервуары, полы</small>
+                    </span>
+                  </button>
+
+                  <button class="mega-tab" type="button" data-mega-target="fill">
+                    <span class="mega-tab__icon mega-tab__icon--fill"></span>
+                    <span>
+                      <b>Заливка стен ППУ</b>
+                      <small>Межстеновые пустоты</small>
+                    </span>
+                  </button>
+
+                  <button class="mega-tab" type="button" data-mega-target="extra">
+                    <span class="mega-tab__icon mega-tab__icon--tools"></span>
+                    <span>
+                      <b>Доп. услуги</b>
+                      <small>Аренда и ремонт оборудования</small>
+                    </span>
+                  </button>
+
+                  <div class="mega-tabs__cta">
+                    <b>Не нашли свой объект?</b>
+                    <span>Пришлите фото и площадь — подскажем подходящий вариант.</span>
+                    <a href="#quote">Получить расчет</a>
+                  </div>
+                </div>
+
+                <div class="mega-tabs__content">
+                  <section class="mega-panel is-active" data-panel="ppu">
+                    <div class="mega-panel__head">
+                      <div>
+                        <div class="mega-panel__kicker">Основное направление</div>
+                        <h3>Теплоизоляция ППУ</h3>
+                        <p>Выберите объект или конструкцию. Вложенные направления раскрыты сразу внутри карточек, без третьего уровня меню.</p>
+                      </div>
+                      <a class="mega-panel__all" href="#objects">Все услуги →</a>
+                    </div>
+
+                    <div class="mega-panel__grid mega-panel__grid--four">
+                      <a href="#" class="mega-service"><span class="mi mi-car"></span><span>Автомобили</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-hangar"></span><span>Ангары</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-balcony"></span><span>Балконы и лоджии</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-bath"></span><span>Баня</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-pool"></span><span>Бассейн</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-veranda"></span><span>Веранда</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-garage"></span><span>Гараж</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-house"></span><span>Дача</span></a>
+
+                      <div class="mega-service mega-service--nested">
+                        <div class="mega-service__main"><span class="mi mi-house"></span><span>Дома</span></div>
+                        <div class="mega-service__sub">
+                          <a href="#">Бревенчатый дом</a>
+                          <a href="#">Брусовой дом</a>
+                          <a href="#">Деревянный дом</a>
+                          <a href="#">Каркасный дом</a>
+                          <a href="#">Кирпичный дом</a>
+                          <a href="#">Купольный дом</a>
+                          <a href="#">Панельный дом</a>
+                          <a href="#">Частный дом</a>
+                          <a href="#">ЛСТК дом</a>
+                          <a href="#">А-фрейм дом</a>
+                          <a href="#">Сруб</a>
+                        </div>
+                      </div>
+
+                      <a href="#" class="mega-service"><span class="mi mi-tank"></span><span>Емкости и цистерны</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-building"></span><span>Зданий</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-apartment"></span><span>Квартира</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-container"></span><span>Контейнеры</span></a>
+
+                      <div class="mega-service mega-service--nested mega-service--small">
+                        <div class="mega-service__main"><span class="mi mi-roof"></span><span>Кровля</span></div>
+                        <div class="mega-service__sub">
+                          <a href="#">Скатная кровля</a>
+                          <a href="#">Плоская кровля</a>
+                        </div>
+                      </div>
+
+                      <a href="#" class="mega-service"><span class="mi mi-roof"></span><span>Крыши</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-attic"></span><span>Мансарды</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-floor"></span><span>Перекрытия</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-cellar"></span><span>Погреб</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-basement"></span><span>Подвал</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-basement"></span><span>Подпол</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-floor"></span><span>Полы</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-ceiling"></span><span>Потолок</span></a>
+
+                      <div class="mega-service mega-service--nested">
+                        <div class="mega-service__main"><span class="mi mi-factory"></span><span>Промышленных объектов</span></div>
+                        <div class="mega-service__sub">
+                          <a href="#">Зернохранилищ</a>
+                          <a href="#">Коровников</a>
+                          <a href="#">Курятников</a>
+                          <a href="#">Овощехранилища</a>
+                          <a href="#">Птичники</a>
+                          <a href="#">Свинарников</a>
+                          <a href="#">Фермы</a>
+                        </div>
+                      </div>
+
+                      <a href="#" class="mega-service"><span class="mi mi-bath"></span><span>Сауны</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-warehouse"></span><span>Склад</span></a>
+
+                      <div class="mega-service mega-service--nested mega-service--small">
+                        <div class="mega-service__main"><span class="mi mi-wall"></span><span>Стены</span></div>
+                        <div class="mega-service__sub">
+                          <a href="#">Внутреннее</a>
+                          <a href="#">Внешнее</a>
+                        </div>
+                      </div>
+
+                      <a href="#" class="mega-service"><span class="mi mi-boat"></span><span>Судов и лодок</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-pipe"></span><span>Трубы</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-facade"></span><span>Фасады</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-foundation"></span><span>Фундамент</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-van"></span><span>Фургоны</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-cold"></span><span>Холодильная камера</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-factory"></span><span>Цеха</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-foundation"></span><span>Цоколь</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-attic"></span><span>Чердак</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-joint"></span><span>Швы</span></a>
+                    </div>
+                  </section>
+
+                  <section class="mega-panel" data-panel="hydro">
+                    <div class="mega-panel__head">
+                      <div>
+                        <div class="mega-panel__kicker">Защита от воды</div>
+                        <h3>Гидроизоляция полимочевиной</h3>
+                        <p>Для кровель, фундаментов, бассейнов, резервуаров и промышленных поверхностей.</p>
+                      </div>
+                      <a class="mega-panel__all" href="#quote">Рассчитать →</a>
+                    </div>
+
+                    <div class="mega-panel__grid mega-panel__grid--three">
+                      <a href="#" class="mega-service"><span class="mi mi-balcony"></span><span>Балкон</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-pool"></span><span>Бассейн</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-house"></span><span>Каркасный дом</span></a>
+
+                      <div class="mega-service mega-service--nested">
+                        <div class="mega-service__main"><span class="mi mi-roof"></span><span>Кровля</span></div>
+                        <div class="mega-service__sub">
+                          <a href="#">Металлопрофиль</a>
+                          <a href="#">Лотковая</a>
+                          <a href="#">Бетонная</a>
+                          <a href="#">Металлическая</a>
+                          <a href="#">Фальцевая</a>
+                          <a href="#">Плоская</a>
+                        </div>
+                      </div>
+
+                      <a href="#" class="mega-service"><span class="mi mi-roof"></span><span>Крыша</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-bridge"></span><span>Мостов</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-parking"></span><span>Паркинг</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-basement"></span><span>Подвал</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-floor"></span><span>Пол</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-factory"></span><span>Промышленный пол</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-tank"></span><span>Резервуары и цистерны</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-platform"></span><span>Смотровые площадки</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-foundation"></span><span>Фундамент</span></a>
+                      <a href="#" class="mega-service"><span class="mi mi-foundation"></span><span>Цоколи</span></a>
+                    </div>
+                  </section>
+
+                  <section class="mega-panel" data-panel="fill">
+                    <div class="mega-panel__head">
+                      <div>
+                        <div class="mega-panel__kicker">Межстеновые пустоты</div>
+                        <h3>Заливка стен ППУ</h3>
+                        <p>Отдельное направление для заполнения пустот и труднодоступных участков.</p>
+                      </div>
+                      <a class="mega-panel__all" href="#quote">Оставить заявку →</a>
+                    </div>
+
+                    <div class="mega-panel__feature">
+                      <span class="mi mi-wall"></span>
+                      <div>
+                        <h4>Заливка ППУ в межстеновые пустоты</h4>
+                        <p>Подбираем плотность и объем материала, оцениваем доступ к полостям и особенности конструкции.</p>
+                        <a href="#">Подробнее о заливке →</a>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="mega-panel" data-panel="extra">
+                    <div class="mega-panel__head">
+                      <div>
+                        <div class="mega-panel__kicker">Оборудование</div>
+                        <h3>Дополнительные услуги</h3>
+                        <p>Сервисные направления для оборудования и технических задач.</p>
+                      </div>
+                      <a class="mega-panel__all" href="#contacts">Связаться →</a>
+                    </div>
+
+                    <div class="mega-panel__grid mega-panel__grid--two">
+                      <a href="#" class="mega-service mega-service--big"><span class="mi mi-equipment"></span><span>Аренда оборудования</span></a>
+                      <a href="#" class="mega-service mega-service--big"><span class="mi mi-repair"></span><span>Ремонт оборудования</span></a>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a class="nav-link" href="#quote">Цены</a>
+          <a class="nav-link" href="#cases">Компоненты</a>
+          <a class="nav-link" href="#faq">Оборудование</a>
+          <a class="nav-link" href="#contacts">Наши работы</a>
+          <a class="nav-link" href="#prices">Акции</a>
+        </nav>
+        <div class="header__actions">
+          <div class="header-contact">
+            <a class="phone" href="tel:+79856175554">+7 985 617-55-54</a>
+
+            <div class="header-socials" aria-label="Мессенджеры">
+              <a class="social-icon social-icon--wa" href="#" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12.03 4.5a7.44 7.44 0 0 0-6.4 11.22l-.76 2.83 2.92-.75A7.44 7.44 0 1 0 12.03 4.5Z"></path>
+                  <path d="M9.1 8.5c.18-.4.35-.42.63-.42h.45c.15 0 .36.05.55.42.2.47.68 1.65.74 1.77.06.12.1.27.02.42-.08.16-.12.26-.25.4-.12.14-.26.31-.37.42-.12.12-.25.25-.11.49.14.24.62 1.03 1.34 1.67.92.82 1.7 1.08 1.94 1.2.24.12.38.1.52-.06.16-.18.6-.7.76-.94.16-.24.32-.2.55-.12.22.08 1.42.67 1.66.79.24.12.4.18.46.28.06.1.06.6-.14 1.18-.2.58-1.16 1.1-1.63 1.14-.43.04-.98.06-1.58-.1-.36-.1-.83-.27-1.43-.53-2.5-1.08-4.14-3.6-4.27-3.77-.12-.16-1.02-1.35-1.02-2.58s.65-1.84.88-2.09c.22-.24.48-.3.65-.3h.47"></path>
+                </svg>
+              </a>
+              <a class="social-icon social-icon--tg" href="#" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.5 4.8 17.7 19c-.2 1-.76 1.23-1.55.77l-4.3-3.18-2.07 2c-.23.23-.42.42-.86.42l.3-4.4 8-7.24c.35-.3-.08-.48-.54-.18l-9.9 6.23-4.26-1.33c-.93-.3-.95-.93.2-1.38l16.65-6.42c.77-.28 1.45.18 1.2 1.5Z"></path>
+                </svg>
+              </a>
+              <a class="social-icon social-icon--max" href="#" aria-label="MAX">MAX</a>
+            </div>
+          </div>
+
+          <a class="btn btn--accent" href="#quote">Рассчитать</a>
+          <button class="burger" type="button" aria-label="Открыть меню">☰</button>
+        </div>
+      </div>
+    </header>
+<script>
+    (function () {
+      const navItem = document.querySelector('.nav-item--services');
+      const root = document.querySelector('.mega-tabs');
+      if (!navItem || !root) return;
+
+      const tabs = Array.from(root.querySelectorAll('.mega-tab[data-mega-target]'));
+      const panels = Array.from(root.querySelectorAll('.mega-panel[data-panel]'));
+      let closeTimer = null;
+
+      function activate(target) {
+        tabs.forEach((tab) => {
+          tab.classList.toggle('is-active', tab.dataset.megaTarget === target);
+        });
+
+        panels.forEach((panel) => {
+          panel.classList.toggle('is-active', panel.dataset.panel === target);
+        });
+      }
+
+      function openMenu() {
+        window.clearTimeout(closeTimer);
+        navItem.classList.add('is-open');
+      }
+
+      function closeMenu() {
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(() => {
+          navItem.classList.remove('is-open');
+          activate('ppu');
+        }, 320);
+      }
+
+      tabs.forEach((tab) => {
+        const target = tab.dataset.megaTarget;
+        tab.addEventListener('mouseenter', () => {
+          openMenu();
+          activate(target);
+        });
+        tab.addEventListener('focus', () => {
+          openMenu();
+          activate(target);
+        });
+        tab.addEventListener('click', (event) => {
+          event.preventDefault();
+          openMenu();
+          activate(target);
+        });
+      });
+
+      navItem.addEventListener('mouseenter', openMenu);
+      navItem.addEventListener('mouseleave', closeMenu);
+      root.addEventListener('mouseenter', openMenu);
+      root.addEventListener('mouseleave', closeMenu);
+
+      const servicesLink = navItem.querySelector('.nav-link--services');
+      if (servicesLink) {
+        servicesLink.addEventListener('focus', openMenu);
+      }
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+          navItem.classList.remove('is-open');
+          activate('ppu');
+        }
+      });
+
+      activate('ppu');
+    })();
+</script>

@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Цены на утепление ППУ и гидроизоляцию в Москве | ППУ Альянс</title>
+  <meta name="description" content="Цены на напыление ППУ, заливку ППУ и гидроизоляцию полимочевиной. Прайс-лист, расчет стоимости, факторы цены, FAQ и заявка на смету." />
+
+  <style>
+    :root {
+      --bg: #0f1419;
+      --bg-2: #151b22;
+      --bg-3: #202832;
+      --card: #ffffff;
+      --card-soft: #f5f0e7;
+      --text: #101820;
+      --text-soft: #5f6872;
+      --text-light: #f7f3eb;
+      --muted-light: #b8c1cc;
+      --accent: #f2a733;
+      --accent-2: #ffcf72;
+      --green: #34b36b;
+      --red: #d25c47;
+      --border-dark: rgba(255,255,255,.14);
+      --border-light: rgba(16,24,32,.12);
+      --shadow: 0 24px 80px rgba(0,0,0,.24);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 10px;
+      --container: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 999px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn--accent {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1d1609;
+      box-shadow: 0 16px 34px rgba(242,167,51,.24);
+    }
+
+    .btn--dark {
+      background: #111820;
+      color: var(--text-light);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+
+    .btn--light {
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 16px 34px rgba(0,0,0,.14);
+    }
+
+    .price-page {
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .price-hero {
+      position: relative;
+      padding: 54px 0 72px;
+      background:
+        radial-gradient(circle at top left, rgba(242,167,51,.22), transparent 34rem),
+        radial-gradient(circle at top right, rgba(31,40,50,.06), transparent 36rem),
+        linear-gradient(180deg, #f7f3eb 0%, #ffffff 100%);
+      color: var(--text);
+      isolation: isolate;
+    }
+
+    .price-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(16,24,32,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,24,32,.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 82%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+      color: var(--text-soft);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .breadcrumbs a {
+      color: #8a560a;
+    }
+
+    .breadcrumbs span::before {
+      content: "›";
+      margin-right: 8px;
+      color: rgba(16,24,32,.38);
+    }
+
+    .price-hero__grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(390px, .98fr);
+      gap: 42px;
+      align-items: center;
+    }
+
+    .price-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #8a560a;
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 18px;
+    }
+
+    .price-kicker::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 0 0 8px rgba(242,167,51,.13);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 860px;
+      margin-bottom: 22px;
+      font-size: clamp(42px, 5.4vw, 72px);
+      line-height: .94;
+      letter-spacing: -.055em;
+    }
+
+    .price-hero__lead {
+      max-width: 700px;
+      color: var(--text-soft);
+      font-size: clamp(18px, 2vw, 22px);
+      margin-bottom: 26px;
+    }
+
+    .price-hero__lead b {
+      color: var(--text);
+    }
+
+    .hero-price-stack {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .hero-price {
+      min-height: 120px;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 12px 28px rgba(16,24,32,.055);
+      display: grid;
+      align-content: space-between;
+      gap: 10px;
+    }
+
+    .hero-price span {
+      color: var(--text-soft);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hero-price strong {
+      font-size: 30px;
+      line-height: .95;
+      letter-spacing: -.04em;
+    }
+
+    .hero-price small {
+      color: #8a560a;
+      font-weight: 900;
+    }
+
+    .price-hero__buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .price-hero__media {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .price-hero__photo {
+      min-height: 570px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: #26313b;
+      border: 1px solid rgba(16,24,32,.12);
+      box-shadow: var(--shadow);
+    }
+
+    .price-hero__photo img {
+      width: 100%;
+      height: 570px;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(1.04) contrast(1.04);
+    }
+
+    .price-hero__photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,20,25,.62), transparent 58%);
+      border-radius: var(--radius-xl);
+      pointer-events: none;
+    }
+
+    .promo-card {
+      position: absolute;
+      left: -26px;
+      bottom: 38px;
+      z-index: 3;
+      width: min(380px, 84%);
+      border-radius: 24px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(242,167,51,.20), transparent 12rem),
+        rgba(255,255,255,.96);
+      color: var(--text);
+      border: 1px solid rgba(242,167,51,.42);
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+
+    .promo-card__label {
+      color: #8a560a;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 10px;
+    }
+
+    .promo-card__discount {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 12px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1d1609;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .promo-card__old {
+      color: var(--text-soft);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .promo-card__old span {
+      position: relative;
+      display: inline-block;
+      margin-left: 4px;
+      color: #8d969f;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .promo-card__old span::after {
+      content: "";
+      position: absolute;
+      left: -2px;
+      right: -2px;
+      top: 50%;
+      height: 2px;
+      background: var(--red);
+      transform: rotate(-6deg);
+    }
+
+    .promo-card__price {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      margin: 6px 0 10px;
+    }
+
+    .promo-card__price strong {
+      color: #101820;
+      font-size: 42px;
+      line-height: .9;
+      letter-spacing: -.05em;
+    }
+
+    .promo-card__price span {
+      color: #8a560a;
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    .promo-card p {
+      color: var(--text-soft);
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .anchor-strip {
+      position: relative;
+      z-index: 3;
+      padding: 20px 0;
+      background:
+        radial-gradient(circle at 12% 0%, rgba(242,167,51,.22), transparent 26rem),
+        linear-gradient(135deg, #101820 0%, #19232d 100%);
+      border-top: 1px solid rgba(255,255,255,.10);
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+
+    .anchor-strip__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .anchor-strip a {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.11);
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      font-weight: 800;
+      transition: background .18s ease, color .18s ease, transform .18s ease;
+    }
+
+    .anchor-strip a:hover {
+      color: #fff;
+      background: rgba(242,167,51,.16);
+      transform: translateY(-2px);
+    }
+
+    .section {
+      padding: 80px 0;
+      background: #fff;
+    }
+
+    .section--soft {
+      background: var(--card-soft);
+    }
+
+    .section--dark {
+      background: var(--bg-2);
+      color: var(--text-light);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 54px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      margin-bottom: 0;
+    }
+
+    .section-head p {
+      max-width: 560px;
+      color: var(--text-soft);
+      margin-bottom: 0;
+      font-size: 17px;
+    }
+
+    .section--dark .section-head p {
+      color: var(--muted-light);
+    }
+
+    .price-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+
+    .price-tab {
+      min-height: 44px;
+      border: 1px solid rgba(16,24,32,.10);
+      border-radius: 999px;
+      padding: 0 16px;
+      background: #fff;
+      color: var(--text);
+      font-weight: 900;
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+    }
+
+    .price-tab:hover,
+    .price-tab.is-active {
+      background: #101820;
+      color: #fff;
+      border-color: #101820;
+      transform: translateY(-1px);
+    }
+
+    .price-panel {
+      display: none;
+    }
+
+    .price-panel.is-active {
+      display: block;
+    }
+
+    .price-table-wrap {
+      border-radius: var(--radius-xl);
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 20px 60px rgba(16,24,32,.08);
+      overflow: hidden;
+    }
+
+    .price-table-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 24px 26px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(242,167,51,.16), transparent 22rem),
+        #101820;
+      color: #fff;
+    }
+
+    .price-table-head h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+
+    .price-table-head p {
+      margin: 0;
+      color: rgba(255,255,255,.72);
+      max-width: 760px;
+    }
+
+    .price-table-badge {
+      border-radius: 999px;
+      padding: 10px 13px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1d1609;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .price-table-scroll {
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(242,167,51,.75) rgba(16,24,32,.08);
+    }
+
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 760px;
+    }
+
+    .price-table th,
+    .price-table td {
+      padding: 18px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(16,24,32,.08);
+      vertical-align: middle;
+    }
+
+    .price-table th {
+      color: #4f5863;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      background: #f7f4ee;
+    }
+
+    .price-table td {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .price-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .price-table .muted {
+      color: var(--text-soft);
+      font-weight: 600;
+    }
+
+    .price-value {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 5px;
+      color: #101820;
+      font-size: 21px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+      white-space: nowrap;
+    }
+
+    .price-value small {
+      color: #8a560a;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .price-value--promo {
+      color: #101820;
+    }
+
+    .price-value--promo::after {
+      content: "акция";
+      margin-left: 5px;
+      display: inline-flex;
+      min-height: 24px;
+      align-items: center;
+      padding: 0 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #1d1609;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .price-note {
+      padding: 18px 22px;
+      background: #fbfaf8;
+      color: var(--text-soft);
+      font-size: 14px;
+      border-top: 1px solid rgba(16,24,32,.08);
+    }
+
+    .price-note b {
+      color: var(--text);
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .calculator-intro {
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      background: var(--bg);
+      color: var(--text-light);
+      min-height: 480px;
+      display: grid;
+      align-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calculator-intro::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -110px;
+      bottom: -110px;
+      border-radius: 50%;
+      background: rgba(242,167,51,.18);
+      filter: blur(2px);
+    }
+
+    .calculator-intro p {
+      color: var(--muted-light);
+      font-size: 17px;
+      max-width: 440px;
+    }
+
+    .calc-stats {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 12px;
+    }
+
+    .calc-stat {
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.78);
+    }
+
+    .calc-stat b {
+      display: block;
+      color: #fff;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .calc-form {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 20px 60px rgba(16,24,32,.08);
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field--wide {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #4c5560;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid rgba(16,24,32,.16);
+      border-radius: 15px;
+      min-height: 52px;
+      padding: 0 15px;
+      outline: 0;
+      background: #fbfaf8;
+      color: var(--text);
+      transition: border .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .field textarea {
+      padding-top: 14px;
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: rgba(242,167,51,.75);
+      box-shadow: 0 0 0 4px rgba(242,167,51,.16);
+      background: #fff;
+    }
+
+    .calc-result {
+      border-radius: 22px;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(242,167,51,.18), transparent 16rem),
+        #f7f4ee;
+      border: 1px solid rgba(242,167,51,.28);
+      display: grid;
+      gap: 8px;
+    }
+
+    .calc-result span {
+      color: var(--text-soft);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .calc-result strong {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: .95;
+      letter-spacing: -.04em;
+    }
+
+    .calc-result p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .factor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .factor-card {
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 14px 36px rgba(16,24,32,.05);
+      min-height: 210px;
+    }
+
+    .factor-card__icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      background: #101820;
+      position: relative;
+    }
+
+    .factor-card__icon::before {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border: 2px solid var(--accent-2);
+      border-radius: 6px;
+      transform: rotate(8deg);
+    }
+
+    .factor-card h3 {
+      font-size: 22px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+
+    .factor-card p {
+      color: var(--text-soft);
+      margin-bottom: 0;
+    }
+
+    .warning-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .warning-main {
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(242,167,51,.16), transparent 20rem),
+        #101820;
+      color: #fff;
+      display: grid;
+      align-content: space-between;
+      min-height: 430px;
+    }
+
+    .warning-main p {
+      color: var(--muted-light);
+      font-size: 17px;
+    }
+
+    .warning-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .warning-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: start;
+      border-radius: 20px;
+      padding: 18px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 14px 36px rgba(16,24,32,.05);
+    }
+
+    .warning-item__num {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: #fff3db;
+      color: #8a560a;
+      font-weight: 900;
+    }
+
+    .warning-item h3 {
+      font-size: 21px;
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      margin-bottom: 7px;
+    }
+
+    .warning-item p {
+      color: var(--text-soft);
+      margin: 0;
+    }
+
+    .cta-band {
+      padding: 28px 0;
+      background:
+        linear-gradient(135deg, #101820 0%, #1b2530 58%, #2a2113 100%);
+      color: #fff;
+    }
+
+    .cta-band__box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      border-radius: 26px;
+      padding: 26px 30px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(242,167,51,.26), transparent 24rem),
+        rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.13);
+      box-shadow: 0 20px 54px rgba(0,0,0,.16);
+    }
+
+    .cta-band h2 {
+      font-size: clamp(27px, 3vw, 40px);
+      margin-bottom: 8px;
+    }
+
+    .cta-band p {
+      max-width: 760px;
+      color: rgba(255,255,255,.72);
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .cta-band__actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .cta-band__phone {
+      color: #fff;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .service-price-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .service-price-card {
+      border-radius: 22px;
+      padding: 22px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid var(--border-dark);
+      min-height: 260px;
+      display: grid;
+      align-content: space-between;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-price-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+    }
+
+    .service-price-card h3 {
+      font-size: 22px;
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin-bottom: 10px;
+    }
+
+    .service-price-card p {
+      color: var(--muted-light);
+      margin: 0;
+    }
+
+    .service-price-card strong {
+      color: #fff;
+      font-size: 34px;
+      line-height: .95;
+      letter-spacing: -.045em;
+    }
+
+    .service-price-card span {
+      color: var(--accent-2);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .faq-wrap {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .faq-card {
+      position: sticky;
+      top: 110px;
+      border-radius: var(--radius-xl);
+      padding: 34px;
+      background: #101820;
+      color: var(--text-light);
+    }
+
+    .faq-card p {
+      color: var(--muted-light);
+      margin-bottom: 24px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(16,24,32,.08);
+      box-shadow: 0 12px 30px rgba(16,24,32,.045);
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 22px 24px;
+      font-weight: 900;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      color: var(--accent);
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    details[open] summary::after {
+      content: "–";
+    }
+
+    details p {
+      color: var(--text-soft);
+      padding: 0 24px 22px;
+      margin-bottom: 0;
+    }
+
+    .final-cta {
+      padding: 84px 0;
+      background:
+        linear-gradient(135deg, rgba(15,20,25,.94), rgba(15,20,25,.62)),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=80");
+      background-position: center;
+      background-size: cover;
+      color: var(--text-light);
+    }
+
+    .final-cta__box {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .final-cta h2 {
+      max-width: 780px;
+      margin-bottom: 20px;
+    }
+
+    .final-cta p {
+      color: var(--muted-light);
+      max-width: 650px;
+      font-size: 18px;
+      margin-bottom: 0;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      background: rgba(255,255,255,.1);
+      border: 1px solid var(--border-dark);
+      backdrop-filter: blur(12px);
+    }
+
+    .contact-card h3 {
+      font-size: 25px;
+      margin-bottom: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 24px;
+      color: var(--muted-light);
+    }
+
+    .contact-list b {
+      color: #fff;
+    }
+
+    @media (max-width: 1100px) {
+      .price-hero__grid,
+      .calculator-grid,
+      .warning-grid,
+      .faq-wrap,
+      .final-cta__box {
+        grid-template-columns: 1fr;
+      }
+
+      .price-hero__photo,
+      .price-hero__photo img {
+        height: 520px;
+        min-height: 520px;
+      }
+
+      .factor-grid,
+      .service-price-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .faq-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, var(--container));
+      }
+
+      .price-hero {
+        padding: 36px 0 46px;
+      }
+
+      h1 {
+        font-size: clamp(38px, 13vw, 52px);
+      }
+
+      .price-hero__lead {
+        font-size: 17px;
+      }
+
+      .hero-price-stack,
+      .form-grid,
+      .factor-grid,
+      .service-price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-hero__buttons .btn,
+      .cta-band__actions .btn,
+      .cta-band__phone {
+        width: 100%;
+      }
+
+      .price-hero__photo,
+      .price-hero__photo img {
+        min-height: 360px;
+        height: 360px;
+      }
+
+      .price-hero__photo {
+        border-radius: 26px;
+      }
+
+      .promo-card {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        width: 100%;
+        margin-top: -54px;
+      }
+
+      .anchor-strip__inner {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+
+      .anchor-strip__inner::-webkit-scrollbar {
+        display: none;
+      }
+
+      .anchor-strip a {
+        flex: 0 0 auto;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+
+      .section-head {
+        display: grid;
+        gap: 14px;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      .price-table-head {
+        grid-template-columns: 1fr;
+      }
+
+      .price-table-badge {
+        width: fit-content;
+      }
+
+      .calculator-intro,
+      .calc-form,
+      .warning-main {
+        padding: 24px;
+      }
+
+      .warning-item {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-band__box {
+        grid-template-columns: 1fr;
+        padding: 22px;
+      }
+
+      .cta-band__actions {
+        justify-content: stretch;
+      }
+
+      .final-cta {
+        padding: 60px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER / PREHEADER / FOOTER подключаются общие с главной страницы -->
+  <main class="price-page">
+    <section class="price-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="#">Главная</a>
+          <span>Цены</span>
+        </nav>
+
+        <div class="price-hero__grid">
+          <div class="price-hero__content">
+            <div class="price-kicker">Прайс-лист ППУ Альянс</div>
+            <h1>Цены на утепление ППУ и гидроизоляцию</h1>
+            <p class="price-hero__lead">
+              Собрали ориентиры по напылению ППУ, заливке ППУ в пустоты и гидроизоляции полимочевиной.
+              Точная смета зависит от <b>площади, плотности, толщины слоя, поверхности и условий доступа</b>.
+            </p>
+
+            <div class="hero-price-stack">
+              <div class="hero-price">
+                <span>Напыление ППУ</span>
+                <strong>от 1190 ₽</strong>
+                <small>за м² по акции</small>
+              </div>
+              <div class="hero-price">
+                <span>Заливка ППУ</span>
+                <strong>от 15 500 ₽</strong>
+                <small>за м³</small>
+              </div>
+              <div class="hero-price">
+                <span>Полимочевина</span>
+                <strong>от 3200 ₽</strong>
+                <small>за м²</small>
+              </div>
+            </div>
+
+            <div class="price-hero__buttons">
+              <a href="#calculator" class="btn btn--accent">Рассчитать стоимость</a>
+              <a href="#price-list" class="btn btn--dark">Смотреть прайс</a>
+            </div>
+          </div>
+
+          <div class="price-hero__media">
+            <div class="price-hero__photo">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Стоимость напыления ППУ и гидроизоляции">
+            </div>
+
+            <div class="promo-card">
+              <div class="promo-card__label">Акция на напыление ППУ</div>
+              <div class="promo-card__discount">Цена снижена</div>
+              <div class="promo-card__old">было <span>1590 ₽/м²</span></div>
+              <div class="promo-card__price">
+                <strong>1190 ₽</strong>
+                <span>/ м²</span>
+              </div>
+              <p>Для ППУ 30–35 кг/м³ при толщине слоя 5–6 см. Итоговая цена зависит от объекта и объема работ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="anchor-strip" aria-label="Навигация по странице">
+      <div class="container anchor-strip__inner">
+        <a href="#price-list">Прайс-лист</a>
+        <a href="#calculator">Калькулятор</a>
+        <a href="#factors">От чего зависит цена</a>
+        <a href="#quality">Почему не стоит выбирать самое дешевое</a>
+        <a href="#additional">Доп. услуги</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </nav>
+
+    <section class="section" id="price-list">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Основные цены</div>
+            <h2>Прайс-лист на работы</h2>
+          </div>
+          <p>
+            Таблицы дают быстрый ориентир по цене. Для точной сметы лучше отправить площадь,
+            фото объекта и описание поверхности.
+          </p>
+        </div>
+
+        <div class="price-tabs">
+          <button class="price-tab is-active" type="button" data-price-tab="spray">Напыление ППУ</button>
+          <button class="price-tab" type="button" data-price-tab="fill">Заливка ППУ</button>
+          <button class="price-tab" type="button" data-price-tab="hydro">Полимочевина</button>
+          <button class="price-tab" type="button" data-price-tab="huntsman">HUNTSMAN</button>
+        </div>
+
+        <div class="price-panel is-active" data-price-panel="spray">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Напыление ППУ Химтраст / РПК</h3>
+                <p>Ориентировочная цена за 1 м² при толщине слоя 5–6 см. Для крупных объектов условия рассчитываются индивидуально.</p>
+              </div>
+              <div class="price-table-badge">акция на 30–35 кг/м³</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Плотность</th>
+                    <th>До 500 м²</th>
+                    <th>500–1000 м²</th>
+                    <th>Свыше 1000 м²</th>
+                    <th>Где применяется</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>9–12 кг/м³</td>
+                    <td><span class="price-value">от 550 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">шумоизоляция, внутренние перегородки, межэтажные перекрытия</td>
+                  </tr>
+                  <tr>
+                    <td>30–35 кг/м³</td>
+                    <td><span class="price-value price-value--promo">от 1190 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">дома, кровля, стены, мансарды, полы, перекрытия</td>
+                  </tr>
+                  <tr>
+                    <td>40–45 кг/м³</td>
+                    <td><span class="price-value">от 1300 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">наружные зоны, цоколь, фундамент, поверхности с повышенной нагрузкой</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              <b>Важно:</b> легкая пена 9–12 кг/м³ не является универсальным решением для кровли, стен и полов.
+              Для большинства задач теплоизоляции дома рассматривается закрытоячеистый ППУ от 30 кг/м³.
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" data-price-panel="fill">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Заливка ППУ в межстеновые пустоты</h3>
+                <p>Цена указана за 1 м³. Итог зависит от объема, доступа к пустотам и требуемой плотности.</p>
+              </div>
+              <div class="price-table-badge">за 1 м³</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Плотность</th>
+                    <th>До 15 м³</th>
+                    <th>15–50 м³</th>
+                    <th>Свыше 50 м³</th>
+                    <th>Комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>9–12 кг/м³</td>
+                    <td><span class="price-value">от 15 500 ₽ <small>/м³</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">легкие системы для заполнения пустот</td>
+                  </tr>
+                  <tr>
+                    <td>20–25 кг/м³</td>
+                    <td><span class="price-value">от 20 000 ₽ <small>/м³</small></span></td>
+                    <td><span class="price-value">22 000 ₽ <small>/м³</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">средняя плотность для межстеновых задач</td>
+                  </tr>
+                  <tr>
+                    <td>30–35 кг/м³</td>
+                    <td><span class="price-value">от 23 000 ₽ <small>/м³</small></span></td>
+                    <td><span class="price-value">от 24 000 ₽ <small>/м³</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">повышенная плотность и расход материала</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              Для заливки важно заранее оценить конструкцию, наличие пустот, доступ к точкам подачи и возможность контроля заполнения.
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" data-price-panel="hydro">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Гидроизоляция полимочевиной</h3>
+                <p>Цена за 1 м² зависит от толщины слоя, основания, подготовки поверхности и требований к защите покрытия.</p>
+              </div>
+              <div class="price-table-badge">за 1 м²</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Толщина</th>
+                    <th>До 500 м²</th>
+                    <th>От 500 м²</th>
+                    <th>Где применяется</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2 мм</td>
+                    <td><span class="price-value">от 3200 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">кровля, полы, фундамент, резервуары, бассейны</td>
+                  </tr>
+                  <tr>
+                    <td>3 мм</td>
+                    <td><span class="price-value">от 4800 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td class="muted">повышенные нагрузки, сложные основания, промышленное применение</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              В цену может не входить сложная подготовка основания: мойка, обеспыливание, праймер, ремонт трещин, защита от УФ.
+            </div>
+          </div>
+        </div>
+
+        <div class="price-panel" data-price-panel="huntsman">
+          <div class="price-table-wrap">
+            <div class="price-table-head">
+              <div>
+                <h3>Напыление ППУ HUNTSMAN</h3>
+                <p>Отдельная ценовая группа для объектов, где заказчик выбирает компоненты HUNTSMAN.</p>
+              </div>
+              <div class="price-table-badge">премиум-компоненты</div>
+            </div>
+
+            <div class="price-table-scroll">
+              <table class="price-table">
+                <thead>
+                  <tr>
+                    <th>Плотность</th>
+                    <th>До 500 м²</th>
+                    <th>500–1000 м²</th>
+                    <th>Свыше 1000 м²</th>
+                    <th>Комментарий</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>30–35 кг/м³</td>
+                    <td><span class="price-value">от 1500 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">теплоизоляция домов, кровель, стен и перекрытий</td>
+                  </tr>
+                  <tr>
+                    <td>40–45 кг/м³</td>
+                    <td><span class="price-value">от 1700 ₽ <small>/м²</small></span></td>
+                    <td>договорная</td>
+                    <td>договорная</td>
+                    <td class="muted">наружные зоны, специальные требования, повышенная плотность</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="price-note">
+              Итоговая стоимость зависит от доступности компонентов, технического задания и требований к объекту.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__box">
+          <div>
+            <h2>Хотите понять цену именно по вашему объекту?</h2>
+            <p>Пришлите площадь, фото, город и задачу. Мы подскажем, какая плотность и толщина нужны, и рассчитаем предварительную смету.</p>
+          </div>
+
+          <div class="cta-band__actions">
+            <a href="tel:+79856175554" class="cta-band__phone">+7 985 617-55-54</a>
+            <a href="#calculator" class="btn btn--accent">Рассчитать</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="calculator">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Быстрый расчет</div>
+            <h2>Калькулятор ориентировочной стоимости</h2>
+          </div>
+          <p>
+            Это быстрый расчет для первичного понимания бюджета. Точную стоимость фиксируем после уточнения объекта,
+            поверхности и условий выполнения работ.
+          </p>
+        </div>
+
+        <div class="calculator-grid">
+          <aside class="calculator-intro">
+            <div>
+              <h3>Как пользоваться расчетом</h3>
+              <p>
+                Выберите тип работ, укажите площадь или объем и базовый тариф.
+                Калькулятор покажет ориентир, а менеджер уточнит смету по фото или после осмотра.
+              </p>
+            </div>
+
+            <div class="calc-stats">
+              <div class="calc-stat">
+                <b>5–6 см</b>
+                <span>базовый слой для прайса по напылению</span>
+              </div>
+              <div class="calc-stat">
+                <b>30–35 кг/м³</b>
+                <span>частый вариант для теплоизоляции домов</span>
+              </div>
+              <div class="calc-stat">
+                <b>60 000 ₽</b>
+                <span>ориентир минимального заказа</span>
+              </div>
+            </div>
+          </aside>
+
+          <form class="calc-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="calc-type">Тип работ</label>
+                <select id="calc-type">
+                  <option value="1190">Напыление ППУ 30–35 кг/м³ — акция</option>
+                  <option value="550">Напыление ППУ 9–12 кг/м³</option>
+                  <option value="1300">Напыление ППУ 40–45 кг/м³</option>
+                  <option value="1500">HUNTSMAN 30–35 кг/м³</option>
+                  <option value="1700">HUNTSMAN 40–45 кг/м³</option>
+                  <option value="3200">Полимочевина 2 мм</option>
+                  <option value="4800">Полимочевина 3 мм</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="calc-area">Площадь, м²</label>
+                <input id="calc-area" type="number" min="1" value="100">
+              </div>
+
+              <div class="field">
+                <label for="calc-complexity">Коэффициент сложности</label>
+                <select id="calc-complexity">
+                  <option value="1">Ровная подготовленная поверхность</option>
+                  <option value="1.12">Есть сложные примыкания</option>
+                  <option value="1.22">Сложный доступ / высота / подготовка</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="calc-distance">Удаленность</label>
+                <select id="calc-distance">
+                  <option value="0">Москва / ближняя МО</option>
+                  <option value="8000">Удаленный объект +8 000 ₽</option>
+                  <option value="15000">Дальний выезд +15 000 ₽</option>
+                </select>
+              </div>
+
+              <div class="field field--wide">
+                <label for="calc-comment">Комментарий</label>
+                <textarea id="calc-comment" placeholder="Например: частный дом, мансарда 120 м², нужно утеплить кровлю и фронтоны."></textarea>
+              </div>
+            </div>
+
+            <div class="calc-result">
+              <span>Ориентировочная стоимость</span>
+              <strong id="calc-total">119 000 ₽</strong>
+              <p>Расчет предварительный. Не является публичной офертой и не заменяет смету по объекту.</p>
+            </div>
+
+            <a href="#quote" class="btn btn--accent">Отправить данные на расчет</a>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="factors">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Факторы цены</div>
+            <h2>От чего зависит стоимость работ</h2>
+          </div>
+          <p>
+            На цену влияет не только площадь. Два объекта с одинаковыми метрами могут отличаться по расходу материала,
+            подготовке, доступу и сложности нанесения.
+          </p>
+        </div>
+
+        <div class="factor-grid">
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Плотность ППУ</h3>
+            <p>Чем выше плотность, тем больше расход компонентов и выше итоговая себестоимость работ.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Толщина слоя</h3>
+            <p>5–6 см, 10 см и 15 см — это разные объемы материала, даже если площадь объекта одинаковая.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Площадь объекта</h3>
+            <p>На крупных объемах возможны индивидуальные условия, потому что меняется логистика и расход материалов.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Состояние поверхности</h3>
+            <p>Ровная подготовленная поверхность дешевле, чем объект с пылью, влагой, старым утеплителем или ремонтом основания.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Доступ и высота</h3>
+            <p>Леса, подъем оборудования, работа на высоте и сложные зоны увеличивают трудозатраты.</p>
+          </article>
+
+          <article class="factor-card">
+            <div class="factor-card__icon"></div>
+            <h3>Удаленность объекта</h3>
+            <p>Выезд бригады, доставка компонентов и оборудования учитываются при расчете итоговой сметы.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="quality">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Качество и цена</div>
+            <h2>Почему слишком низкая цена — риск</h2>
+          </div>
+          <p>
+            Задача прайс-страницы — не только показать цифры, но и объяснить, почему дешевое предложение
+            может оказаться дороже после переделки.
+          </p>
+        </div>
+
+        <div class="warning-grid">
+          <aside class="warning-main">
+            <div>
+              <h3>Не ищите просто “самый дешевый ППУ”</h3>
+              <p>
+                В утеплении важно, какая плотность фактически нанесена, какое оборудование использует бригада,
+                как подготовлена поверхность и соблюдена ли технология.
+              </p>
+            </div>
+
+            <a href="#quote" class="btn btn--accent">Проверить смету</a>
+          </aside>
+
+          <div class="warning-list">
+            <article class="warning-item">
+              <div class="warning-item__num">01</div>
+              <div>
+                <h3>Плотность ниже заявленной</h3>
+                <p>На словах обещают 30–35 кг/м³, а фактически расход материала ниже, слой получается слабее.</p>
+              </div>
+            </article>
+
+            <article class="warning-item">
+              <div class="warning-item__num">02</div>
+              <div>
+                <h3>Легкая пена не там, где нужно</h3>
+                <p>9–12 кг/м³ подходит не для всех задач. Для кровли, стен и пола чаще нужен другой подход.</p>
+              </div>
+            </article>
+
+            <article class="warning-item">
+              <div class="warning-item__num">03</div>
+              <div>
+                <h3>Старая техника или слабое давление</h3>
+                <p>Оборудование влияет на качество смешивания компонентов и стабильность результата.</p>
+              </div>
+            </article>
+
+            <article class="warning-item">
+              <div class="warning-item__num">04</div>
+              <div>
+                <h3>Нет договора и гарантий</h3>
+                <p>Цена ниже, но непонятно, кто отвечает за дефекты, сроки и соблюдение технологии.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="additional">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Дополнительно</div>
+            <h2>Сопутствующие работы и услуги</h2>
+          </div>
+          <p>
+            Эти позиции могут добавляться в смету отдельно, если они нужны для подготовки объекта или защиты покрытия.
+          </p>
+        </div>
+
+        <div class="service-price-grid">
+          <article class="service-price-card">
+            <div>
+              <h3>Подготовка поверхности</h3>
+              <p>Очистка, обеспыливание, локальная подготовка основания перед нанесением.</p>
+            </div>
+            <div>
+              <strong>от 50 ₽</strong>
+              <span>/ м²</span>
+            </div>
+          </article>
+
+          <article class="service-price-card">
+            <div>
+              <h3>Нанесение праймера</h3>
+              <p>Грунтование поверхности перед полимочевиной или специальными покрытиями.</p>
+            </div>
+            <div>
+              <strong>от 100 ₽</strong>
+              <span>/ м²</span>
+            </div>
+          </article>
+
+          <article class="service-price-card">
+            <div>
+              <h3>Защита от УФ</h3>
+              <p>Финишная защита открытых покрытий от воздействия солнечного света.</p>
+            </div>
+            <div>
+              <strong>от 100 ₽</strong>
+              <span>/ м²</span>
+            </div>
+          </article>
+
+          <article class="service-price-card">
+            <div>
+              <h3>Аренда оборудования</h3>
+              <p>Дополнительная услуга по запросу, если требуется оборудование для отдельных задач.</p>
+            </div>
+            <div>
+              <strong>по запросу</strong>
+              <span>индивидуально</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="faq">
+      <div class="container">
+        <div class="faq-wrap">
+          <aside class="faq-card">
+            <div class="section-kicker">FAQ</div>
+            <h2>Вопросы по ценам</h2>
+            <p>
+              FAQ на странице цен должен закрывать сомнения по “от”, минимальному заказу,
+              скидкам, плотности и отличиям между предложениями.
+            </p>
+            <a href="#calculator" class="btn btn--accent">Рассчитать объект</a>
+          </aside>
+
+          <div class="faq-list">
+            <details open>
+              <summary>Почему на сайте указана цена “от”?</summary>
+              <p>Потому что итоговая смета зависит от площади, плотности, толщины слоя, состояния поверхности, высоты, удаленности объекта и подготовительных работ. Одна и та же площадь может иметь разный расход материала.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли зафиксировать цену до начала работ?</summary>
+              <p>Да. После уточнения объекта, площади, материала и условий выполнения работ стоимость фиксируется в смете и договоре.</p>
+            </details>
+
+            <details>
+              <summary>Почему ППУ 30–35 кг/м³ дороже легкой пены?</summary>
+              <p>Потому что плотность напрямую влияет на расход компонентов и свойства слоя. Легкая пена 9–12 кг/м³ подходит не для всех задач теплоизоляции.</p>
+            </details>
+
+            <details>
+              <summary>Есть ли минимальная стоимость заказа?</summary>
+              <p>Да, минимальная стоимость зависит от типа работ и удаленности объекта. В качестве ориентира можно закладывать минимальный заказ от 60 000 ₽.</p>
+            </details>
+
+            <details>
+              <summary>Даете ли скидку за большой объем?</summary>
+              <p>Да. Для крупных объектов условия рассчитываются индивидуально, потому что меняется логистика, расход материала и загрузка бригады.</p>
+            </details>
+
+            <details>
+              <summary>Что входит в стоимость напыления?</summary>
+              <p>Обычно в расчет входят материал, работа бригады и нанесение слоя. Подготовка поверхности, сложный доступ, леса, праймер, УФ-защита и дополнительные работы могут считаться отдельно.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли рассчитать стоимость по фото?</summary>
+              <p>Да, предварительный расчет можно сделать по фото, площади, адресу и описанию задачи. Для точной сметы может потребоваться осмотр объекта.</p>
+            </details>
+
+            <details>
+              <summary>Почему у разных подрядчиков такая разная цена?</summary>
+              <p>Разница может быть из-за плотности, марки компонентов, толщины слоя, оборудования, опыта бригады, подготовки поверхности, гарантий и того, что фактически включено в смету.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta" id="quote">
+      <div class="container final-cta__box">
+        <div>
+          <div class="section-kicker">Заявка на смету</div>
+          <h2>Рассчитаем стоимость ППУ или полимочевины под ваш объект</h2>
+          <p>
+            Отправьте площадь, город, фото и задачу. Мы подскажем подходящую плотность, толщину слоя,
+            ориентировочную стоимость и возможные дополнительные работы.
+          </p>
+        </div>
+
+        <div class="contact-card">
+          <h3>ППУ Альянс</h3>
+          <div class="contact-list">
+            <div><b>Телефон:</b> +7 985 617-55-54</div>
+            <div><b>Email:</b> info@ppu-alians.ru</div>
+            <div><b>География:</b> Москва и Московская область</div>
+          </div>
+          <a href="tel:+79856175554" class="btn btn--accent">Позвонить и рассчитать</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const tabs = Array.from(document.querySelectorAll('.price-tab[data-price-tab]'));
+      const panels = Array.from(document.querySelectorAll('.price-panel[data-price-panel]'));
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          const target = tab.dataset.priceTab;
+
+          tabs.forEach(function (item) {
+            item.classList.toggle('is-active', item === tab);
+          });
+
+          panels.forEach(function (panel) {
+            panel.classList.toggle('is-active', panel.dataset.pricePanel === target);
+          });
+        });
+      });
+    })();
+
+    (function () {
+      const type = document.getElementById('calc-type');
+      const area = document.getElementById('calc-area');
+      const complexity = document.getElementById('calc-complexity');
+      const distance = document.getElementById('calc-distance');
+      const total = document.getElementById('calc-total');
+
+      if (!type || !area || !complexity || !distance || !total) return;
+
+      function formatPrice(value) {
+        return Math.round(value).toLocaleString('ru-RU') + ' ₽';
+      }
+
+      function updateTotal() {
+        const rate = Number(type.value || 0);
+        const meters = Math.max(Number(area.value || 0), 0);
+        const multiplier = Number(complexity.value || 1);
+        const distancePrice = Number(distance.value || 0);
+        const result = (rate * meters * multiplier) + distancePrice;
+
+        total.textContent = formatPrice(result);
+      }
+
+      [type, area, complexity, distance].forEach(function (field) {
+        field.addEventListener('input', updateTotal);
+        field.addEventListener('change', updateTotal);
+      });
+
+      updateTotal();
+    })();
+  </script>
+</body>
+</html>

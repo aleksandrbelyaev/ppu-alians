@@ -1,0 +1,88 @@
+---
+// Верхняя полоса с выпадающими меню. Разметка перенесена из исходного index.html.
+---
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <div>Москва и Московская область · Работаем с 2008 года</div>
+        <div class="topbar__right">
+          <div class="topbar-menu">
+            <button class="topbar-menu__trigger" type="button" aria-expanded="false">
+              О компании
+              <span class="topbar-menu__caret" aria-hidden="true"></span>
+            </button>
+
+            <div class="topbar-menu__dropdown">
+              <a href="#">Наша команда</a>
+              <a href="#">Сертификаты</a>
+              <a href="#">Гарантии</a>
+              <a href="#">Отзывы</a>
+              <a href="#">Реквизиты</a>
+              <a href="#">Как заказать</a>
+              <a href="#">Порядок работ</a>
+              <a href="#">Оплата работ</a>
+            </div>
+          </div>
+
+          <div class="topbar-menu">
+            <button class="topbar-menu__trigger" type="button" aria-expanded="false">
+              База знаний
+              <span class="topbar-menu__caret" aria-hidden="true"></span>
+            </button>
+
+            <div class="topbar-menu__dropdown">
+              <a href="#">Что такое ППУ?</a>
+              <a href="#">Вопрос-ответ</a>
+              <a href="#">Полезные статьи</a>
+              <a href="#">Новости</a>
+              <a href="#">СНиПы и ГОСТы</a>
+            </div>
+          </div>
+
+          <a class="topbar__link" href="#">Контакты</a>
+        </div>
+      </div>
+    </div>
+
+
+<script>
+  (function () {
+    const menus = Array.from(document.querySelectorAll('.topbar-menu'));
+    if (!menus.length) return;
+
+    function closeAll(except) {
+      menus.forEach((menu) => {
+        if (menu !== except) {
+          menu.classList.remove('is-open');
+          const trigger = menu.querySelector('.topbar-menu__trigger');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    menus.forEach((menu) => {
+      const trigger = menu.querySelector('.topbar-menu__trigger');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', (event) => {
+        event.preventDefault();
+        const isOpen = menu.classList.toggle('is-open');
+        trigger.setAttribute('aria-expanded', String(isOpen));
+        closeAll(menu);
+      });
+
+      menu.addEventListener('mouseleave', () => {
+        menu.classList.remove('is-open');
+        const t = menu.querySelector('.topbar-menu__trigger');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.topbar-menu')) closeAll();
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeAll();
+    });
+  })();
+</script>

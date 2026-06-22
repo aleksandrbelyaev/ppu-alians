@@ -1,0 +1,505 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import '@/styles/promotions.css';
+import { reader, byOrder } from '@/lib/keystatic';
+
+const page = await reader.singletons.promotionsPage.read();
+const promos = byOrder(await reader.collections.promotions.all());
+const title = page?.seoTitle ?? '';
+const description = page?.seoDescription ?? '';
+
+export const prerender = true;
+
+---
+
+<Layout title={title} description={description}>
+  <!-- HEADER / PREHEADER / FOOTER подключаются общие с главной страницы -->
+  <main class="sales-page">
+    <section class="page-intro">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="#">Главная</a>
+          <span>Акции</span>
+        </nav>
+
+        <div class="intro-grid">
+          <div>
+            <div class="page-kicker">{page?.heroKicker}</div>
+            <h1>{page?.heroTitle}</h1>
+            <p class="intro-lead" set:html={page?.heroLead}></p>
+          </div>
+
+          <div class="intro-summary">
+            <div class="summary-card">
+              <span class="summary-card__icon"></span>
+              <div>
+                <b>от 1190 ₽/м²</b>
+                <span>акционная цена на ППУ 30–35 кг/м³</span>
+              </div>
+            </div>
+
+            <div class="summary-card">
+              <span class="summary-card__icon"></span>
+              <div>
+                <b>до 10%</b>
+                <span>выгода при комплексном заказе</span>
+              </div>
+            </div>
+
+            <div class="summary-card">
+              <span class="summary-card__icon"></span>
+              <div>
+                <b>подарок</b>
+                <span>дополнительная проверка или консультация по объекту</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="anchor-strip" aria-label="Навигация по странице">
+      <div class="container anchor-strip__inner">
+        <a href="#active-sales">Акции</a>
+        <a href="#main-promo">1190 ₽/м²</a>
+        <a href="#steps">Как получить</a>
+        <a href="#rules">Условия</a>
+        <a href="#faq">FAQ</a>
+        <a href="#quote">Заявка</a>
+      </div>
+    </nav>
+
+    <section class="section" id="active-sales">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Актуальные предложения</div>
+            <h2>Выберите подходящую акцию</h2>
+          </div>
+          <p>
+            Акции можно использовать для частных домов, кровель, складов, ангаров, фундаментов,
+            гидроизоляции и комплексных работ. Точные условия фиксируются в смете и договоре.
+          </p>
+        </div>
+
+        <div class="sales-filter">
+          <button class="is-active" type="button" data-filter="all">Все акции</button>
+          <button type="button" data-filter="ppu">ППУ</button>
+          <button type="button" data-filter="complex">Комплексные работы</button>
+          <button type="button" data-filter="season">Сезонные условия</button>
+          <button type="button" data-filter="bonus">Бонусы</button>
+        </div>
+
+        <div class="sales-grid">
+          {promos.map((p) => (
+            <article class:list={['sale-card', p.entry.main && 'sale-card--main']} data-sale-category={p.entry.category}>
+              <div class="sale-card__top">
+                <div class="sale-tag-row">
+                  {p.entry.tags.map((t) => <span class="sale-tag">{t}</span>)}
+                </div>
+
+                <h3>{p.entry.title}</h3>
+                <p>{p.entry.text}</p>
+
+                {p.entry.main && (
+                  <div class="sale-price">
+                    <span class="sale-price__old">{p.entry.priceOld}</span>
+                    <strong>{p.entry.priceNew}</strong>
+                    <span>{p.entry.priceUnit}</span>
+                  </div>
+                )}
+              </div>
+
+              <div class="sale-card__bottom">
+                <div class="sale-conditions">
+                  {p.entry.conditions.map((c) => <div class="sale-condition">{c}</div>)}
+                </div>
+
+                <div class="sale-card__actions">
+                  <a href="#quote" class:list={['btn', p.entry.buttonStyle === 'accent' ? 'btn--accent' : 'btn--dark']}>{p.entry.buttonLabel}</a>
+                  {p.entry.deadline && <span class="sale-deadline">{p.entry.deadline}</span>}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Выгода</div>
+            <h2>Что можно получить по акции</h2>
+          </div>
+          <p>
+            На странице акций важно показывать не только “скидку”, но и понятную выгоду:
+            снижение цены, бонусы, планирование даты, комплексный подход и экономию на логистике.
+          </p>
+        </div>
+
+        <div class="benefit-strip">
+          <div class="benefit-mini">
+            <b>−400 ₽</b>
+            <span>экономия с каждого м² по главной акции 1590 → 1190 ₽</span>
+          </div>
+
+          <div class="benefit-mini">
+            <b>до 10%</b>
+            <span>индивидуальная выгода при комплексных работах</span>
+          </div>
+
+          <div class="benefit-mini">
+            <b>5%</b>
+            <span>сезонная скидка за раннее планирование даты</span>
+          </div>
+
+          <div class="benefit-mini">
+            <b>бонус</b>
+            <span>дополнительная проверка или консультация по объекту</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="main-promo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Главная акция</div>
+            <h2>ППУ 30–35 кг/м³ от 1190 ₽/м²</h2>
+          </div>
+          <p>
+            Основной акционный оффер страницы. Его можно использовать в рекламе, на главной странице,
+            в карточках услуг и в блоках расчета стоимости.
+          </p>
+        </div>
+
+        <div class="sale-detail-grid">
+          <aside class="promo-detail">
+            <div>
+              <h3>Цена снижена на напыление ППУ</h3>
+              <p>
+                Акция подходит для задач по утеплению домов, кровель, мансард, стен, полов, перекрытий,
+                складов и других объектов, где применяется ППУ 30–35 кг/м³.
+              </p>
+            </div>
+
+            <div class="promo-detail__price">
+              <span>было 1590 ₽/м²</span>
+              <strong>1190 ₽</strong>
+              <small>/ м² по акции</small>
+            </div>
+          </aside>
+
+          <div class="promo-list">
+            <article class="promo-item">
+              <div class="promo-item__num">01</div>
+              <div>
+                <h3>Когда применяется акция</h3>
+                <p>При напылении ППУ 30–35 кг/м³ на подходящих объектах, после уточнения площади, толщины слоя и условий нанесения.</p>
+              </div>
+            </article>
+
+            <article class="promo-item">
+              <div class="promo-item__num">02</div>
+              <div>
+                <h3>Что влияет на итоговую цену</h3>
+                <p>Толщина слоя, состояние основания, высота работ, удаленность объекта, подготовка поверхности и сложность доступа.</p>
+              </div>
+            </article>
+
+            <article class="promo-item">
+              <div class="promo-item__num">03</div>
+              <div>
+                <h3>Как зафиксировать цену</h3>
+                <p>Оставить заявку, отправить вводные по объекту, получить расчет и закрепить условия в смете и договоре.</p>
+              </div>
+            </article>
+
+            <article class="promo-item">
+              <div class="promo-item__num">04</div>
+              <div>
+                <h3>Почему это не просто “дешевая цена”</h3>
+                <p>Мы сохраняем фокус на плотности, технологии нанесения, подготовке поверхности и контроле качества работ.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <div class="cta-band__box">
+          <div>
+            <h2>Хотите понять, какая акция подойдет вашему объекту?</h2>
+            <p>Пришлите площадь, город, фото и задачу. Мы подскажем, можно ли применить акционную цену, сезонную скидку или комплексные условия.</p>
+          </div>
+
+          <div class="cta-band__actions">
+            <a href="tel:+79856175554" class="cta-band__phone">+7 985 617-55-54</a>
+            <a href="#quote" class="btn btn--accent">Подобрать акцию</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="steps">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Как получить</div>
+            <h2>Как воспользоваться акцией</h2>
+          </div>
+          <p>
+            Простой маршрут помогает посетителю понять, что акция не “на словах”,
+            а фиксируется в смете и договоре после уточнения объекта.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step">
+            <div>
+              <h3>Выберите акцию</h3>
+              <p>Укажите, что хотите рассчитать: ППУ по сниженной цене, комплексный заказ, раннее бронирование или бонус.</p>
+            </div>
+            <span class="step__tag">1 минута</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Отправьте данные по объекту</h3>
+              <p>Нужны площадь, город, фото, зона работ, предполагаемая толщина слоя и особенности доступа.</p>
+            </div>
+            <span class="step__tag">по фото</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Получите расчет</h3>
+              <p>Мы проверим, подходит ли акция, и подготовим ориентировочную смету под вашу задачу.</p>
+            </div>
+            <span class="step__tag">предварительно</span>
+          </article>
+
+          <article class="step">
+            <div>
+              <h3>Зафиксируйте условия</h3>
+              <p>После согласования объема, материала и даты условия акции фиксируются в договоре и смете.</p>
+            </div>
+            <span class="step__tag">официально</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="rules">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Условия</div>
+            <h2>Важные условия по акциям</h2>
+          </div>
+          <p>
+            Чтобы не создавать ложных ожиданий, на странице акций нужно сразу объяснять:
+            скидки зависят от объекта, не всегда суммируются и не заменяют технический расчет.
+          </p>
+        </div>
+
+        <div class="rules-grid">
+          <aside class="rules-card">
+            <div>
+              <h3>Акция применяется после проверки объекта</h3>
+              <p>
+                Мы не можем корректно подтвердить цену без понимания площади, поверхности,
+                толщины слоя, плотности, доступа и удаленности объекта.
+              </p>
+            </div>
+
+            <a href="#quote" class="btn btn--accent">Проверить условия</a>
+          </aside>
+
+          <div class="rules-list">
+            <article class="rule-item">
+              <div class="rule-item__icon">1</div>
+              <div>
+                <h3>Акции не всегда суммируются</h3>
+                <p>Например, акционная цена за м² может не складываться с сезонной скидкой или комплексной выгодой.</p>
+              </div>
+            </article>
+
+            <article class="rule-item">
+              <div class="rule-item__icon">2</div>
+              <div>
+                <h3>Цена зависит от технического задания</h3>
+                <p>Плотность, толщина слоя и подготовка поверхности могут изменить итоговую стоимость.</p>
+              </div>
+            </article>
+
+            <article class="rule-item">
+              <div class="rule-item__icon">3</div>
+              <div>
+                <h3>Бонусы согласуются до начала работ</h3>
+                <p>Тепловизионная проверка, УФ-защита или дополнительные условия прописываются заранее.</p>
+              </div>
+            </article>
+
+            <article class="rule-item">
+              <div class="rule-item__icon">4</div>
+              <div>
+                <h3>Итог фиксируется в договоре</h3>
+                <p>После согласования работ мы закрепляем стоимость, сроки, материал и условия гарантии.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft" id="faq">
+      <div class="container">
+        <div class="faq-wrap">
+          <aside class="faq-card">
+            <div class="section-kicker">FAQ</div>
+            <h2>Вопросы по акциям</h2>
+            <p>
+              FAQ помогает заранее снять вопросы по срокам, суммированию скидок,
+              акционной цене и условиям применения бонусов.
+            </p>
+            <a href="#quote" class="btn btn--accent">Задать вопрос</a>
+          </aside>
+
+          <div class="faq-list">
+            <details open>
+              <summary>Цена 1190 ₽/м² действует на все объекты?</summary>
+              <p>Нет. Акционная цена применяется для подходящих объектов при ППУ 30–35 кг/м³ и базовых условиях нанесения. Итоговая стоимость зависит от площади, толщины слоя, подготовки поверхности и доступа.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли объединить несколько акций?</summary>
+              <p>Не всегда. Некоторые акции не суммируются автоматически. Мы подбираем наиболее выгодный вариант после расчета объекта и фиксируем условия в смете.</p>
+            </details>
+
+            <details>
+              <summary>Как получить скидку за раннее бронирование?</summary>
+              <p>Нужно заранее согласовать объем работ, дату выезда, условия объекта и подписать договор. Такая скидка особенно актуальна перед активным строительным сезоном.</p>
+            </details>
+
+            <details>
+              <summary>Что значит “комплексный заказ”?</summary>
+              <p>Это заказ, где выполняется несколько видов работ: например, утепление ППУ и гидроизоляция полимочевиной, либо утепление нескольких зон одного объекта.</p>
+            </details>
+
+            <details>
+              <summary>Тепловизионная проверка всегда бесплатная?</summary>
+              <p>Нет, она может быть бонусом по согласованию. Условия зависят от объекта, сезона, удаленности и объема работ.</p>
+            </details>
+
+            <details>
+              <summary>Можно ли зафиксировать акционную цену?</summary>
+              <p>Да, после уточнения объекта и согласования сметы условия можно закрепить в договоре.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" id="quote">
+      <div class="container">
+        <div class="quote-panel">
+          <div class="quote-panel__left">
+            <div>
+              <div class="section-kicker">Заявка</div>
+              <h2>Подберем акцию под ваш объект</h2>
+              <p>
+                Отправьте площадь, город, фото и задачу. Мы проверим, какая акция подойдет:
+                цена 1190 ₽/м², комплексная скидка, раннее бронирование или бонус.
+              </p>
+            </div>
+
+            <div class="quote-panel__stats">
+              <div class="mini-stat">
+                <strong>1190 ₽/м²</strong>
+                <span>главная акция на ППУ</span>
+              </div>
+              <div class="mini-stat">
+                <strong>до 10%</strong>
+                <span>комплексные условия</span>
+              </div>
+              <div class="mini-stat">
+                <strong>5%</strong>
+                <span>раннее планирование</span>
+              </div>
+              <div class="mini-stat">
+                <strong>договор</strong>
+                <span>фиксируем условия</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="quote-form">
+            <div class="form-grid">
+              <div class="field">
+                <label for="sale-type">Какая акция интересует?</label>
+                <select id="sale-type">
+                  <option>ППУ 1190 ₽/м²</option>
+                  <option>Комплексный заказ</option>
+                  <option>Раннее бронирование</option>
+                  <option>Тепловизионная проверка</option>
+                  <option>Индивидуальная цена от 500 м²</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="sale-area">Площадь, м²</label>
+                <input id="sale-area" type="text" placeholder="Например, 180">
+              </div>
+
+              <div class="field">
+                <label for="sale-place">Город / район</label>
+                <input id="sale-place" type="text" placeholder="Например, Истра">
+              </div>
+
+              <div class="field">
+                <label for="sale-phone">Телефон</label>
+                <input id="sale-phone" type="tel" placeholder="+7 ___ ___-__-__">
+              </div>
+
+              <div class="field field--wide">
+                <label for="sale-comment">Комментарий</label>
+                <textarea id="sale-comment" placeholder="Опишите объект: что нужно утеплить или гидроизолировать, есть ли фото, сроки и особенности доступа."></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn--accent" type="submit">Получить расчет по акции</button>
+            <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Форма демонстрационная.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<script>
+    (function () {
+      const filters = Array.from(document.querySelectorAll('.sales-filter button[data-filter]'));
+      const cards = Array.from(document.querySelectorAll('.sale-card[data-sale-category]'));
+
+      filters.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const filter = button.dataset.filter;
+
+          filters.forEach(function (item) {
+            item.classList.toggle('is-active', item === button);
+          });
+
+          cards.forEach(function (card) {
+            const category = card.dataset.saleCategory;
+            card.classList.toggle('is-hidden', filter !== 'all' && category !== filter);
+          });
+        });
+      });
+    })();
+</script>
+</Layout>

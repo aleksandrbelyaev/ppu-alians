@@ -1,0 +1,659 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { reader, byOrder } from '@/lib/keystatic';
+
+const page = await reader.singletons.homePage.read();
+const services = byOrder(await reader.collections.services.all());
+const advantages = byOrder(await reader.collections.advantages.all());
+const reviews = byOrder(await reader.collections.reviews.all());
+const faqItems = byOrder(
+  (await reader.collections.faq.all()).filter((f) => f.entry.page === 'home')
+);
+
+const title = page?.seoTitle ?? '';
+const description = page?.seoDescription ?? '';
+
+export const prerender = true;
+
+---
+
+<Layout title={title} description={description}>
+    <main>
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <div class="eyebrow">{page?.heroKicker}</div>
+            <h1>{page?.heroTitle}</h1>
+            <p class="hero__lead" set:html={page?.heroLead}></p>
+
+            <div class="hero__buttons">
+              <a class="btn btn--accent" href="#quote">Получить расчет стоимости</a>
+              <a class="btn btn--ghost" href="#cases">Смотреть работы</a>
+            </div>
+
+            <div class="hero__proof">
+              <div class="proof-card">
+                <strong>2008</strong>
+                <span>год начала работы</span>
+              </div>
+              <div class="proof-card">
+                <strong>190 000+</strong>
+                <span>м² выполненных работ</span>
+              </div>
+              <div class="proof-card">
+                <strong>1920</strong>
+                <span>реализованных объектов</span>
+              </div>
+              <div class="proof-card">
+                <strong>до 3 лет</strong>
+                <span>гарантия на работы</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <div class="hero-badge">
+              <span>Выезд и расчет по объекту в день обращения</span>
+            </div>
+
+            <div class="hero-media__photo">
+              <img src="/hero-ppu.jpg" alt="Работы по утеплению объекта" />
+            </div>
+
+            <div class="quote-card quote-card--promo">
+  <div class="quote-card__label">Акция по напылению ППУ</div>
+
+  <div class="quote-card__discount">Цена снижена до 30.06</div>
+
+  <div class="quote-card__prices">
+    <div class="quote-card__old-price">
+      было <span>1590 ₽/м²</span>
+    </div>
+
+    <div class="quote-card__price">
+      <strong>1190 ₽</strong>
+      <span>/ м²</span>
+    </div>
+  </div>
+
+  <p>Напыление ППУ 30–35 кг/м³ по акции. Итоговая стоимость зависит от площади, толщины слоя, плотности и подготовки поверхности.</p>
+</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="object-strip" id="objects">
+        <div class="container object-strip__inner">
+          <a href="#" class="object-link">
+            <span class="object-link__icon"><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=160&q=80" alt="Дома" /></span>
+            <span class="object-link__text">
+              <b>Дома</b>
+              <span>стены, пол, кровля</span>
+            </span>
+          </a>
+          <a href="#" class="object-link">
+            <span class="object-link__icon"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=160&q=80" alt="Кровли" /></span>
+            <span class="object-link__text">
+              <b>Кровли</b>
+              <span>ППУ и гидроизоляция</span>
+            </span>
+          </a>
+          <a href="#" class="object-link">
+            <span class="object-link__icon"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=160&q=80" alt="Ангары и склады" /></span>
+            <span class="object-link__text">
+              <b>Ангары</b>
+              <span>склады, цеха</span>
+            </span>
+          </a>
+          <a href="#" class="object-link">
+            <span class="object-link__icon"><img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=160&q=80" alt="Фундаменты" /></span>
+            <span class="object-link__text">
+              <b>Фундаменты</b>
+              <span>цоколь, подвал</span>
+            </span>
+          </a>
+          <a href="#" class="object-link">
+            <span class="object-link__icon"><img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=160&q=80" alt="Балконы и лоджии" /></span>
+            <span class="object-link__text">
+              <b>Балконы</b>
+              <span>лоджии, веранды</span>
+            </span>
+          </a>
+          <a href="#" class="object-link">
+            <span class="object-link__icon"><img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=160&q=80" alt="Емкости и резервуары" /></span>
+            <span class="object-link__text">
+              <b>Емкости</b>
+              <span>цистерны, резервуары</span>
+            </span>
+          </a>
+          <a href="#" class="object-link">
+            <span class="object-link__icon"><img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=160&q=80" alt="Гидроизоляция" /></span>
+            <span class="object-link__text">
+              <b>Гидроизоляция</b>
+              <span>полимочевина</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="quote-section" id="quote">
+        <div class="container">
+          <div class="quote-panel">
+            <div class="quote-panel__left">
+              <div>
+                <div class="section-kicker">Быстрый расчет</div>
+                <h2>Оценим стоимость по фото, площади и типу объекта</h2>
+              </div>
+
+              <div>
+                <p>
+                  Пришлите вводные — мы подскажем подходящий материал, ориентировочную толщину слоя и порядок работ.
+                </p>
+
+                <div class="quote-panel__stats">
+                  <div class="mini-stat">
+                    <strong>1 день</strong>
+                    <span>на предварительную оценку</span>
+                  </div>
+                  <div class="mini-stat">
+                    <strong>4 бригады</strong>
+                    <span>для объектов разного объема</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form class="quote-form">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="object-type">Тип объекта</label>
+                  <select id="object-type">
+                    <option>Дом или коттедж</option>
+                    <option>Кровля / мансарда</option>
+                    <option>Ангар / склад / цех</option>
+                    <option>Фундамент / цоколь</option>
+                    <option>Балкон / лоджия</option>
+                    <option>Гидроизоляция</option>
+                    <option>Другое</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="area">Площадь, м²</label>
+                  <input id="area" type="text" placeholder="Например, 180" />
+                </div>
+
+                <div class="field">
+                  <label for="place">Город / район</label>
+                  <input id="place" type="text" placeholder="Например, Истра" />
+                </div>
+
+                <div class="field">
+                  <label for="phone">Телефон</label>
+                  <input id="phone" type="tel" placeholder="+7 ___ ___-__-__" />
+                </div>
+
+                <div class="field field--wide">
+                  <label for="comment">Комментарий</label>
+                  <textarea id="comment" placeholder="Что нужно утеплить или гидроизолировать? Есть ли фото объекта?"></textarea>
+                </div>
+              </div>
+
+              <button class="btn btn--accent" type="submit">Получить предварительный расчет</button>
+              <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Направления работ</div>
+              <h2>Не один шаблон — разные решения под разные поверхности</h2>
+            </div>
+            <p>
+              На главной показываем не только услугу «утепление ППУ», а конкретные сценарии, чтобы посетитель сразу нашел свой объект.
+            </p>
+          </div>
+
+          <div class="services">
+            {services.map((s) => (
+              <a
+                href={s.entry.href}
+                class:list={[
+                  'service-card',
+                  s.entry.variant === 'wide' && 'service-card--wide',
+                  s.entry.variant === 'all' && 'service-card--all',
+                ]}
+              >
+                <img src={s.entry.image} alt={s.entry.imageAlt} />
+                <div class="service-card__content">
+                  <h3>{s.entry.title}</h3>
+                  <p>{s.entry.text}</p>
+                  <span class="service-card__link">Подробнее →</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container">
+          <div class="matrix">
+            <div class="matrix__intro">
+              <div>
+                <div class="section-kicker">Подбор материала</div>
+                <h2>Главное — не просто напылить, а выбрать правильную плотность</h2>
+              </div>
+              <p>
+                Дешевая пена может выглядеть одинаково в первые дни, но не подходить для влажных или нагруженных участков.
+                Поэтому мы подбираем ППУ по объекту, поверхности, условиям эксплуатации и требуемому слою.
+              </p>
+            </div>
+
+            <div class="density-list">
+              <div class="density-item">
+                <div class="density-pill">9–12 кг/м³</div>
+                <div>
+                  <strong>Межстеновые пустоты</strong>
+                  <span>Легкая заливочная пена для отдельных задач, где нет прямой нагрузки и контакта с влагой.</span>
+                </div>
+              </div>
+
+              <div class="density-item">
+                <div class="density-pill">30–35 кг/м³</div>
+                <div>
+                  <strong>Стены, кровля, пол, мансарда</strong>
+                  <span>Базовый рабочий диапазон для большинства задач по теплоизоляции частных и коммерческих объектов.</span>
+                </div>
+              </div>
+
+              <div class="density-item">
+                <div class="density-pill">40+ кг/м³</div>
+                <div>
+                  <strong>Сложные и нагруженные зоны</strong>
+                  <span>Подбирается индивидуально для объектов, где важны прочность, стабильность и повышенная стойкость.</span>
+                </div>
+              </div>
+
+              <div class="density-item">
+                <div class="density-pill">2 мм</div>
+                <div>
+                  <strong>Полимочевина для гидроизоляции</strong>
+                  <span>Для кровель, фундаментов, бассейнов, резервуаров и других поверхностей, где нужна защита от воды.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--dark" id="prices">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Цены</div>
+              <h2>Ориентиры по стоимости на главной</h2>
+            </div>
+            <p>
+              Цены лучше показывать сразу, но честно пояснять, что итог зависит от площади, толщины слоя, плотности и подготовки поверхности.
+            </p>
+          </div>
+
+          <div class="price-track">
+            <div class="price-card">
+              <div>
+                <h3>ППУ Химтраст / РПК</h3>
+                <p>Плотность 30–35 кг/м³, слой 5–6 см. Для теплоизоляции стандартных объектов.</p>
+              </div>
+              <div class="price-card__price">от 1100 ₽ <small>/ м²</small></div>
+            </div>
+
+            <div class="price-card">
+              <div>
+                <h3>ППУ HUNTSMAN</h3>
+                <p>Компоненты импортного уровня для задач, где клиенту важен бренд материала.</p>
+              </div>
+              <div class="price-card__price">от 1500 ₽ <small>/ м²</small></div>
+            </div>
+
+            <div class="price-card">
+              <div>
+                <h3>Полимочевина</h3>
+                <p>Гидроизоляция кровель, фундаментов, бассейнов и технических объектов.</p>
+              </div>
+              <div class="price-card__price">от 3200 ₽ <small>/ м²</small></div>
+            </div>
+
+            <div class="price-card">
+              <div>
+                <h3>Заливка ППУ</h3>
+                <p>Заполнение межстеновых пустот легкой пеной 9–12 кг/м³.</p>
+              </div>
+              <div class="price-card__price">от 15 500 ₽ <small>/ м³</small></div>
+            </div>
+          </div>
+
+          <p class="price-note">
+            Минимальный заказ — от 60 000 ₽. Для точного расчета нужен осмотр объекта или подробные фото, площадь и описание задачи.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--soft">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Процесс</div>
+              <h2>Понятный маршрут от заявки до сдачи работ</h2>
+            </div>
+            <p>
+              Этот блок заменяет длинное описание процесса и делает путь клиента простым: заявка, расчет, договор, выполнение, приемка.
+            </p>
+          </div>
+
+          <div class="route">
+            <div class="route-step">
+              <div>
+                <h3>Заявка и вводные</h3>
+                <p>Вы описываете объект, площадь, задачу, город и удобный способ связи.</p>
+              </div>
+              <span class="route-step__tag">5–10 минут</span>
+            </div>
+
+            <div class="route-step">
+              <div>
+                <h3>Предварительный расчет</h3>
+                <p>Оцениваем ориентировочную стоимость по фото, площади и типу работ.</p>
+              </div>
+              <span class="route-step__tag">без выезда</span>
+            </div>
+
+            <div class="route-step">
+              <div>
+                <h3>Осмотр объекта</h3>
+                <p>Проверяем поверхность, доступ, подготовку и условия нанесения материала.</p>
+              </div>
+              <span class="route-step__tag">при необходимости</span>
+            </div>
+
+            <div class="route-step">
+              <div>
+                <h3>Договор и график</h3>
+                <p>Фиксируем стоимость, сроки, материал, объем работ и гарантийные условия.</p>
+              </div>
+              <span class="route-step__tag">официально</span>
+            </div>
+
+            <div class="route-step">
+              <div>
+                <h3>Напыление и контроль</h3>
+                <p>Готовим поверхность, наносим ППУ или гидроизоляцию, контролируем слой и качество.</p>
+              </div>
+              <span class="route-step__tag">под ключ</span>
+            </div>
+          </div>
+          <div class="process-cta process-cta--inline" id="callback">
+            <div class="process-cta__box">
+              <div class="process-cta__content">
+                <div class="process-cta__eyebrow">Заказать звонок</div>
+                <h2>Не хотите разбираться в плотности и толщине слоя?</h2>
+                <p>Оставьте заявку на звонок — специалист уточнит объект, подскажет подходящий вариант ППУ или гидроизоляции и сориентирует по стоимости.</p>
+              </div>
+
+              <div class="process-cta__actions">
+                <a class="process-cta__phone" href="tel:+79856175554">+7 985 617-55-54</a>
+                <a class="btn btn--accent" href="#quote">Заказать звонок</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+<section class="section section--dark" id="cases">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Портфолио</div>
+              <h2>Работы лучше продавать не галереей, а кейсами</h2>
+            </div>
+            <p>
+              На карточках важно показывать тип объекта, площадь, материал и задачу. Так сайт выглядит экспертнее.
+            </p>
+          </div>
+
+          <div class="cases">
+            <article class="case-main">
+              <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1200&q=80" alt="Утепление промышленного здания" />
+              <div class="case-main__body">
+                <h3>Утепление производственного ангара</h3>
+                <p>Задача — снизить теплопотери на большой площади и получить ровный бесшовный слой по металлическим конструкциям.</p>
+                <div class="case-meta">
+                  <span>720 м²</span>
+                  <span>ППУ 30–35 кг/м³</span>
+                  <span>ангар</span>
+                  <span>Москва и область</span>
+                </div>
+              </div>
+            </article>
+
+            <div class="cases-side">
+              <article class="case-small">
+                <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=700&q=80" alt="Утепление частного дома" />
+                <div class="case-small__body">
+                  <h3>Коттедж с мансардой</h3>
+                  <p>Утепление кровли и перекрытий с обработкой сложных примыканий.</p>
+                  <div class="case-meta">
+                    <span>дом</span>
+                    <span>кровля</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="case-small">
+                <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&w=700&q=80" alt="Гидроизоляция резервуара" />
+                <div class="case-small__body">
+                  <h3>Резервуар и техзона</h3>
+                  <p>Изоляция нестандартной поверхности с подбором материала под условия эксплуатации.</p>
+                  <div class="case-meta">
+                    <span>емкость</span>
+                    <span>ППУ</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="cases-more" aria-label="Дополнительные кейсы">
+            <div class="cases-more__head">
+              <strong>Еще примеры работ</strong>
+              <span>Горизонтальная лента: на компьютере можно прокручивать колесом/трекпадом, на телефоне — свайпом.</span>
+            </div>
+
+            <div class="case-carousel">
+              <article class="case-mini">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Гидроизоляция плоской кровли" />
+                <div class="case-mini__body">
+                  <div>
+                    <h3>Плоская кровля</h3>
+                    <p>Гидроизоляция основания и защита проблемных участков примыкания.</p>
+                  </div>
+                  <div class="case-meta">
+                    <span>кровля</span>
+                    <span>полимочевина</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="case-mini">
+                <img src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=800&q=80" alt="Утепление частного дома" />
+                <div class="case-mini__body">
+                  <div>
+                    <h3>Частный дом</h3>
+                    <p>Утепление стен и перекрытий с подбором толщины слоя под эксплуатацию.</p>
+                  </div>
+                  <div class="case-meta">
+                    <span>дом</span>
+                    <span>ППУ 30–35</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="case-mini">
+                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Утепление склада" />
+                <div class="case-mini__body">
+                  <div>
+                    <h3>Складское помещение</h3>
+                    <p>Теплоизоляция большой площади с учетом графика работы объекта.</p>
+                  </div>
+                  <div class="case-meta">
+                    <span>склад</span>
+                    <span>коммерческий объект</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="case-mini">
+                <img src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&w=800&q=80" alt="Утепление фундамента" />
+                <div class="case-mini__body">
+                  <div>
+                    <h3>Фундамент и цоколь</h3>
+                    <p>Защита конструкций от промерзания и снижение теплопотерь в нижней зоне здания.</p>
+                  </div>
+                  <div class="case-meta">
+                    <span>фундамент</span>
+                    <span>цоколь</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="case-mini">
+                <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=800&q=80" alt="Изоляция технической зоны" />
+                <div class="case-mini__body">
+                  <div>
+                    <h3>Техническая зона</h3>
+                    <p>Изоляция сложной поверхности, где плитный утеплитель сложно закрепить без зазоров.</p>
+                  </div>
+                  <div class="case-meta">
+                    <span>нестандарт</span>
+                    <span>ППУ</span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="case-mini">
+                <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80" alt="Промышленный объект" />
+                <div class="case-mini__body">
+                  <div>
+                    <h3>Производственный объект</h3>
+                    <p>Работы по теплоизоляции с контролем слоя, сроков и доступа к зонам нанесения.</p>
+                  </div>
+                  <div class="case-meta">
+                    <span>производство</span>
+                    <span>ППУ</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Доверие</div>
+              <h2>Почему нас выбирают для частных и коммерческих объектов</h2>
+            </div>
+            <p>
+              Здесь важно уходить от общих обещаний и показывать конкретные причины доверия: опыт, договор, контроль, документы.
+            </p>
+          </div>
+
+          <div class="trust-grid">
+            {advantages.map((a) => (
+              <div class="trust-card">
+                <div class="trust-card__icon"><img src={a.entry.icon} alt={a.entry.iconAlt} /></div>
+                <h3>{a.entry.title}</h3>
+                <p>{a.entry.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--dark">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Отзывы</div>
+              <h2>Короткие отзывы вместо длинной простыни текста</h2>
+            </div>
+            <p>
+              Для главной достаточно 3–4 карточек. Полную ленту лучше оставить на отдельной странице отзывов.
+            </p>
+          </div>
+
+          <div class="reviews">
+            {reviews.map((r) => (
+              <article class="review-card">
+                <div class="review-card__stars">★★★★★</div>
+                <p>{r.entry.text}</p>
+                <b>{r.entry.author}</b>
+                <span>{r.entry.role}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft" id="faq">
+        <div class="container faq-wrap">
+          <div class="faq-card">
+            <div class="section-kicker">FAQ</div>
+            <h2>Вопросы до заявки</h2>
+            <p>Ответы помогают снять типовые возражения и сокращают количество лишних звонков.</p>
+            <a class="btn btn--accent" href="#quote">Задать вопрос</a>
+          </div>
+
+          <div class="faq-list">
+            {faqItems.map((f, i) => (
+              <details open={i === 0}>
+                <summary>{f.entry.question}</summary>
+                <p>{f.entry.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta" id="contacts">
+        <div class="container final-cta__box">
+          <div>
+            <div class="section-kicker">Контакты</div>
+            <h2>Пришлите фото объекта — подскажем материал и ориентировочную стоимость</h2>
+            <p>
+              Для первого расчета достаточно типа объекта, площади, города и нескольких фотографий поверхности.
+            </p>
+          </div>
+
+          <div class="contact-card">
+            <h3>ППУ Альянс</h3>
+
+            <div class="contact-list">
+              <div><b>Телефон:</b> <a href="tel:+79856175554">+7 985 617-55-54</a></div>
+              <div><b>Email:</b> <a href="mailto:info@ppu-alians.ru">info@ppu-alians.ru</a></div>
+              <div><b>География:</b> Москва и Московская область</div>
+              <div><b>Адрес:</b> Краснопахорское поселение, квартал №178</div>
+            </div>
+
+            <a class="btn btn--accent" href="#quote">Получить расчет</a>
+          </div>
+        </div>
+      </section>
+    </main>
+</Layout>

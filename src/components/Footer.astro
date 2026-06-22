@@ -1,0 +1,96 @@
+---
+// Подвал. Разметка перенесена из исходного index.html.
+// Контакты и минимальный заказ берутся из singleton «site» Keystatic.
+import { reader } from '@/lib/keystatic';
+const site = await reader.singletons.site.read();
+---
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <a href="#" class="footer-logo" aria-label="ППУ Альянс">
+              <span class="footer-logo__mark">ППУ</span>
+              <span class="footer-logo__text">
+                <b>ППУ Альянс</b>
+                <span>Утепление и гидроизоляция</span>
+              </span>
+            </a>
+            <p>
+              Напыление пенополиуретана, гидроизоляция полимочевиной и жидкой резиной
+              для частных, коммерческих и промышленных объектов в Москве и Московской области.
+            </p>
+            <div class="footer__badges" aria-label="Ключевые преимущества">
+              <span>С 2008 года</span>
+              <span>Договор и гарантия</span>
+              <span>Физ. и юр. лица</span>
+            </div>
+          </div>
+
+          <div class="footer__col">
+            <h3>Навигация</h3>
+            <nav class="footer__links" aria-label="Навигация в футере">
+              <a href="#objects">Объекты</a>
+              <a href="#quote">Расчет стоимости</a>
+              <a href="#services">Направления работ</a>
+              <a href="#prices">Цены</a>
+              <a href="#cases">Портфолио</a>
+              <a href="#faq">Вопросы</a>
+            </nav>
+          </div>
+
+          <div class="footer__col">
+            <h3>Услуги</h3>
+            <nav class="footer__links" aria-label="Услуги">
+              <a href="#">Утепление домов ППУ</a>
+              <a href="#">Утепление кровли</a>
+              <a href="#">Утепление ангаров</a>
+              <a href="#">Утепление фундаментов</a>
+              <a href="#">Гидроизоляция полимочевиной</a>
+              <a href="#">Заливка ППУ</a>
+            </nav>
+          </div>
+
+          <div class="footer__col footer__contacts">
+            <h3>Контакты</h3>
+            <div class="footer__contact-list">
+              <a href={site?.phoneHref}>{site?.phone}</a>
+              <a href={`mailto:${site?.email}`}>{site?.email}</a>
+              <span>{site?.region}</span>
+              <span>{site?.address}</span>
+            </div>
+
+            <div class="footer__messengers" aria-label="Мессенджеры">
+              <a href="#">WhatsApp</a>
+              <a href="#">Telegram</a>
+              <a href="#">MAX</a>
+            </div>
+
+            <a class="btn btn--accent footer__cta" href="#quote">Рассчитать стоимость</a>
+          </div>
+        </div>
+
+        <div class="footer__middle">
+          <div>
+            <b>Режим работы:</b>
+            <span>ежедневно, консультации и заявки — онлайн</span>
+          </div>
+          <div>
+            <b>Минимальный заказ:</b>
+            <span>от 60 000 ₽, точная стоимость после уточнения объекта</span>
+          </div>
+          <div>
+            <b>Документы:</b>
+            <span>договор, акт выполненных работ, гарантийные обязательства</span>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <div>© ППУ Альянс, 2008–2026. Все права защищены.</div>
+          <div class="footer__legal">
+            <a href="#">Политика конфиденциальности</a>
+            <a href="#">Согласие на обработку данных</a>
+            <a href="#">Карта сайта</a>
+          </div>
+        </div>
+      </div>
+    </footer>
