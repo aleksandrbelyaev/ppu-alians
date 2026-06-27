@@ -10,6 +10,15 @@ export type Advantage = Awaited<ReturnType<typeof reader.collections.advantages.
 export type Review = Awaited<ReturnType<typeof reader.collections.reviews.all>>[number];
 export type Faq = Awaited<ReturnType<typeof reader.collections.faq.all>>[number];
 export type Promotion = Awaited<ReturnType<typeof reader.collections.promotions.all>>[number];
+export type ServicePage = Awaited<ReturnType<typeof reader.collections.servicePages.all>>[number];
+
+/**
+ * Источник картинки для страниц услуг: приоритет у загруженного файла, иначе внешний URL.
+ */
+export function imgSrc(img?: { upload?: string | null; url?: string | null } | null): string {
+  if (!img) return '';
+  return img.upload || img.url || '';
+}
 
 /** Сортировка записей коллекции по полю order. */
 export function byOrder<T extends { entry: { order: number } }>(items: T[]): T[] {

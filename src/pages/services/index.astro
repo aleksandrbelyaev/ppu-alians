@@ -1,0 +1,42 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import '@/styles/service.css';
+import { reader, imgSrc } from '@/lib/keystatic';
+
+export const prerender = true;
+
+const pages = await reader.collections.servicePages.all();
+---
+
+<Layout title="Услуги · ППУ Альянс" description="Услуги ППУ Альянс: утепление пенополиуретаном и гидроизоляция объектов в Москве и области.">
+  <main class="service-page">
+    <section class="section">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="/">Главная</a>
+          <span>Услуги</span>
+        </nav>
+
+        <div class="section-head">
+          <div>
+            <div class="section-kicker">Каталог</div>
+            <h2>Услуги ППУ Альянс</h2>
+          </div>
+          <p>Выберите услугу — на странице есть расчёт стоимости, зоны работ, технология, кейсы и ответы на вопросы.</p>
+        </div>
+
+        <div class="zones-grid">
+          {pages.map((p) => (
+            <a class="zone-card" href={`/services/${p.slug}`}>
+              {imgSrc(p.entry.hero.image) && <img src={imgSrc(p.entry.hero.image)} alt={p.entry.hero.image.alt || p.entry.title} />}
+              <div class="zone-card__content">
+                <h3>{p.entry.navLabel || p.entry.title}</h3>
+                <p>{p.entry.hero.lead?.replace(/<[^>]+>/g, '').slice(0, 120)}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -11,4 +11,8 @@ export default defineConfig({
   output: 'server',
   adapter: vercel(),
   integrations: [react(), keystatic()],
+  // Старый одиночный путь услуги теперь живёт в коллекции servicePages.
+  redirects: {
+    '/service': '/services/uteplenie-doma',
+  },
 });

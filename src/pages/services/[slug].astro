@@ -1,0 +1,588 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import '@/styles/service.css';
+import { reader, imgSrc, type ServicePage } from '@/lib/keystatic';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const pages = await reader.collections.servicePages.all();
+  return pages.map((p) => ({
+    params: { slug: p.slug },
+    props: { entry: p.entry, slug: p.slug },
+  }));
+}
+
+type Props = { entry: ServicePage['entry']; slug: string };
+const { entry } = Astro.props as Props;
+
+const s = entry;
+const title = s.seoTitle || s.title;
+const description = s.seoDescription || '';
+---
+
+<Layout title={title} description={description}>
+  <main class="service-page">
+    <section class="service-hero">
+      <div class="container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="/">Главная</a>
+          <span><a href="/services">Услуги</a></span>
+          <span>{s.breadcrumbLabel || s.title}</span>
+        </nav>
+
+        <div class="service-hero__grid">
+          <div class="service-hero__content">
+            {s.hero.kicker && <div class="service-kicker">{s.hero.kicker}</div>}
+            <h1>{s.hero.title}</h1>
+            <p class="service-hero__lead" set:html={s.hero.lead}></p>
+
+            {s.hero.benefits.length > 0 && (
+              <div class="hero-benefits">
+                {s.hero.benefits.map((b) => (
+                  <div class="hero-benefit">
+                    <span class="hero-benefit__icon"></span>
+                    <span>{b}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {s.hero.buttons.length > 0 && (
+              <div class="service-hero__buttons">
+                {s.hero.buttons.map((btn) => (
+                  <a href={btn.href} class={`btn btn--${btn.style}`}>{btn.label}</a>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div class="service-hero__media">
+            {imgSrc(s.hero.image) && (
+              <div class="service-hero__photo">
+                <img src={imgSrc(s.hero.image)} alt={s.hero.image.alt} />
+              </div>
+            )}
+
+            {s.hero.priceCard.enabled && (
+              <div class="service-price-card">
+                {s.hero.priceCard.label && <div class="service-price-card__label">{s.hero.priceCard.label}</div>}
+                {s.hero.priceCard.discount && <div class="service-price-card__discount">{s.hero.priceCard.discount}</div>}
+                {s.hero.priceCard.oldPrice && <div class="service-price-card__old">было <span>{s.hero.priceCard.oldPrice}</span></div>}
+                <div class="service-price-card__price">
+                  <strong>{s.hero.priceCard.price}</strong>
+                  <span>{s.hero.priceCard.unit}</span>
+                </div>
+                {s.hero.priceCard.note && <p>{s.hero.priceCard.note}</p>}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="anchor-strip" aria-label="Навигация по странице">
+      <div class="container anchor-strip__inner">
+        {s.problems.enabled && <a href="#problems">{s.problems.heading || 'Когда нужно'}</a>}
+        {s.zones.enabled && <a href="#zones">Зоны</a>}
+        {s.tiers.enabled && <a href="#technology">Технология</a>}
+        {s.steps.enabled && <a href="#steps">Порядок работ</a>}
+        {s.form.enabled && <a href="#quote">Расчет</a>}
+        {s.faq.enabled && <a href="#faq">FAQ</a>}
+      </div>
+    </nav>
+
+    {s.problems.enabled && (
+      <section class="section" id="problems">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.problems.kicker && <div class="section-kicker">{s.problems.kicker}</div>}
+              <h2>{s.problems.heading}</h2>
+            </div>
+            <p>{s.problems.intro}</p>
+          </div>
+
+          <div class="problems-grid">
+            <aside class="diagnostic-card">
+              <div>
+                <h3>{s.problems.asideTitle}</h3>
+                <p>{s.problems.asideText}</p>
+              </div>
+              {s.problems.asideTags.length > 0 && (
+                <div class="diagnostic-list">
+                  {s.problems.asideTags.map((t) => <span>{t}</span>)}
+                </div>
+              )}
+            </aside>
+
+            <div class="problem-cards">
+              {s.problems.cards.map((c) => (
+                <article class="problem-card">
+                  <div class="problem-card__num">{c.num}</div>
+                  <h3>{c.title}</h3>
+                  <p>{c.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.ctaBand.enabled && (
+      <section class="cta-band">
+        <div class="container">
+          <div class="cta-band__box">
+            <div>
+              <h2>{s.ctaBand.heading}</h2>
+              <p>{s.ctaBand.text}</p>
+            </div>
+            <div class="cta-band__actions">
+              <a href={s.ctaBand.phoneHref} class="cta-band__phone">{s.ctaBand.phone}</a>
+              <a href={s.ctaBand.buttonHref} class="btn btn--accent">{s.ctaBand.buttonLabel}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.zones.enabled && (
+      <section class="section section--soft" id="zones">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.zones.kicker && <div class="section-kicker">{s.zones.kicker}</div>}
+              <h2>{s.zones.heading}</h2>
+            </div>
+            <p>{s.zones.intro}</p>
+          </div>
+
+          <div class="zones-grid">
+            {s.zones.cards.map((c) => (
+              <article class={`zone-card${c.wide ? ' zone-card--wide' : ''}`}>
+                {imgSrc(c.image) && <img src={imgSrc(c.image)} alt={c.image.alt || c.title} />}
+                <div class="zone-card__content">
+                  <h3>{c.title}</h3>
+                  <p>{c.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.tiers.enabled && (
+      <section class="section" id="technology">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.tiers.kicker && <div class="section-kicker">{s.tiers.kicker}</div>}
+              <h2>{s.tiers.heading}</h2>
+            </div>
+            <p>{s.tiers.intro}</p>
+          </div>
+
+          <div class="solution-matrix">
+            <aside class="solution-intro">
+              <div>
+                <h3>{s.tiers.asideTitle}</h3>
+                <p>{s.tiers.asideText}</p>
+              </div>
+              {(s.tiers.noteTitle || s.tiers.noteText) && (
+                <div class="solution-note">
+                  <b>{s.tiers.noteTitle}</b>
+                  <span>{s.tiers.noteText}</span>
+                </div>
+              )}
+            </aside>
+
+            <div class="solution-list">
+              {s.tiers.cards.map((c) => (
+                <article class="solution-item">
+                  <div class="solution-pill">{c.pill}</div>
+                  <div>
+                    <h3>{c.title}</h3>
+                    <p>{c.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.reasons.enabled && (
+      <section class="section section--dark">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.reasons.kicker && <div class="section-kicker">{s.reasons.kicker}</div>}
+              <h2>{s.reasons.heading}</h2>
+            </div>
+            <p>{s.reasons.intro}</p>
+          </div>
+
+          <div class="comparison">
+            {s.reasons.cards.map((c) => (
+              <article class="compare-card">
+                <div>
+                  <h3>{c.title}</h3>
+                  <p>{c.text}</p>
+                </div>
+                {c.items.length > 0 && (
+                  <ul>
+                    {c.items.map((i) => <li>{i}</li>)}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.suitable.enabled && (
+      <section class="section section--soft">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.suitable.kicker && <div class="section-kicker">{s.suitable.kicker}</div>}
+              <h2>{s.suitable.heading}</h2>
+            </div>
+            <p>{s.suitable.intro}</p>
+          </div>
+
+          <div class="house-types">
+            {s.suitable.items.map((i) => (
+              <div class="house-type">
+                <b>{i.title}</b>
+                <span>{i.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.steps.enabled && (
+      <section class="section" id="steps">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.steps.kicker && <div class="section-kicker">{s.steps.kicker}</div>}
+              <h2>{s.steps.heading}</h2>
+            </div>
+            <p>{s.steps.intro}</p>
+          </div>
+
+          <div class="steps">
+            {s.steps.items.map((i) => (
+              <article class="step">
+                <div>
+                  <h3>{i.title}</h3>
+                  <p>{i.text}</p>
+                </div>
+                <span class="step__tag">{i.tag}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.form.enabled && (
+      <section class="quote-section" id="quote">
+        <div class="container">
+          <div class="quote-panel">
+            <div class="quote-panel__left">
+              <div>
+                {s.form.kicker && <div class="section-kicker">{s.form.kicker}</div>}
+                <h2>{s.form.heading}</h2>
+                <p>{s.form.lead}</p>
+              </div>
+
+              {s.form.stats.length > 0 && (
+                <div class="quote-panel__stats">
+                  {s.form.stats.map((st) => (
+                    <div class="mini-stat">
+                      <strong>{st.value}</strong>
+                      <span>{st.label}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <form class="quote-form">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="service-object">{s.form.selectLabel}</label>
+                  <select id="service-object">
+                    {s.form.objectOptions.map((o) => <option>{o}</option>)}
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="service-area">Площадь, м²</label>
+                  <input id="service-area" type="text" placeholder="Например, 180" />
+                </div>
+
+                <div class="field">
+                  <label for="service-place">Город / район</label>
+                  <input id="service-place" type="text" placeholder="Например, Истра" />
+                </div>
+
+                <div class="field">
+                  <label for="service-phone">Телефон</label>
+                  <input id="service-phone" type="tel" placeholder="+7 ___ ___-__-__" />
+                </div>
+
+                <div class="field field--wide">
+                  <label for="service-comment">Комментарий</label>
+                  <textarea id="service-comment" placeholder="Опишите объект: что нужно утеплить, есть ли фото или замеры."></textarea>
+                </div>
+              </div>
+
+              <button class="btn btn--accent" type="submit">{s.form.buttonLabel}</button>
+              <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Форма демонстрационная.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.cases.enabled && (
+      <section class="section section--dark">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.cases.kicker && <div class="section-kicker">{s.cases.kicker}</div>}
+              <h2>{s.cases.heading}</h2>
+            </div>
+            <p>{s.cases.intro}</p>
+          </div>
+
+          <div class="case-grid">
+            <article class="case-main">
+              {imgSrc(s.cases.main.image) && <img src={imgSrc(s.cases.main.image)} alt={s.cases.main.image.alt || s.cases.main.title} />}
+              <div class="case-main__body">
+                <h3>{s.cases.main.title}</h3>
+                <p>{s.cases.main.text}</p>
+                {s.cases.main.meta.length > 0 && (
+                  <div class="case-meta">
+                    {s.cases.main.meta.map((m) => <span>{m}</span>)}
+                  </div>
+                )}
+              </div>
+            </article>
+
+            <div class="case-side">
+              {s.cases.side.map((c) => (
+                <article class="case-small">
+                  {imgSrc(c.image) && <img src={imgSrc(c.image)} alt={c.image.alt || c.title} />}
+                  <div class="case-small__body">
+                    <h3>{c.title}</h3>
+                    <p>{c.text}</p>
+                    {c.meta.length > 0 && (
+                      <div class="case-meta">
+                        {c.meta.map((m) => <span>{m}</span>)}
+                      </div>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.advantages.enabled && (
+      <section class="section" id="trust">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.advantages.kicker && <div class="section-kicker">{s.advantages.kicker}</div>}
+              <h2>{s.advantages.heading}</h2>
+            </div>
+            <p>{s.advantages.intro}</p>
+          </div>
+
+          <div class="trust-grid">
+            {s.advantages.cards.map((c) => (
+              <article class="trust-card">
+                <div class="trust-card__icon"></div>
+                <h3>{c.title}</h3>
+                <p>{c.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.gallery.enabled && (
+      <section class="section section--soft" id="gallery">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.gallery.kicker && <div class="section-kicker">{s.gallery.kicker}</div>}
+              <h2>{s.gallery.heading}</h2>
+            </div>
+            <p>{s.gallery.intro}</p>
+          </div>
+        </div>
+
+        <div class="work-gallery">
+          <div class="work-gallery__viewport">
+            <div class="work-gallery__track" aria-label={s.gallery.heading}>
+              {s.gallery.photos.map((ph) => (
+                <button
+                  class={`work-photo${ph.size === 'wide' ? ' work-photo--wide' : ph.size === 'tall' ? ' work-photo--tall' : ''}`}
+                  type="button"
+                  data-gallery-src={imgSrc(ph.image)}
+                  data-gallery-title={ph.title}
+                  data-gallery-caption={ph.caption}
+                >
+                  <img src={imgSrc(ph.image)} alt={ph.image.alt || ph.title} />
+                  <span class="work-photo__caption">
+                    <b>{ph.title}</b>
+                    <small>{ph.caption}</small>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div class="work-gallery__bottom">
+            <span>Прокручивайте галерею горизонтально</span>
+            <span>Нажмите на фото, чтобы увеличить</span>
+          </div>
+        </div>
+
+        <div class="gallery-lightbox" aria-hidden="true">
+          <button class="gallery-lightbox__backdrop" type="button" aria-label="Закрыть галерею"></button>
+          <div class="gallery-lightbox__dialog" role="dialog" aria-modal="true" aria-label="Просмотр фотографии">
+            <button class="gallery-lightbox__close" type="button" aria-label="Закрыть">×</button>
+            <button class="gallery-lightbox__nav gallery-lightbox__nav--prev" type="button" aria-label="Предыдущее фото">‹</button>
+            <button class="gallery-lightbox__nav gallery-lightbox__nav--next" type="button" aria-label="Следующее фото">›</button>
+            <img class="gallery-lightbox__img" src="" alt="" />
+            <div class="gallery-lightbox__text">
+              <div>
+                <h3></h3>
+                <p></p>
+              </div>
+              <span class="gallery-lightbox__counter"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.certificates.enabled && (
+      <section class="section section--dark" id="certificates">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.certificates.kicker && <div class="section-kicker">{s.certificates.kicker}</div>}
+              <h2>{s.certificates.heading}</h2>
+            </div>
+            <p>{s.certificates.intro}</p>
+          </div>
+
+          <div class="cert-grid">
+            {s.certificates.cards.map((c) => (
+              <article class="cert-card">
+                <div class="cert-card__preview">
+                  {imgSrc(c.image) && <img src={imgSrc(c.image)} alt={c.image.alt || c.title} />}
+                </div>
+                <h3>{c.title}</h3>
+                <p>{c.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.reviews.enabled && (
+      <section class="section" id="reviews">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              {s.reviews.kicker && <div class="section-kicker">{s.reviews.kicker}</div>}
+              <h2>{s.reviews.heading}</h2>
+            </div>
+            <p>{s.reviews.intro}</p>
+          </div>
+
+          <div class="reviews-grid">
+            {s.reviews.items.map((r) => (
+              <article class="review-card">
+                <div class="review-stars">★★★★★</div>
+                <p>{r.text}</p>
+                <div class="review-author">
+                  <b>{r.author}</b>
+                  <span>{r.role}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.faq.enabled && (
+      <section class="section section--soft" id="faq">
+        <div class="container">
+          <div class="faq-wrap">
+            <aside class="faq-card">
+              {s.faq.kicker && <div class="section-kicker">{s.faq.kicker}</div>}
+              <h2>{s.faq.heading}</h2>
+              <p>{s.faq.intro}</p>
+              <a href="#quote" class="btn btn--accent">{s.faq.buttonLabel}</a>
+            </aside>
+
+            <div class="faq-list">
+              {s.faq.items.map((item, i) => (
+                <details open={i === 0}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    {s.finalCta.enabled && (
+      <section class="final-cta">
+        <div class="container final-cta__box">
+          <div>
+            {s.finalCta.kicker && <div class="section-kicker">{s.finalCta.kicker}</div>}
+            <h2>{s.finalCta.heading}</h2>
+            <p>{s.finalCta.text}</p>
+          </div>
+
+          <div class="contact-card">
+            <h3>ППУ Альянс</h3>
+            <div class="contact-list">
+              <div><b>Телефон:</b> +7 985 617-55-54</div>
+              <div><b>Email:</b> info@ppu-alians.ru</div>
+              <div><b>География:</b> Москва и Московская область</div>
+            </div>
+            <a href="#quote" class="btn btn--accent">Получить расчет</a>
+          </div>
+        </div>
+      </section>
+    )}
+  </main>
+
+  <script>
+    import '@/scripts/gallery';
+  </script>
+</Layout>
